@@ -6,12 +6,12 @@ Tablero interactivo con dos pestañas: indicadores de inclusión financiera empr
 
 | Elemento | Contenido |
 |---|---|
-| Indicadores principales | Inclusión financiera, empresas con financiamiento, saldo, saldo promedio por empresa y empresas con financiamiento no registradas en SUNAT |
+| Indicadores principales | Porcentaje de empresas con acceso al financiamiento (inclusión financiera), empresas con financiamiento, saldo, saldo promedio por empresa y empresas con financiamiento no registradas en SUNAT |
 | Mapa departamental | Inclusión financiera, variación anual (pp) o saldo promedio; clic en un departamento filtra todo el tablero |
 | Burbujas | Inclusión financiera (eje X) frente a saldo promedio (eje Y, logarítmico); tamaño = empresas con financiamiento |
 | Líneas por tamaño | Evolución de la inclusión financiera de micro, pequeña, mediana y gran empresa |
 | Matriz sector × tamaño | Inclusión financiera en cada cruce; clic en una celda filtra por ese sector y tamaño |
-| Mapa de árbol | Saldo por subsector (área) coloreado por inclusión financiera |
+| Mapa de árbol | Saldo por subsector (área); un color por sector y tonos por subsector; entre paréntesis, porcentaje de empresas con acceso |
 | Tabla | Detalle por departamento, ordenable y con búsqueda |
 
 ## Pestaña 2: Factoring
@@ -24,7 +24,7 @@ Tablero interactivo con dos pestañas: indicadores de inclusión financiera empr
 | Composición | Participación de cada tamaño empresarial en el monto, por año |
 | Mapa departamental | Monto, variación, monto por factura o participación MIPYME |
 | Concentración | Curva de Pareto: cuántos departamentos explican el 80% del monto |
-| Mapa de árbol | Monto por subsector, coloreado por sector |
+| Mapa de árbol | Monto por subsector; un color por sector y tonos por subsector; entre paréntesis, participación en el monto |
 | Tabla | Detalle por departamento, ordenable y con búsqueda |
 
 ## Definiciones
@@ -35,6 +35,7 @@ Tablero interactivo con dos pestañas: indicadores de inclusión financiera empr
 - Se presenta 2021-2026; 2026 corresponde a saldos a julio. El padrón de 2025 repite el de 2024.
 - **Factoring**: 2026 cubre enero-agosto; sus variaciones se comparan con enero-agosto de 2025.
 - Colores de variación: azul = aumento, rojo = disminución.
+- Lima comprende Lima Metropolitana y Lima Provincias: las bases no distinguen provincias.
 
 ## Validación
 
@@ -63,4 +64,4 @@ El script lee `Indicadores_financiamiento.xlsx` (todas sus hojas) e `indicadores
 1. Suba todos los archivos manteniendo las carpetas.
 2. En **Settings → Pages**, elija la rama `main` y la carpeta `/ (root)`.
 
-Fuentes: financiamiento, SUNAT, SBS y PRODUCE; factoring, SUNAT, CAVALI, SBS, SMV y PRODUCE. Elaboración: Good Guys Insight.
+Fuente: PRODUCE. Elaboración: **Good Guys Insight**.

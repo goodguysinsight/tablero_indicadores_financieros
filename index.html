@@ -51,9 +51,11 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
 .fx-sel{font:inherit;font-size:var(--cds-font-size-caption);padding:var(--cds-pad-xs) var(--cds-pad-sm);border:1px solid var(--color-border-line);border-radius:var(--cds-radius);background:var(--color-bg);color:var(--color-fg);max-width:100%}
 .fx-chip{font:inherit;font-size:var(--cds-font-size-caption);border:1px solid var(--color-fg);background:var(--color-bg);color:var(--color-fg);border-radius:999px;padding:var(--cds-pad-xs) var(--cds-pad-sm);cursor:pointer}
 .fx-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,11.5rem),1fr));gap:var(--cds-gap-md)}
-.fx-tile{background:var(--color-panel);border:1px solid var(--color-border-line);border-radius:var(--cds-radius);padding:var(--cds-pad-md) var(--cds-pad-lg);display:flex;flex-direction:column;gap:var(--cds-gap-xs);min-width:0}
+.fx-tile{--k:#0f766e;background:color-mix(in srgb,var(--k) 11%,var(--color-panel));border:1px solid color-mix(in srgb,var(--k) 38%,var(--color-panel));border-radius:var(--cds-radius);padding:var(--cds-pad-md) var(--cds-pad-lg);display:flex;flex-direction:column;gap:var(--cds-gap-xs);min-width:0}
 .fx-tl{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted)}
-.fx-tv{font-family:var(--font-anthropic-serif);font-weight:400;font-size:var(--cds-font-size-title);line-height:1.15;font-variant-numeric:tabular-nums;min-height:1.15em;overflow-wrap:anywhere}
+.fx-tile .fx-tl{color:color-mix(in srgb,var(--k) 55%,var(--color-fg));font-weight:500}
+.fx-tile:nth-child(2){--k:#1d4ed8}.fx-tile:nth-child(3){--k:#4338ca}.fx-tile:nth-child(4){--k:#b45309}.fx-tile:nth-child(5){--k:#7c3aed}
+.fx-tv{color:color-mix(in srgb,var(--k) 60%,var(--color-fg));font-family:var(--font-anthropic-serif);font-weight:400;font-size:var(--cds-font-size-title);line-height:1.15;font-variant-numeric:tabular-nums;min-height:1.15em;overflow-wrap:anywhere}
 .fx-tv small{font-family:var(--font-anthropic-sans);font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);margin-left:4px}
 .fx-td{font-size:var(--cds-font-size-caption);font-variant-numeric:tabular-nums;color:var(--color-fg-muted);min-height:1.3em}
 .fx-up{color:var(--color-ok)}.fx-dn{color:var(--color-bad)}
@@ -94,6 +96,9 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
 .fx-tw tbody tr:hover td{background:color-mix(in srgb,var(--color-fg) 4%,transparent)}
 .fx-tw tbody tr.sel td{background:color-mix(in srgb,var(--color-fg) 9%,transparent);font-weight:600}
 .fx-bar{display:inline-block;height:8px;border-radius:4px;vertical-align:middle;margin-right:6px}
+.fx-foot b{font-weight:700;color:var(--color-fg)}
+.fx-tnote{margin:calc(-1 * var(--cds-gap-sm)) 0 0;font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);font-variant-numeric:tabular-nums}
+.fx-footw{display:flex;flex-direction:column;gap:2px}
 .fx-foot{margin:0;font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);line-height:1.55;text-align:justify;hyphens:auto;-webkit-hyphens:auto}
 [data-dash-source-state=refreshing]{opacity:.5;transition:opacity var(--cds-dur-slow)}
 [data-dash-source-state=empty]{color:transparent}
@@ -129,12 +134,13 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
     </div>
 
     <div class="fx-tiles" id="fin-tiles">
-      <div class="fx-tile"><span class="fx-tl">Inclusión financiera</span><span class="fx-tv" id="fin-t1" data-source="fin_ind" data-field="tasa">—</span><span class="fx-td" id="fin-d1" data-source="fin_ind" data-field="var_pp">—</span></div>
-      <div class="fx-tile"><span class="fx-tl">Empresas con financiamiento</span><span class="fx-tv" id="fin-t2" data-source="fin_ind" data-field="emp">—</span><span class="fx-td" id="fin-d2" data-source="fin_ind" data-field="pad">—</span></div>
+      <div class="fx-tile"><span class="fx-tl">Porcentaje de empresas con acceso al financiamiento</span><span class="fx-tv" id="fin-t1" data-source="fin_ind" data-field="tasa">—</span><span class="fx-td" id="fin-d1" data-source="fin_ind" data-field="var_pp">—</span></div>
+      <div class="fx-tile"><span class="fx-tl">Empresas con financiamiento</span><span class="fx-tv" id="fin-t2" data-source="fin_ind" data-field="emp">—</span><span class="fx-td" id="fin-d2">Con saldo en el sistema financiero</span></div>
       <div class="fx-tile"><span class="fx-tl">Saldo de financiamiento</span><span class="fx-tv" id="fin-t3" data-source="fin_ind" data-field="saldo_mm">—</span><span class="fx-td" id="fin-d3" data-source="fin_ind" data-field="var_saldo">—</span></div>
       <div class="fx-tile"><span class="fx-tl">Saldo promedio por empresa</span><span class="fx-tv" id="fin-t4" data-source="fin_ind" data-field="prom">—</span><span class="fx-td" id="fin-d4">Soles por empresa con financiamiento</span></div>
       <div class="fx-tile"><span class="fx-tl">De ellas, no registradas en SUNAT</span><span class="fx-tv" id="fin-t5" data-source="fin_ind" data-field="emp_ns">—</span><span class="fx-td" id="fin-d5">Empresas con crédito fuera del padrón SUNAT</span></div>
     </div>
+    <p class="fx-tnote" id="fin-tnote" data-source="fin_ind" data-field="pad"></p>
 
     <div class="fx-grid">
       <article class="fx-card" id="fin-mapa">
@@ -158,14 +164,14 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
       </article>
       <article class="fx-card" id="fin-matriz">
         <h2 id="fin-hm-t">Matriz de inclusión: sector y tamaño</h2>
-        <p class="fx-note">Inclusión financiera (%) en cada cruce. Haga clic en una celda para filtrar el tablero por ese sector y tamaño.</p>
+        <p class="fx-note">Inclusión financiera (%) en cada cruce. Haga clic en una celda para filtrar el tablero por sector y tamaño.</p>
         <div class="fx-chart fx-mid" id="fin-hm" data-source="fin_ind"></div>
       </article>
     </div>
 
     <article class="fx-card" id="fin-subsectores">
       <h2 id="fin-tr-t">Saldo de financiamiento por subsector</h2>
-      <p class="fx-note">Cada rectángulo es un subsector: su área es el saldo y su color, la inclusión financiera. Alcance nacional (la base por subsector no se desagrega por departamento).</p>
+      <p class="fx-note">Cada rectángulo es un subsector y su área es el saldo. Cada sector tiene su color y sus subsectores, tonos de ese color. Entre paréntesis, porcentaje de empresas con acceso al financiamiento. Alcance nacional (la base por subsector no se desagrega por departamento).</p>
       <div class="fx-chart fx-tree" id="fin-tr" data-source="fin_sub_ind"></div>
       <div class="fx-legend" id="fin-tr-lg" data-source="fin_sub_ind"></div>
     </article>
@@ -239,7 +245,7 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
 
     <article class="fx-card" id="fac-subsectores">
       <h2 id="fac-tr-t">Monto negociado por subsector</h2>
-      <p class="fx-note">Cada rectángulo es un subsector: su área es el monto negociado y su color, el sector. Alcance nacional.</p>
+      <p class="fx-note">Cada rectángulo es un subsector y su área es el monto negociado. Cada sector tiene su color y sus subsectores, tonos de ese color. Entre paréntesis, participación en el monto total. Alcance nacional.</p>
       <div class="fx-chart fx-tree" id="fac-tr" data-source="fac_sub_ind"></div>
       <div class="fx-legend" id="fac-tr-lg" data-source="fac_sub_ind"></div>
     </article>
@@ -259,7 +265,7 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
     </article>
   </section>
 
-  <p class="fx-foot" id="metodologia">Notas: La inclusión financiera es el número de empresas con saldo de financiamiento en el sistema financiero dividido entre el total de empresas (padrón SUNAT más las empresas con financiamiento no registradas en SUNAT), para el mismo año, tamaño, sector y departamento. El saldo promedio es el saldo entre las empresas con financiamiento. MIPYME agrupa a la micro, pequeña y mediana empresa; MYPE, a la micro y pequeña; PYME, a la pequeña y mediana. Se presenta 2021-2026; 2026 corresponde a saldos a julio. El padrón de 2025 repite el de 2024. Factoring: monto en soles y número de facturas negociadas, por tamaño empresarial, sector y departamento del proveedor; 2026 corresponde a enero-agosto y sus variaciones comparan con el mismo periodo de 2025. Colores de variación: azul indica aumento y rojo disminución. Fuentes: financiamiento, SUNAT, SBS y PRODUCE; factoring, SUNAT, CAVALI, SBS, SMV y PRODUCE. Elaboración: Good Guys Insight.</p>
+  <div class="fx-footw" id="metodologia"><p class="fx-foot">Fuente: PRODUCE.</p><p class="fx-foot">Elaboración: <b>Good Guys Insight</b>.</p><p class="fx-foot">Nota: La inclusión financiera (porcentaje de empresas con acceso al financiamiento) es el número de empresas con saldo de financiamiento en el sistema financiero dividido entre el total de empresas (padrón SUNAT más las empresas con financiamiento no registradas en SUNAT), para el mismo año, tamaño, sector y departamento. El saldo promedio es el saldo entre las empresas con financiamiento. MIPYME agrupa a la micro, pequeña y mediana empresa; MYPE, a la micro y pequeña; PYME, a la pequeña y mediana. Se presenta 2021-2026; 2026 corresponde a saldos a julio. El padrón de 2025 repite el de 2024. Lima comprende Lima Metropolitana y Lima Provincias, pues la base no distingue provincias. Factoring: monto en soles y número de facturas negociadas, por tamaño empresarial, sector y departamento del proveedor; 2026 corresponde a enero-agosto y sus variaciones comparan con el mismo periodo de 2025. Colores de variación: azul indica aumento y rojo disminución. Información de base: financiamiento, SUNAT y SBS; factoring, SUNAT, CAVALI, SBS y SMV.</p></div>
 </div>
 
 
@@ -580,37 +586,47 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
   const qLegend = (box, q, fmt) => { const th = q.quantiles(); const r = q.range(); legend(box, r.map((c, i) => [c, i === 0 ? '< ' + fmt(th[0]) : i === r.length - 1 ? '≥ ' + fmt(th[i - 1]) : fmt(th[i - 1]) + ' a ' + fmt(th[i])])); };
 
   // ---------- treemap ----------
+  const SECCOL = { Comercio: '#2b62ad', Servicios: '#d4761f', Manufactura: '#23875c', Agropecuario: '#7d9a1f', 'Construcción': '#b8365e', 'Minería': '#7046b0', Pesca: '#1f97aa' };
   const drawTree = (box, rows, o) => {
     box.replaceChildren();
     const w = box.clientWidth; if (!w) return;
     if (!rows.length) { empty(box, 'Sin datos para la selección.'); return; }
-    const h = Math.max(320, Math.min(520, w * 0.5));
+    const h = Math.max(340, Math.min(540, w * 0.52));
     const data = { name: 'root', children: d3.groups(rows, (r) => r.sec).map(([s, rs]) => ({ name: s, children: rs.map((r) => ({ name: r.sub, r, value: o.size(r) })) })) };
     const hr = d3.hierarchy(data).sum((d) => d.value || 0).sort((a, b) => b.value - a.value);
-    d3.treemap().size([w, h]).paddingOuter(2).paddingTop(18).paddingInner(1.5).round(true)(hr);
+    d3.treemap().size([w, h]).paddingOuter(2).paddingTop(22).paddingInner(1.5).round(true)(hr);
     const svg = svgEl('svg', { width: '100%', viewBox: `0 0 ${w} ${h}`, role: 'img', 'aria-label': o.aria }, box);
     const tip = tipFor(box);
     const total = hr.value;
     hr.children.forEach((sn) => {
+      const base = SECCOL[sn.data.name] || '#6b7280';
+      const lv = sn.leaves(); const n = lv.length;
+      const dk = d3.color(base).darker(0.7).formatHex(), lt = d3.interpolateRgb(base, '#ffffff')(0.62);
+      lv.forEach((l, i) => { l.c = n === 1 ? base : d3.interpolateLab(dk, lt)(i / (n - 1)); });
       const r = svgEl('rect', { x: sn.x0, y: sn.y0, width: sn.x1 - sn.x0, height: sn.y1 - sn.y0, rx: 3 }, svg);
-      r.style.fill = 'none'; r.style.stroke = 'var(--color-border-line)';
-      if (sn.x1 - sn.x0 > 60) { const t = txt(svg, { x: sn.x0 + 5, y: sn.y0 + 13, class: 'fx-strong' }, sn.data.name + ' · ' + f1(sn.value / total * 100) + '%'); const maxw = sn.x1 - sn.x0 - 10; while (t.getComputedTextLength() > maxw && t.textContent.length > 4) t.textContent = t.textContent.slice(0, -2) + '…'; }
+      r.style.fill = 'none'; r.style.stroke = base; r.style.strokeOpacity = 0.5;
+      if (sn.x1 - sn.x0 > 50) {
+        const t = txt(svg, { x: sn.x0 + 5, y: sn.y0 + 16, class: 'fx-strong' }, sn.data.name + ' (' + f1(sn.value / total * 100) + '%)');
+        t.style.fontSize = '13px'; t.style.fill = 'color-mix(in srgb, ' + base + ' 70%, var(--color-fg))';
+        const maxw = sn.x1 - sn.x0 - 10; while (t.getComputedTextLength() > maxw && t.textContent.length > 4) t.textContent = t.textContent.slice(0, -2) + '…';
+      }
     });
     hr.leaves().forEach((n) => {
-      const c = o.color(n.data.r);
+      const c = n.c;
       const r = svgEl('rect', { x: n.x0, y: n.y0, width: Math.max(0, n.x1 - n.x0), height: Math.max(0, n.y1 - n.y0), rx: 2, class: 'fx-hit' }, svg);
       r.style.fill = c;
       r.addEventListener('mousemove', (ev) => showTip(box, tip, ev, o.tip(n.data.r, n.value / total * 100)));
       r.addEventListener('mouseleave', () => hideTip(tip));
       const bw = n.x1 - n.x0, bh = n.y1 - n.y0;
-      if (bw > 54 && bh > 30) {
+      if (bw > 60 && bh > 36) {
         const cls = dark(c) ? 'fx-in' : 'fx-ind';
-        const t = txt(svg, { x: n.x0 + 4, y: n.y0 + 13, class: cls }, n.data.name);
-        while (t.getComputedTextLength() > bw - 8 && t.textContent.length > 4) t.textContent = t.textContent.slice(0, -2) + '…';
-        const t2 = txt(svg, { x: n.x0 + 4, y: n.y0 + 26, class: cls, 'font-weight': 400 }, o.lab(n.data.r));
-        if (t2.getComputedTextLength() > bw - 8) t2.remove();
+        const t = txt(svg, { x: n.x0 + 5, y: n.y0 + 15, class: cls }, n.data.name); t.style.fontSize = '12px';
+        while (t.getComputedTextLength() > bw - 10 && t.textContent.length > 4) t.textContent = t.textContent.slice(0, -2) + '…';
+        const t2 = txt(svg, { x: n.x0 + 5, y: n.y0 + 30, class: cls, 'font-weight': 400 }, o.lab(n.data.r, n.value / total * 100)); t2.style.fontSize = '12px';
+        if (t2.getComputedTextLength() > bw - 10) { t2.textContent = o.lab(n.data.r, n.value / total * 100).split(' (')[0]; if (t2.getComputedTextLength() > bw - 10) t2.remove(); }
       }
     });
+    if (o.legend) legend(o.legend, hr.children.map((sn) => [SECCOL[sn.data.name] || '#6b7280', sn.data.name]));
   };
 
   // ---------- tabla ----------
@@ -660,16 +676,16 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
     // tiles
     const r = F ? F.get(a + '|' + t + '|' + s + '|' + d) : null;
     const wh = whereF(a, t, s, d);
-    ['fin-t1', 'fin-d1', 'fin-t2', 'fin-d2', 'fin-t3', 'fin-d3', 'fin-t4', 'fin-t5'].forEach((id) => { $(id).dataset.where = wh; });
+    ['fin-t1', 'fin-d1', 'fin-t2', 'fin-tnote', 'fin-t3', 'fin-d3', 'fin-t4', 'fin-t5'].forEach((id) => { $(id).dataset.where = wh; });
     if (!F || !r) {
       ['fin-t1', 'fin-t2', 'fin-t3', 'fin-t4', 'fin-t5'].forEach((id) => { $(id).textContent = '—'; });
-      ['fin-d1', 'fin-d2', 'fin-d3'].forEach((id) => { $(id).textContent = F ? 'Sin datos para la selección' : '—'; });
+      ['fin-d1', 'fin-d3'].forEach((id) => { $(id).textContent = F ? 'Sin datos para la selección' : '—'; }); $('fin-tnote').textContent = '';
     } else {
       $('fin-t1').textContent = pct(r.tasa);
       const d1 = $('fin-d1'); d1.className = 'fx-td ' + (r.var_pp > 0 ? 'fx-up' : r.var_pp < 0 ? 'fx-dn' : '');
       d1.textContent = r.var_pp == null ? 'Sin año previo comparable' : sg1(r.var_pp) + ' pp frente a ' + (a - 1);
       $('fin-t2').textContent = f0(r.emp);
-      $('fin-d2').textContent = 'de ' + f0(r.pad) + ' empresas en total';
+      $('fin-tnote').textContent = 'Nota: el total de empresas (padrón SUNAT más las empresas con financiamiento no registradas en SUNAT) es ' + f0(r.pad) + '.';
       $('fin-t3').replaceChildren(document.createTextNode('S/ ' + f0(r.saldo_mm)), Object.assign(document.createElement('small'), { textContent: 'millones' }));
       const d3e = $('fin-d3'); d3e.className = 'fx-td ' + (r.var_saldo > 0 ? 'fx-up' : r.var_saldo < 0 ? 'fx-dn' : '');
       d3e.textContent = r.var_saldo == null ? '—' : sg1(r.var_saldo) + '% frente a ' + (a - 1);
@@ -706,10 +722,9 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
     if (SB.status !== 'ok') { fail($('fin-tr'), SB.status); $('fin-tr-lg').replaceChildren(); }
     else {
       const rows = SB.data.filter((x) => x.anio === a && x.tam === t && (s === 'Todos' || x.sec === s) && x.saldo_mm > 0);
-      const q = sextiles(rows.map((x) => x.tasa), RF);
-      drawTree($('fin-tr'), rows, { aria: 'Saldo por subsector', size: (x) => x.saldo_mm, color: (x) => x.tasa == null ? 'var(--color-bg)' : q(x.tasa), lab: (x) => 'S/ ' + f0(x.saldo_mm) + ' mill. · ' + pct(x.tasa),
+      drawTree($('fin-tr'), rows, { aria: 'Saldo por subsector', size: (x) => x.saldo_mm, legend: $('fin-tr-lg'), lab: (x) => 'S/ ' + f0(x.saldo_mm) + ' mill. (' + pct(x.tasa) + ')',
         tip: (x, sh) => [x.sub, { k: 'Sector', v: x.sec }, { k: 'Saldo', v: 'S/ ' + f0(x.saldo_mm) + ' millones' }, { k: 'Participación', v: f1(sh) + '%' }, { k: 'Inclusión financiera', v: pct(x.tasa) }, { k: 'Con financiamiento', v: f0(x.emp) }, { k: 'Total de empresas', v: f0(x.pad) }] });
-      if (rows.length) { qLegend($('fin-tr-lg'), q, (v) => f1(v) + '%'); $('fin-tr-lg').prepend(Object.assign(document.createElement('span'), { textContent: 'Inclusión financiera:' })); } else $('fin-tr-lg').replaceChildren();
+      if (!rows.length) $('fin-tr-lg').replaceChildren();
     }
     // tabla
     $('fin-tb-t').textContent = 'Detalle por departamento · ' + ctx.replace(/^Perú · /, '').replace(/^./, (c) => c.toUpperCase());
@@ -736,7 +751,7 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
     txt(svg, { x: m.l, y: m.t - 2 }, 'Saldo promedio por empresa');
     if (nat.tasa >= x.domain()[0] && nat.tasa <= x.domain()[1]) { const l = svgEl('line', { x1: x(nat.tasa), x2: x(nat.tasa), y1: m.t, y2: h - m.b, 'stroke-dasharray': '4 3' }, svg); l.style.stroke = 'var(--cds-chart-reference)'; }
     if (nat.prom >= y.domain()[0] && nat.prom <= y.domain()[1]) { const l = svgEl('line', { x1: m.l, x2: w - m.r, y1: y(nat.prom), y2: y(nat.prom), 'stroke-dasharray': '4 3' }, svg); l.style.stroke = 'var(--cds-chart-reference)'; }
-    [['Mayor inclusión y mayor saldo', w - m.r - 4, m.t + 12, 'end'], ['Menor inclusión y menor saldo', m.l + 4, h - m.b - 6, 'start']].forEach(([s2, xx, yy, an]) => txt(svg, { x: xx, y: yy, 'text-anchor': an }, s2));
+    [['Mayor acceso y mayor saldo', w - m.r - 4, m.t + 14, 'end'], ['Menor acceso y menor saldo', m.l + 4, h - m.b - 8, 'start']].forEach(([s2, xx, yy, an]) => { const q2 = txt(svg, { x: xx, y: yy, 'text-anchor': an, class: 'fx-strong', 'font-size': 13 }, s2); q2.style.fontSize = '13px'; });
     const tip = tipFor(box);
     const q = sextiles(rows.map((r) => r.tasa), RF);
     rows.sort((a2, b) => b.emp - a2.emp).forEach((r) => {
@@ -891,9 +906,9 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
     else {
       const rows = SB.data.filter((x) => x.anio === a && x.tam === t && (s === 'Todos' || x.sec === s) && x.monto_mm > 0);
       const sc = (sec) => dash.colors[SECS.indexOf(sec) % 8];
-      drawTree($('fac-tr'), rows, { aria: 'Monto por subsector', size: (x) => x.monto_mm, color: (x) => sc(x.sec), lab: (x) => 'S/ ' + f0(x.monto_mm) + ' mill.',
+      drawTree($('fac-tr'), rows, { aria: 'Monto por subsector', size: (x) => x.monto_mm, legend: $('fac-tr-lg'), lab: (x, sh) => 'S/ ' + f0(x.monto_mm) + ' mill. (' + f1(sh) + '%)',
         tip: (x, sh) => [x.sub, { k: 'Sector', v: x.sec }, { k: 'Monto', v: 'S/ ' + f1(x.monto_mm) + ' millones' }, { k: 'Participación', v: f1(sh) + '%' }, { k: 'Facturas', v: f0(x.fact) }, { k: 'Monto por factura', v: x.fact ? 'S/ ' + f0(x.monto_mm * 1e6 / x.fact) : '—' }] });
-      legend($('fac-tr-lg'), [...new Set(rows.map((x) => x.sec))].sort((u, v) => SECS.indexOf(u) - SECS.indexOf(v)).map((x) => [sc(x), x]));
+      if (!rows.length) $('fac-tr-lg').replaceChildren();
     }
     // tabla
     $('fac-tb-t').textContent = 'Detalle por departamento · ' + ctx.replace(/^todas las empresas · /, '').replace(/^./, (c) => c.toUpperCase());
