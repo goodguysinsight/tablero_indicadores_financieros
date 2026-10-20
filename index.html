@@ -1,0 +1,1070 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Financiamiento y factoring empresarial</title>
+<meta name="description" content="Tablero de acceso al financiamiento empresarial y de factoring en el Perú, por tamaño, sector y departamento. Elaboración: Good Guys Insight.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<style>
+:root{--font-anthropic-sans:"Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif;--font-anthropic-serif:"Source Serif 4",Georgia,serif;
+--color-bg:#ffffff;--color-panel:#ffffff;--color-fg:#1d1f24;--color-fg-muted:#5c6370;--color-border-line:#e3e5ea;--color-ok:#1f7a4d;--color-warn:#a15c00;--color-bad:#b3261e;
+--series-1:#2f6db5;--series-2:#d9822b;--series-3:#3a9a6a;--series-4:#8b5bb4;--series-5:#c2466b;--series-6:#4aa3b8;--series-7:#9a8a3a;--series-8:#6b7280;
+--cds-font-size-caption:12px;--cds-font-size-body:14px;--cds-font-size-heading:16px;--cds-font-size-title:28px;--cds-font-weight-medium:600;
+--cds-gap-xs:4px;--cds-gap-sm:8px;--cds-gap-md:14px;--cds-gap-lg:22px;--cds-pad-xs:4px;--cds-pad-sm:8px;--cds-pad-md:12px;--cds-pad-lg:18px;--cds-radius:8px;
+--cds-chart-grid:#eceef2;--cds-chart-axis:#9aa1ad;--cds-chart-reference:#8a919c;--cds-surface-popover:#ffffff;--cds-border:#e3e5ea;--cds-shadow-popover:0 6px 20px rgba(20,24,32,.12);--cds-text-secondary:#5c6370;--cds-dur-slow:.3s;color-scheme:light}
+:root[data-theme="dark"]{--color-bg:#16181d;--color-panel:#1d2026;--color-fg:#eceef2;--color-fg-muted:#a3a9b5;--color-border-line:#30343c;--color-ok:#5cc28f;--color-warn:#e0a24a;--color-bad:#f07a72;
+--series-1:#6ea3e6;--series-2:#e9a160;--series-3:#63c194;--series-4:#b28ad8;--series-5:#e27896;--series-6:#73c3d6;--series-7:#c9b864;--series-8:#9aa1ad;
+--cds-chart-grid:#2a2e36;--cds-chart-axis:#5c6370;--cds-chart-reference:#7d8592;--cds-surface-popover:#23262d;--cds-border:#30343c;--cds-shadow-popover:0 6px 20px rgba(0,0,0,.45);--cds-text-secondary:#a3a9b5;color-scheme:dark}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--color-bg:#16181d;--color-panel:#1d2026;--color-fg:#eceef2;--color-fg-muted:#a3a9b5;--color-border-line:#30343c;--color-ok:#5cc28f;--color-warn:#e0a24a;--color-bad:#f07a72;
+--series-1:#6ea3e6;--series-2:#e9a160;--series-3:#63c194;--series-4:#b28ad8;--series-5:#e27896;--series-6:#73c3d6;--series-7:#c9b864;--series-8:#9aa1ad;
+--cds-chart-grid:#2a2e36;--cds-chart-axis:#5c6370;--cds-chart-reference:#7d8592;--cds-surface-popover:#23262d;--cds-border:#30343c;--cds-shadow-popover:0 6px 20px rgba(0,0,0,.45);--cds-text-secondary:#a3a9b5;color-scheme:dark}}
+html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:var(--font-anthropic-sans);font-size:14px}
+#dash-root{padding-block:20px 32px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));position:relative}
+.fx-theme{position:absolute;top:20px;right:max(16px,env(safe-area-inset-right,0px));font:inherit;font-size:12px;color:var(--color-fg);background:var(--color-bg);border:1px solid var(--color-border-line);border-radius:8px;padding:4px 10px;cursor:pointer;z-index:2}
+.fx-head{padding-right:4.5rem}
+
+#dash-root .fx{max-width:86rem;margin-inline:auto;display:flex;flex-direction:column;gap:var(--cds-gap-lg);font-family:var(--font-anthropic-sans)}
+.fx b{font-weight:600;color:var(--color-fg)}
+.fx [hidden]{display:none!important}
+.fx-brand{display:flex;align-items:center;gap:var(--cds-gap-md)}
+.fx-logo{width:56px;height:56px;flex:none;border-radius:8px;display:block}
+@media (max-width:480px){.fx-logo{width:44px;height:44px}}
+.fx-head h1{margin:0;font-family:var(--font-anthropic-serif);font-weight:400;font-size:var(--cds-font-size-title);line-height:1.2;text-wrap:balance}
+.fx-take{margin:var(--cds-gap-sm) 0 0;text-align:justify;hyphens:auto;-webkit-hyphens:auto;color:var(--color-fg-muted);font-size:var(--cds-font-size-body);line-height:1.55;font-variant-numeric:tabular-nums}
+.fx-tabs{display:flex;gap:0;border-bottom:1px solid var(--color-border-line);overflow-x:auto}
+.fx-tab{font:inherit;font-size:var(--cds-font-size-body);background:none;border:0;border-bottom:2px solid transparent;margin-bottom:-1px;padding:var(--cds-pad-sm) var(--cds-pad-lg);color:var(--color-fg-muted);cursor:pointer;white-space:nowrap}
+.fx-tab[aria-selected="true"]{color:var(--color-fg);border-bottom-color:var(--color-fg);font-weight:var(--cds-font-weight-medium)}
+.fx-tab:focus-visible,.fx-seg button:focus-visible,.fx-th:focus-visible,.fx-chip:focus-visible,.fx-sel:focus-visible{outline:2px solid var(--color-fg);outline-offset:2px}
+.fx-panel{display:flex;flex-direction:column;gap:var(--cds-gap-lg)}
+.fx-ctrl{display:flex;flex-wrap:wrap;align-items:center;gap:var(--cds-gap-md) var(--cds-gap-lg);padding:var(--cds-pad-md) var(--cds-pad-lg);background:var(--color-panel);border:1px solid var(--color-border-line);border-radius:var(--cds-radius)}
+.fx-grp{display:flex;align-items:center;gap:var(--cds-gap-sm);min-width:0;flex-wrap:wrap}
+.fx-lbl{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);letter-spacing:.02em}
+.fx-year{flex:1 1 15rem}
+.fx-year input{flex:1 1 auto;min-width:0;accent-color:var(--color-fg)}
+.fx-yr{font-family:var(--font-anthropic-serif);font-size:var(--cds-font-size-heading);min-width:3.2ch;font-variant-numeric:tabular-nums;white-space:nowrap}
+.fx-seg{display:inline-flex;flex-wrap:wrap;border:1px solid var(--color-border-line);border-radius:var(--cds-radius);overflow:hidden}
+.fx-seg button{font:inherit;font-size:var(--cds-font-size-caption);padding:var(--cds-pad-xs) var(--cds-pad-sm);background:var(--color-bg);color:var(--color-fg-muted);border:0;cursor:pointer}
+.fx-seg button+button{border-left:1px solid var(--color-border-line)}
+.fx-seg button[aria-pressed="true"]{background:var(--color-fg);color:var(--color-bg)}
+.fx-sel{font:inherit;font-size:var(--cds-font-size-caption);padding:var(--cds-pad-xs) var(--cds-pad-sm);border:1px solid var(--color-border-line);border-radius:var(--cds-radius);background:var(--color-bg);color:var(--color-fg);max-width:100%}
+.fx-chip{font:inherit;font-size:var(--cds-font-size-caption);border:1px solid var(--color-fg);background:var(--color-bg);color:var(--color-fg);border-radius:999px;padding:var(--cds-pad-xs) var(--cds-pad-sm);cursor:pointer}
+.fx-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,11.5rem),1fr));gap:var(--cds-gap-md)}
+.fx-tile{background:var(--color-panel);border:1px solid var(--color-border-line);border-radius:var(--cds-radius);padding:var(--cds-pad-md) var(--cds-pad-lg);display:flex;flex-direction:column;gap:var(--cds-gap-xs);min-width:0}
+.fx-tl{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted)}
+.fx-tv{font-family:var(--font-anthropic-serif);font-weight:400;font-size:var(--cds-font-size-title);line-height:1.15;font-variant-numeric:tabular-nums;min-height:1.15em;overflow-wrap:anywhere}
+.fx-tv small{font-family:var(--font-anthropic-sans);font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);margin-left:4px}
+.fx-td{font-size:var(--cds-font-size-caption);font-variant-numeric:tabular-nums;color:var(--color-fg-muted);min-height:1.3em}
+.fx-up{color:var(--color-ok)}.fx-dn{color:var(--color-bad)}
+.fx-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,26rem),1fr));gap:var(--cds-gap-md)}
+.fx-card{background:var(--color-panel);border:1px solid var(--color-border-line);border-radius:var(--cds-radius);padding:var(--cds-pad-lg);display:flex;flex-direction:column;gap:var(--cds-gap-sm);min-width:0}
+.fx-card h2{margin:0;font-size:var(--cds-font-size-heading);font-weight:var(--cds-font-weight-medium);text-wrap:balance}
+.fx-ch{display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:var(--cds-gap-sm)}
+.fx-note{margin:0;font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);line-height:1.45}
+.fx-chart{position:relative;min-width:0}
+.fx-map{min-height:30rem}.fx-mid{min-height:20rem}.fx-tall{min-height:24rem}.fx-cal{min-height:16rem}.fx-tree{min-height:26rem}
+.fx-chart svg{display:block;overflow:visible}
+.fx-chart text{font-family:var(--font-anthropic-sans);fill:var(--color-fg-muted);font-size:11px;font-variant-numeric:tabular-nums}
+.fx-chart .fx-strong{fill:var(--color-fg);font-weight:600}
+.fx-chart text.fx-lab{fill:var(--color-fg);font-weight:500;paint-order:stroke;stroke:var(--color-panel);stroke-width:2.6px;stroke-linejoin:round}
+.fx-chart text.fx-lab .v{font-weight:700}
+.fx-chart text.fx-in{fill:#fff;font-weight:600}
+.fx-chart text.fx-ind{fill:#1b1b1b;font-weight:600}
+.fx-hit{cursor:pointer}
+.fx-labs{pointer-events:none}
+.fx-legend{display:flex;flex-wrap:wrap;gap:var(--cds-gap-xs) var(--cds-gap-sm);font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);font-variant-numeric:tabular-nums}
+.fx-legend span{display:inline-flex;align-items:center;gap:6px}
+.fx-legend i{display:inline-block;width:14px;height:10px;border-radius:2px;border:1px solid var(--color-border-line)}
+.fx-tip{position:absolute;pointer-events:none;background:var(--cds-surface-popover);border:1px solid var(--cds-border);border-radius:var(--cds-radius);box-shadow:var(--cds-shadow-popover);padding:var(--cds-pad-xs) var(--cds-pad-sm);font-size:var(--cds-font-size-caption);line-height:1.5;font-variant-numeric:tabular-nums;min-width:11rem;max-width:17rem;z-index:5;color:var(--color-fg)}
+.fx-tip .h{color:var(--cds-text-secondary)}
+.fx-tip .r{display:flex;justify-content:space-between;gap:var(--cds-gap-md)}
+.fx-fail{display:flex;align-items:center;justify-content:center;gap:8px;min-height:inherit;font-size:var(--cds-font-size-caption);color:var(--color-fg-muted)}
+.fx-fail::before{content:"";width:.375rem;height:.375rem;border-radius:50%;background:var(--color-bad)}
+.fx-empty{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;color:var(--color-fg-muted);font-size:var(--cds-font-size-caption);pointer-events:none}
+.fx-tbar{display:flex;flex-wrap:wrap;gap:var(--cds-gap-sm);align-items:center;justify-content:space-between}
+.fx-search{font:inherit;font-size:var(--cds-font-size-caption);padding:var(--cds-pad-xs) var(--cds-pad-sm);border:1px solid var(--color-border-line);border-radius:var(--cds-radius);background:var(--color-bg);color:var(--color-fg);min-width:0;flex:0 1 15rem}
+.fx-tw{max-height:32rem;overflow:auto}
+.fx-tw table{width:100%;border-collapse:collapse;font-size:var(--cds-font-size-caption);font-variant-numeric:tabular-nums}
+.fx-tw th{position:sticky;top:0;background:var(--color-panel);text-align:right;font-weight:var(--cds-font-weight-medium);border-bottom:1px solid var(--color-border-line);padding:0;white-space:nowrap;z-index:1}
+.fx-tw th:first-child,.fx-tw td:first-child{text-align:left}
+.fx-th{font:inherit;color:var(--color-fg-muted);background:none;border:0;padding:var(--cds-pad-xs) var(--cds-pad-sm);cursor:pointer;width:100%;text-align:inherit}
+.fx-tw td{padding:var(--cds-pad-xs) var(--cds-pad-sm);text-align:right;border-bottom:1px solid var(--color-border-line);white-space:nowrap}
+.fx-tw tbody tr{cursor:pointer}
+.fx-tw tbody tr:hover td{background:color-mix(in srgb,var(--color-fg) 4%,transparent)}
+.fx-tw tbody tr.sel td{background:color-mix(in srgb,var(--color-fg) 9%,transparent);font-weight:600}
+.fx-bar{display:inline-block;height:8px;border-radius:4px;vertical-align:middle;margin-right:6px}
+.fx-foot{margin:0;font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);line-height:1.55;text-align:justify;hyphens:auto;-webkit-hyphens:auto}
+[data-dash-source-state=refreshing]{opacity:.5;transition:opacity var(--cds-dur-slow)}
+[data-dash-source-state=empty]{color:transparent}
+
+</style>
+</head>
+<body>
+<div id="dash-root">
+<button class="fx-theme" id="fx-theme" type="button" aria-label="Cambiar tema">Tema</button>
+
+
+<div class="fx" id="fx">
+  <header class="fx-head" id="resumen">
+    <div class="fx-brand">
+      <img class="fx-logo" src="data:image/jpeg;base64,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" alt="Good Guys Insight" width="56" height="56">
+      <h1>Financiamiento y factoring empresarial</h1>
+    </div>
+    <p class="fx-take" id="fx-take" data-source="fin_ind fac_ind">—</p>
+  </header>
+
+  <nav class="fx-tabs" role="tablist" aria-label="Secciones">
+    <button class="fx-tab" role="tab" id="tab-financiamiento" data-tab="fin" aria-controls="financiamiento" type="button">Indicadores financieros</button>
+    <button class="fx-tab" role="tab" id="tab-factoring" data-tab="fac" aria-controls="factoring" type="button">Factoring</button>
+  </nav>
+
+  <!-- ==================== FINANCIAMIENTO ==================== -->
+  <section class="fx-panel" id="financiamiento" role="tabpanel" aria-labelledby="tab-financiamiento">
+    <div class="fx-ctrl" id="fin-filtros">
+      <div class="fx-grp fx-year"><span class="fx-lbl">Año</span><input type="range" id="fa-in" min="2019" max="2026" step="1" aria-label="Año"><span class="fx-yr" id="fa-out">—</span></div>
+      <div class="fx-grp"><span class="fx-lbl">Tamaño</span><div class="fx-seg" id="ft-seg" role="group" aria-label="Tamaño empresarial"></div></div>
+      <div class="fx-grp"><label class="fx-lbl" for="fs-sel">Sector</label><select class="fx-sel" id="fs-sel"></select></div>
+      <button class="fx-chip" id="fd-chip" type="button" hidden></button>
+    </div>
+
+    <div class="fx-tiles" id="fin-tiles">
+      <div class="fx-tile"><span class="fx-tl">Tasa de acceso al financiamiento</span><span class="fx-tv" id="fin-t1" data-source="fin_ind" data-field="tasa">—</span><span class="fx-td" id="fin-d1" data-source="fin_ind" data-field="var_pp">—</span></div>
+      <div class="fx-tile"><span class="fx-tl">Empresas formales con financiamiento</span><span class="fx-tv" id="fin-t2" data-source="fin_ind" data-field="emp">—</span><span class="fx-td" id="fin-d2" data-source="fin_ind" data-field="pad">—</span></div>
+      <div class="fx-tile"><span class="fx-tl">Saldo de financiamiento</span><span class="fx-tv" id="fin-t3" data-source="fin_ind" data-field="saldo_mm">—</span><span class="fx-td" id="fin-d3" data-source="fin_ind" data-field="var_saldo">—</span></div>
+      <div class="fx-tile"><span class="fx-tl">Saldo promedio por empresa</span><span class="fx-tv" id="fin-t4" data-source="fin_ind" data-field="prom">—</span><span class="fx-td" id="fin-d4">Soles por empresa con financiamiento</span></div>
+      <div class="fx-tile"><span class="fx-tl">Empresas no registradas en SUNAT con financiamiento</span><span class="fx-tv" id="fin-t5" data-source="fin_ind" data-field="emp_ns">—</span><span class="fx-td" id="fin-d5">Fuera del padrón; no entran en la tasa</span></div>
+    </div>
+
+    <div class="fx-grid">
+      <article class="fx-card" id="fin-mapa">
+        <div class="fx-ch"><h2 id="fin-map-t">—</h2><div class="fx-seg" id="fm-seg" role="group" aria-label="Indicador del mapa"></div></div>
+        <p class="fx-note" id="fin-map-n">—</p>
+        <div class="fx-chart fx-map" id="fin-map" data-source="fin_ind limites"></div>
+        <div class="fx-legend" id="fin-map-lg" data-source="fin_ind"></div>
+      </article>
+      <article class="fx-card" id="fin-burbujas">
+        <h2>Acceso y profundidad del crédito por departamento</h2>
+        <p class="fx-note" id="fin-sc-n">Eje horizontal: tasa de acceso. Eje vertical: saldo promedio por empresa (escala logarítmica). Tamaño: empresas con financiamiento. Las líneas marcan el valor nacional.</p>
+        <div class="fx-chart fx-tall" id="fin-sc" data-source="fin_ind"></div>
+      </article>
+    </div>
+
+    <div class="fx-grid">
+      <article class="fx-card" id="fin-tamano">
+        <h2 id="fin-ln-t">Tasa de acceso por tamaño empresarial</h2>
+        <p class="fx-note">Porcentaje de empresas del padrón SUNAT con financiamiento. El tramo punteado une 2019, cuyo padrón no es comparable con el resto de la serie.</p>
+        <div class="fx-chart fx-mid" id="fin-ln" data-source="fin_ind"></div>
+      </article>
+      <article class="fx-card" id="fin-matriz">
+        <h2 id="fin-hm-t">Matriz de acceso: sector y tamaño</h2>
+        <p class="fx-note">Tasa de acceso en cada cruce. Haga clic en una celda para filtrar el tablero por ese sector y tamaño.</p>
+        <div class="fx-chart fx-mid" id="fin-hm" data-source="fin_ind"></div>
+      </article>
+    </div>
+
+    <article class="fx-card" id="fin-subsectores">
+      <h2 id="fin-tr-t">Saldo de financiamiento por subsector</h2>
+      <p class="fx-note">Cada rectángulo es un subsector: su área es el saldo y su color, la tasa de acceso. Alcance nacional (la base por subsector no se desagrega por departamento).</p>
+      <div class="fx-chart fx-tree" id="fin-tr" data-source="fin_sub_ind"></div>
+      <div class="fx-legend" id="fin-tr-lg" data-source="fin_sub_ind"></div>
+    </article>
+
+    <article class="fx-card" id="fin-detalle">
+      <div class="fx-tbar"><h2 id="fin-tb-t">Detalle por departamento</h2><input class="fx-search" id="fin-q" type="search" placeholder="Buscar departamento" aria-label="Buscar departamento"></div>
+      <div class="fx-tw"><table id="fin-tb" data-source="fin_ind" data-row-key="clave">
+        <thead><tr>
+          <th data-field="dep"><button class="fx-th" type="button" data-k="dep">Departamento</button></th>
+          <th data-field="pad"><button class="fx-th" type="button" data-k="pad">Padrón SUNAT</button></th>
+          <th data-field="emp"><button class="fx-th" type="button" data-k="emp">Con financiamiento</button></th>
+          <th data-field="tasa"><button class="fx-th" type="button" data-k="tasa">Tasa de acceso (%)</button></th>
+          <th data-field="var_pp"><button class="fx-th" type="button" data-k="var_pp">Var. (pp)</button></th>
+          <th data-field="saldo_mm"><button class="fx-th" type="button" data-k="saldo_mm">Saldo (S/ millones)</button></th>
+          <th data-field="prom"><button class="fx-th" type="button" data-k="prom">Saldo promedio (S/)</button></th>
+          <th data-field="emp_ns"><button class="fx-th" type="button" data-k="emp_ns">No SUNAT</button></th>
+        </tr></thead><tbody></tbody></table></div>
+    </article>
+  </section>
+
+  <!-- ==================== FACTORING ==================== -->
+  <section class="fx-panel" id="factoring" role="tabpanel" aria-labelledby="tab-factoring" hidden>
+    <div class="fx-ctrl" id="fac-filtros">
+      <div class="fx-grp fx-year"><span class="fx-lbl">Año</span><input type="range" id="ga-in" min="2019" max="2026" step="1" aria-label="Año"><span class="fx-yr" id="ga-out">—</span></div>
+      <div class="fx-grp"><span class="fx-lbl">Tamaño</span><div class="fx-seg" id="gt-seg" role="group" aria-label="Tamaño empresarial"></div></div>
+      <div class="fx-grp"><label class="fx-lbl" for="gs-sel">Sector</label><select class="fx-sel" id="gs-sel"></select></div>
+      <button class="fx-chip" id="gd-chip" type="button" hidden></button>
+    </div>
+
+    <div class="fx-tiles" id="fac-tiles">
+      <div class="fx-tile"><span class="fx-tl" id="fac-l1">Monto negociado</span><span class="fx-tv" id="fac-t1" data-source="fac_ind" data-field="monto_mm">—</span><span class="fx-td" id="fac-d1" data-source="fac_ind" data-field="var">—</span></div>
+      <div class="fx-tile"><span class="fx-tl">Facturas negociadas</span><span class="fx-tv" id="fac-t2" data-source="fac_ind" data-field="fact">—</span><span class="fx-td" id="fac-d2" data-source="fac_ind" data-field="var_fact">—</span></div>
+      <div class="fx-tile"><span class="fx-tl">Monto promedio por factura</span><span class="fx-tv" id="fac-t3" data-source="fac_ind" data-field="ticket">—</span><span class="fx-td" id="fac-d3">Soles por factura</span></div>
+      <div class="fx-tile"><span class="fx-tl">Participación de la MIPYME en el monto</span><span class="fx-tv" id="fac-t4" data-source="fac_ind" data-field="part_mipyme">—</span><span class="fx-td" id="fac-d4">Micro, pequeña y mediana empresa</span></div>
+      <div class="fx-tile"><span class="fx-tl">Participación en el monto nacional</span><span class="fx-tv" id="fac-t5" data-source="fac_ind" data-field="part">—</span><span class="fx-td" id="fac-d5">—</span></div>
+    </div>
+
+    <article class="fx-card" id="fac-calendario">
+      <div class="fx-ch"><h2 id="fac-cal-t">Calendario del factoring</h2><div class="fx-seg" id="gc-seg" role="group" aria-label="Indicador del calendario"></div></div>
+      <p class="fx-note" id="fac-cal-n">—</p>
+      <div class="fx-chart fx-cal" id="fac-cal" data-source="fac_mes_ind"></div>
+    </article>
+
+    <div class="fx-grid">
+      <article class="fx-card" id="fac-mensual">
+        <h2 id="fac-ms-t">Monto mensual y tendencia</h2>
+        <p class="fx-note">Barras: monto negociado en el mes (S/ millones). Línea: promedio móvil de 12 meses.</p>
+        <div class="fx-chart fx-mid" id="fac-ms" data-source="fac_mes_ind"></div>
+      </article>
+      <article class="fx-card" id="fac-composicion">
+        <h2 id="fac-cp-t">¿Quién negocia sus facturas?</h2>
+        <p class="fx-note">Participación de cada tamaño empresarial en el monto negociado del año (%).</p>
+        <div class="fx-chart fx-mid" id="fac-cp" data-source="fac_ind"></div>
+        <div class="fx-legend" id="fac-cp-lg" data-source="fac_ind"></div>
+      </article>
+    </div>
+
+    <div class="fx-grid">
+      <article class="fx-card" id="fac-mapa">
+        <div class="fx-ch"><h2 id="fac-map-t">—</h2><div class="fx-seg" id="gm-seg" role="group" aria-label="Indicador del mapa"></div></div>
+        <p class="fx-note" id="fac-map-n">—</p>
+        <div class="fx-chart fx-map" id="fac-map" data-source="fac_ind limites"></div>
+        <div class="fx-legend" id="fac-map-lg" data-source="fac_ind"></div>
+      </article>
+      <article class="fx-card" id="fac-concentracion">
+        <h2 id="fac-pa-t">Concentración territorial del factoring</h2>
+        <p class="fx-note">Barras: participación de cada departamento en el monto (%). Línea: participación acumulada; muestra cuántos departamentos explican el 80% del monto.</p>
+        <div class="fx-chart fx-map" id="fac-pa" data-source="fac_ind"></div>
+      </article>
+    </div>
+
+    <article class="fx-card" id="fac-subsectores">
+      <h2 id="fac-tr-t">Monto negociado por subsector</h2>
+      <p class="fx-note">Cada rectángulo es un subsector: su área es el monto negociado y su color, el sector. Alcance nacional.</p>
+      <div class="fx-chart fx-tree" id="fac-tr" data-source="fac_sub_ind"></div>
+      <div class="fx-legend" id="fac-tr-lg" data-source="fac_sub_ind"></div>
+    </article>
+
+    <article class="fx-card" id="fac-detalle">
+      <div class="fx-tbar"><h2 id="fac-tb-t">Detalle por departamento</h2><input class="fx-search" id="fac-q" type="search" placeholder="Buscar departamento" aria-label="Buscar departamento"></div>
+      <div class="fx-tw"><table id="fac-tb" data-source="fac_ind" data-row-key="clave">
+        <thead><tr>
+          <th data-field="dep"><button class="fx-th" type="button" data-k="dep">Departamento</button></th>
+          <th data-field="monto_mm"><button class="fx-th" type="button" data-k="monto_mm">Monto (S/ millones)</button></th>
+          <th data-field="var"><button class="fx-th" type="button" data-k="var">Var. (%)</button></th>
+          <th data-field="fact"><button class="fx-th" type="button" data-k="fact">Facturas</button></th>
+          <th data-field="ticket"><button class="fx-th" type="button" data-k="ticket">Monto por factura (S/)</button></th>
+          <th data-field="part"><button class="fx-th" type="button" data-k="part">Participación (%)</button></th>
+          <th data-field="part_mipyme"><button class="fx-th" type="button" data-k="part_mipyme">MIPYME (%)</button></th>
+        </tr></thead><tbody></tbody></table></div>
+    </article>
+  </section>
+
+  <p class="fx-foot" id="metodologia">Notas: la tasa de acceso al financiamiento es el número de empresas registradas en SUNAT con saldo de financiamiento en el sistema financiero, dividido entre las empresas del padrón SUNAT del mismo año, tamaño, sector y departamento. El saldo y el saldo promedio incluyen además a las empresas con financiamiento que no figuran en el padrón SUNAT. MIPYME agrupa a la micro, pequeña y mediana empresa. El padrón de 2019 no es comparable con el de los años siguientes (registra muchas más microempresas sin financiamiento), por lo que su tasa debe leerse con cautela; el padrón de 2025 repite el de 2024. Factoring: monto en soles y número de facturas negociadas, por tamaño empresarial, sector y departamento del proveedor. En 2026 se dispone de enero a agosto; para ese año, las variaciones comparan con el mismo periodo de 2025. Colores de variación: azul indica aumento y rojo disminución. Fuente: bases de indicadores de financiamiento y de factoring. Elaboración: Good Guys Insight.</p>
+</div>
+
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+<script>window.d3 || document.write('<script src="https://unpkg.com/d3@7.9.0/dist/d3.min.js"><\/script>');</script>
+<script>window.d3 || document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"><\/script>');</script>
+<script src="data/datos.js"></script>
+<script>
+(function () {
+  const src = window.FX_DATA || {};
+  const calcs = {};
+  const DEF = { tab: 'fin', fa: 2026, ft: 'MIPYME', fs: 'Todos', fd: null, fm: 'tasa', ga: 2026, gt: 'Todas', gs: 'Todos', gd: null, gm: 'monto_mm', gc: 'monto' };
+  let params = { ...DEF };
+  const subs = [];
+  const fire = () => subs.forEach((fn) => { try { fn(); } catch (e) { console.error(e); } });
+  window.dash = {
+    colors: ['var(--series-1)', 'var(--series-2)', 'var(--series-3)', 'var(--series-4)', 'var(--series-5)', 'var(--series-6)', 'var(--series-7)', 'var(--series-8)'],
+    data(id) {
+      if (src[id]) return { status: 'ok', data: src[id] };
+      if (calcs[id]) { if (!calcs[id].value) calcs[id].value = calcs[id].fn(...calcs[id].inputs.map((i) => src[i] || [])); return { status: 'ok', data: calcs[id].value }; }
+      return { status: 'missing', data: [] };
+    },
+    calc(id, def) { calcs[id] = { inputs: def.inputs, fn: def.fn }; },
+    params() { return { ...params }; },
+    setParams(o) { params = { ...params, ...o }; fire(); },
+    resetParams() { params = { ...DEF }; fire(); },
+    onData(fn) { subs.push(fn); fn(); },
+    setLink(id) { try { history.replaceState(null, '', '#' + id); } catch (e) {} }
+  };
+  let w = 0, t = null;
+  new ResizeObserver((es) => { const nw = Math.round(es[0].contentRect.width); if (nw === w) return; w = nw; clearTimeout(t); t = setTimeout(fire, 120); }).observe(document.getElementById('dash-root'));
+  document.getElementById('fx-theme').addEventListener('click', () => {
+    const dk = document.documentElement.dataset.theme ? document.documentElement.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.dataset.theme = dk ? 'light' : 'dark'; fire();
+  });
+})();
+</script>
+<script>
+(function () {
+  const $ = (id) => document.getElementById(id);
+  const NS = 'http://www.w3.org/2000/svg';
+  const DEF = { tab: 'fin', fa: 2026, ft: 'MIPYME', fs: 'Todos', fd: null, fm: 'tasa', ga: 2026, gt: 'Todas', gs: 'Todos', gd: null, gm: 'monto_mm', gc: 'monto' };
+  const st = () => ({ ...DEF, ...dash.params() });
+  const TAMS = ['Micro', 'Pequeña', 'Mediana', 'Gran empresa'];
+  const TOPT = ['Todas', 'MIPYME', ...TAMS];
+  const SECS = ['Comercio', 'Servicios', 'Manufactura', 'Agropecuario', 'Construcción', 'Minería', 'Pesca'];
+  const MES = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Set', 'Oct', 'Nov', 'Dic'];
+  const MESL = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'setiembre', 'octubre', 'noviembre', 'diciembre'];
+  const NOM = { '00': 'Perú', '01': 'Amazonas', '02': 'Áncash', '03': 'Apurímac', '04': 'Arequipa', '05': 'Ayacucho', '06': 'Cajamarca', '07': 'Callao', '08': 'Cusco', '09': 'Huancavelica', '10': 'Huánuco', '11': 'Ica', '12': 'Junín', '13': 'La Libertad', '14': 'Lambayeque', '15': 'Lima', '16': 'Loreto', '17': 'Madre de Dios', '18': 'Moquegua', '19': 'Pasco', '20': 'Piura', '21': 'Puno', '22': 'San Martín', '23': 'Tacna', '24': 'Tumbes', '25': 'Ucayali' };
+  const RF = ['#e3f2ee', '#b9e0d6', '#84c6b6', '#4ea793', '#1f8270', '#0b5747'];
+  const RG = ['#eceef9', '#ccd2ef', '#a1abe1', '#7180cc', '#4655b1', '#26317d'];
+  const DIV = ['#a50026', '#d73027', '#f46d43', '#fdae61', '#f7f7f7', '#abd9e9', '#74add1', '#4575b4', '#313695'];
+  const loc = d3.formatLocale({ decimal: '.', thousands: ',', grouping: [3], currency: ['S/ ', ''] });
+  const f0 = loc.format(',.0f'), f1 = loc.format(',.1f');
+  const sg1 = (v) => (v > 0 ? '+' : v < 0 ? '−' : '') + f1(Math.abs(v));
+  const pct = (v) => v == null || !isFinite(v) ? '—' : f1(v) + '%';
+  const dark = (c) => { const k = d3.color(c); if (!k) return false; const { r, g, b } = k.rgb(); return 0.299 * r + 0.587 * g + 0.114 * b < 140; };
+  const svgEl = (tag, attrs, parent) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (parent) parent.appendChild(e); return e; };
+  const txt = (parent, attrs, s) => { const t = svgEl('text', attrs, parent); t.textContent = s; return t; };
+  const tipFor = (box) => { let t = box.querySelector('.fx-tip'); if (!t) { t = document.createElement('div'); t.className = 'fx-tip'; t.hidden = true; box.appendChild(t); } return t; };
+  const showTip = (box, tip, ev, lines) => {
+    tip.replaceChildren();
+    lines.forEach((l, i) => {
+      const d = document.createElement('div');
+      if (i === 0) { d.className = 'h'; d.textContent = l; } else { d.className = 'r'; const a = document.createElement('span'); a.textContent = l.k; const b = document.createElement('span'); b.textContent = l.v; d.append(a, b); }
+      tip.appendChild(d);
+    });
+    tip.hidden = false;
+    const r = box.getBoundingClientRect();
+    let x = ev.clientX - r.left + 14, y = ev.clientY - r.top + 14;
+    if (x + tip.offsetWidth > box.clientWidth) x = Math.max(0, ev.clientX - r.left - tip.offsetWidth - 14);
+    if (y + tip.offsetHeight > box.clientHeight) y = Math.max(0, ev.clientY - r.top - tip.offsetHeight - 14);
+    tip.style.left = x + 'px'; tip.style.top = y + 'px';
+  };
+  const hideTip = (tip) => { tip.hidden = true; };
+  const fail = (box, s) => { box.replaceChildren(); if (s === 'error' || s === 'connect' || s === 'declined' || s === 'missing') { const d = document.createElement('div'); d.className = 'fx-fail'; d.textContent = 'No se pudo cargar'; box.appendChild(d); } };
+  const empty = (box, msg) => { const e = document.createElement('div'); e.className = 'fx-empty'; e.textContent = msg; box.appendChild(e); };
+  const setMark = (el, src, field, where) => { el.dataset.source = src; if (field) el.dataset.field = field; if (where) el.dataset.where = where; else delete el.dataset.where; };
+  const W = (o) => Object.entries(o).map(([k, v]) => k + '=' + encodeURIComponent(v)).join('&');
+  const legend = (box, items) => { box.replaceChildren(); items.forEach(([c, t]) => { const s = document.createElement('span'); const i = document.createElement('i'); i.style.background = c; s.append(i, document.createTextNode(t)); box.appendChild(s); }); };
+
+  // ---------- cálculos ----------
+  dash.calc('fin_ind', {
+    inputs: ['fin'],
+    title: 'Indicadores de financiamiento',
+    description: 'Suma empresas, padrón y saldo por año, tamaño (incluye Todas y MIPYME), sector (incluye Todos) y departamento (00 = Perú); tasa = empresas SUNAT con financiamiento / padrón SUNAT × 100.',
+    fn: (fin) => {
+      const m = new Map();
+      for (const r of fin) {
+        const ts = ['Todas', r.tam]; if (r.tam !== 'Gran empresa') ts.push('MIPYME');
+        for (const t of ts) for (const s of ['Todos', r.sec]) for (const d of ['00', r.ccdd]) {
+          const k = r.anio + '|' + t + '|' + s + '|' + d;
+          let o = m.get(k);
+          if (!o) { o = { anio: r.anio, tam: t, sec: s, ccdd: d, dep: d === '00' ? 'Perú' : r.dep, emp: 0, pad: 0, emp_ns: 0, saldo: 0 }; m.set(k, o); }
+          if (r.reg === 'SUNAT') { o.emp += r.emp; o.pad += r.pad; } else o.emp_ns += r.emp;
+          o.saldo += r.saldo;
+        }
+      }
+      const out = [];
+      for (const o of m.values()) {
+        const p = m.get((o.anio - 1) + '|' + o.tam + '|' + o.sec + '|' + o.ccdd);
+        const tasa = o.pad ? Math.round(o.emp / o.pad * 1000) / 10 : null;
+        const tp = p && p.pad ? Math.round(p.emp / p.pad * 1000) / 10 : null;
+        out.push({ clave: o.anio + '-' + o.tam + '-' + o.sec + '-' + o.ccdd, anio: o.anio, tam: o.tam, sec: o.sec, ccdd: o.ccdd, dep: o.dep, pad: o.pad, emp: o.emp, tasa,
+          var_pp: tasa != null && tp != null ? Math.round((tasa - tp) * 10) / 10 : null,
+          saldo_mm: Math.round(o.saldo / 1e6), var_saldo: p && p.saldo ? Math.round((o.saldo / p.saldo - 1) * 1000) / 10 : null,
+          prom: o.emp + o.emp_ns ? Math.round(o.saldo / (o.emp + o.emp_ns)) : null, emp_ns: o.emp_ns });
+      }
+      return out;
+    }
+  });
+  dash.calc('fin_sub_ind', {
+    inputs: ['fin_sub'],
+    title: 'Financiamiento por subsector',
+    description: 'Suma empresas, padrón y saldo por año, tamaño (incluye Todas y MIPYME) y subsector; tasa = empresas SUNAT con financiamiento / padrón SUNAT × 100.',
+    fn: (fin_sub) => {
+      const m = new Map();
+      for (const r of fin_sub) {
+        const ts = ['Todas', r.tam]; if (r.tam !== 'Gran empresa') ts.push('MIPYME');
+        for (const t of ts) {
+          const k = r.anio + '|' + t + '|' + r.sub;
+          let o = m.get(k);
+          if (!o) { o = { anio: r.anio, tam: t, sec: r.sec, sub: r.sub, emp: 0, pad: 0, saldo: 0 }; m.set(k, o); }
+          if (r.reg === 'SUNAT') { o.emp += r.emp; o.pad += r.pad; }
+          o.saldo += r.saldo;
+        }
+      }
+      return [...m.values()].map((o) => ({ clave: o.anio + '-' + o.tam + '-' + o.sub, anio: o.anio, tam: o.tam, sec: o.sec, sub: o.sub, emp: o.emp, pad: o.pad, tasa: o.pad ? Math.round(o.emp / o.pad * 1000) / 10 : null, saldo_mm: Math.round(o.saldo / 1e6) }));
+    }
+  });
+  dash.calc('fac_ind', {
+    inputs: ['fac'],
+    title: 'Indicadores de factoring',
+    description: 'Suma monto y facturas por año, tamaño (incluye Todas y MIPYME), sector (incluye Todos) y departamento (00 = Perú); la variación compara con los mismos meses del año anterior; participación = monto / monto nacional.',
+    fn: (fac) => {
+      const NOMBRE = { '00': 'Perú', '01': 'Amazonas', '02': 'Áncash', '03': 'Apurímac', '04': 'Arequipa', '05': 'Ayacucho', '06': 'Cajamarca', '07': 'Callao', '08': 'Cusco', '09': 'Huancavelica', '10': 'Huánuco', '11': 'Ica', '12': 'Junín', '13': 'La Libertad', '14': 'Lambayeque', '15': 'Lima', '16': 'Loreto', '17': 'Madre de Dios', '18': 'Moquegua', '19': 'Pasco', '20': 'Piura', '21': 'Puno', '22': 'San Martín', '23': 'Tacna', '24': 'Tumbes', '25': 'Ucayali' };
+      const mx = new Map();
+      for (const r of fac) mx.set(r.anio, Math.max(mx.get(r.anio) || 0, r.mes));
+      const m = new Map();
+      const get = (a, t, s, d) => { const k = a + '|' + t + '|' + s + '|' + d; let o = m.get(k); if (!o) { o = { anio: a, tam: t, sec: s, ccdd: d, monto: 0, fact: 0, monto_a: 0, fact_a: 0 }; m.set(k, o); } return o; };
+      for (const r of fac) {
+        const ts = ['Todas', r.tam]; if (r.tam !== 'Gran empresa') ts.push('MIPYME');
+        for (const t of ts) for (const s of ['Todos', r.sec]) for (const d of ['00', r.ccdd]) {
+          const o = get(r.anio, t, s, d); o.monto += r.monto; o.fact += r.fact;
+          if (mx.has(r.anio + 1) && r.mes <= mx.get(r.anio + 1)) { const n = get(r.anio + 1, t, s, d); n.monto_a += r.monto; n.fact_a += r.fact; }
+        }
+      }
+      const out = [];
+      for (const o of m.values()) {
+        if (!mx.has(o.anio) || (!o.monto && !o.fact)) continue;
+        const nat = m.get(o.anio + '|' + o.tam + '|' + o.sec + '|00');
+        const all = m.get(o.anio + '|Todas|' + o.sec + '|' + o.ccdd), mip = m.get(o.anio + '|MIPYME|' + o.sec + '|' + o.ccdd);
+        out.push({ clave: o.anio + '-' + o.tam + '-' + o.sec + '-' + o.ccdd, anio: o.anio, meses: mx.get(o.anio), tam: o.tam, sec: o.sec, ccdd: o.ccdd, dep: NOMBRE[o.ccdd],
+          monto_mm: Math.round(o.monto / 1e5) / 10, fact: o.fact, ticket: o.fact ? Math.round(o.monto / o.fact) : null,
+          var: o.monto_a ? Math.round((o.monto / o.monto_a - 1) * 1000) / 10 : null, var_fact: o.fact_a ? Math.round((o.fact / o.fact_a - 1) * 1000) / 10 : null,
+          part: nat && nat.monto ? Math.round(o.monto / nat.monto * 1000) / 10 : null,
+          part_mipyme: all && all.monto ? Math.round((mip ? mip.monto : 0) / all.monto * 1000) / 10 : null });
+      }
+      return out;
+    }
+  });
+  dash.calc('fac_mes_ind', {
+    inputs: ['fac'],
+    title: 'Factoring mensual',
+    description: 'Suma monto y facturas por año, mes, tamaño (incluye Todas y MIPYME), sector (incluye Todos) y departamento (00 = Perú).',
+    fn: (fac) => {
+      const m = new Map();
+      for (const r of fac) {
+        const ts = ['Todas', r.tam]; if (r.tam !== 'Gran empresa') ts.push('MIPYME');
+        for (const t of ts) for (const s of ['Todos', r.sec]) for (const d of ['00', r.ccdd]) {
+          const k = r.anio + '|' + r.mes + '|' + t + '|' + s + '|' + d;
+          let o = m.get(k);
+          if (!o) { o = { anio: r.anio, mes: r.mes, tam: t, sec: s, ccdd: d, monto: 0, fact: 0 }; m.set(k, o); }
+          o.monto += r.monto; o.fact += r.fact;
+        }
+      }
+      return [...m.values()].map((o) => ({ clave: o.anio + '-' + o.mes + '-' + o.tam + '-' + o.sec + '-' + o.ccdd, anio: o.anio, mes: o.mes, tam: o.tam, sec: o.sec, ccdd: o.ccdd, monto_mm: Math.round(o.monto / 1e5) / 10, fact: o.fact, ticket: o.fact ? Math.round(o.monto / o.fact) : null }));
+    }
+  });
+  dash.calc('fac_sub_ind', {
+    inputs: ['fac_sub'],
+    title: 'Factoring por subsector',
+    description: 'Suma monto y facturas por año, tamaño (incluye Todas y MIPYME) y subsector.',
+    fn: (fac_sub) => {
+      const m = new Map();
+      for (const r of fac_sub) {
+        const ts = ['Todas', r.tam]; if (r.tam !== 'Gran empresa') ts.push('MIPYME');
+        for (const t of ts) { const k = r.anio + '|' + t + '|' + r.sub; let o = m.get(k); if (!o) { o = { anio: r.anio, tam: t, sec: r.sec, sub: r.sub, monto: 0, fact: 0 }; m.set(k, o); } o.monto += r.monto; o.fact += r.fact; }
+      }
+      return [...m.values()].map((o) => ({ clave: o.anio + '-' + o.tam + '-' + o.sub, anio: o.anio, tam: o.tam, sec: o.sec, sub: o.sub, monto_mm: Math.round(o.monto / 1e5) / 10, fact: o.fact }));
+    }
+  });
+
+  // ---------- índices de filas ----------
+  let IDX = {};
+  const index = (id, keyf) => {
+    const d = dash.data(id);
+    if (d.status !== 'ok') return null;
+    if (IDX[id] && IDX[id].src === d.data) return IDX[id].map;
+    const map = new Map(); d.data.forEach((r) => map.set(keyf(r), r));
+    IDX[id] = { src: d.data, map }; return map;
+  };
+  const FI = () => index('fin_ind', (r) => r.anio + '|' + r.tam + '|' + r.sec + '|' + r.ccdd);
+  const GI = () => index('fac_ind', (r) => r.anio + '|' + r.tam + '|' + r.sec + '|' + r.ccdd);
+  const GM = () => index('fac_mes_ind', (r) => r.anio + '|' + r.mes + '|' + r.tam + '|' + r.sec + '|' + r.ccdd);
+  const whereF = (a, t, s, d) => W({ anio: a, tam: t, sec: s, ccdd: d });
+
+  // ---------- controles ----------
+  const root = $('fx');
+  root.querySelectorAll('.fx-tab').forEach((b) => b.addEventListener('click', () => { dash.setParams({ tab: b.dataset.tab }); dash.setLink(b.dataset.tab === 'fin' ? 'financiamiento' : 'factoring'); }));
+  const seg = (box, opts, key) => {
+    box.replaceChildren();
+    opts.forEach(([v, l]) => { const b = document.createElement('button'); b.type = 'button'; b.dataset.v = v; b.textContent = l; b.addEventListener('click', () => { const o = {}; o[key] = v; dash.setParams(o); }); box.appendChild(b); });
+  };
+  const segShow = (box, v) => box.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.v === v)));
+  seg($('ft-seg'), TOPT.map((t) => [t, t === 'Gran empresa' ? 'Grande' : t]), 'ft');
+  seg($('gt-seg'), TOPT.map((t) => [t, t === 'Gran empresa' ? 'Grande' : t]), 'gt');
+  seg($('fm-seg'), [['tasa', 'Tasa de acceso'], ['var_pp', 'Variación'], ['prom', 'Saldo promedio']], 'fm');
+  seg($('gm-seg'), [['monto_mm', 'Monto'], ['var', 'Variación'], ['ticket', 'Monto por factura'], ['part_mipyme', 'MIPYME']], 'gm');
+  seg($('gc-seg'), [['monto', 'Monto'], ['fact', 'Facturas'], ['ticket', 'Monto por factura']], 'gc');
+  const fillSel = (sel, key) => { sel.replaceChildren(new Option('Todos los sectores', 'Todos'), ...SECS.map((s) => new Option(s, s))); sel.addEventListener('change', () => { const o = {}; o[key] = sel.value; dash.setParams(o); }); };
+  fillSel($('fs-sel'), 'fs'); fillSel($('gs-sel'), 'gs');
+  $('fa-in').addEventListener('input', () => dash.setParams({ fa: +$('fa-in').value }));
+  $('ga-in').addEventListener('input', () => dash.setParams({ ga: +$('ga-in').value }));
+  $('fd-chip').addEventListener('click', () => dash.setParams({ fd: null }));
+  $('gd-chip').addEventListener('click', () => dash.setParams({ gd: null }));
+  const pickF = (d) => dash.setParams({ fd: st().fd === d ? null : d });
+  const pickG = (d) => dash.setParams({ gd: st().gd === d ? null : d });
+
+  // ---------- geometría ----------
+  const merc = ([lon, lat]) => [lon * Math.PI / 180, -Math.log(Math.tan(Math.PI / 4 + lat * Math.PI / 360))];
+  const pArea = (ring) => { let a = 0; for (let i = 0, n = ring.length, j = n - 1; i < n; j = i++) a += ring[j][0] * ring[i][1] - ring[i][0] * ring[j][1]; return a / 2; };
+  const pCentroid = (ring) => { let x = 0, y = 0, k = 0; for (let i = 0, n = ring.length, j = n - 1; i < n; j = i++) { const c = ring[j][0] * ring[i][1] - ring[i][0] * ring[j][1]; k += c * 3; x += (ring[j][0] + ring[i][0]) * c; y += (ring[j][1] + ring[i][1]) * c; } return k ? [x / k, y / k] : ring[0]; };
+  const pContains = (ring, [px, py]) => { let ins = false; for (let i = 0, n = ring.length, j = n - 1; i < n; j = i++) { const [xi, yi] = ring[i], [xj, yj] = ring[j]; if ((yi > py) !== (yj > py) && px < (xj - xi) * (py - yi) / (yj - yi) + xi) ins = !ins; } return ins; };
+  const segD = (px, py, [ax, ay], [bx, by]) => { const dx = bx - ax, dy = by - ay, l = dx * dx + dy * dy; const t = l ? Math.max(0, Math.min(1, ((px - ax) * dx + (py - ay) * dy) / l)) : 0; return Math.hypot(px - ax - t * dx, py - ay - t * dy); };
+  const labelPoint = (polys) => {
+    const ring = polys.reduce((a, p) => (Math.abs(pArea(p[0])) > Math.abs(pArea(a[0])) ? p : a))[0];
+    let x0 = Infinity, x1 = -Infinity, y0 = Infinity, y1 = -Infinity;
+    ring.forEach(([x, y]) => { x0 = Math.min(x0, x); x1 = Math.max(x1, x); y0 = Math.min(y0, y); y1 = Math.max(y1, y); });
+    let best = pCentroid(ring), bd = -1; const n = 14;
+    for (let i = 1; i < n; i++) for (let j = 1; j < n; j++) {
+      const px = x0 + (x1 - x0) * i / n, py = y0 + (y1 - y0) * j / n;
+      if (!pContains(ring, [px, py])) continue;
+      let d = Infinity; for (let q = 0; q < ring.length - 1; q++) d = Math.min(d, segD(px, py, ring[q], ring[q + 1]));
+      if (d > bd) { bd = d; best = [px, py]; }
+    }
+    return best;
+  };
+  let SHAPES = null;
+  const shapes = () => {
+    const g = dash.data('limites');
+    if (g.status !== 'ok') return null;
+    if (SHAPES && SHAPES.src === g.data) return SHAPES;
+    const list = g.data.map((r) => { const c = JSON.parse(r.coords); const polys = (r.tipo === 'MultiPolygon' ? c : [c]).map((p) => p.map((ring) => ring.map(merc))); return { id: r.ccdd, polys, lab: labelPoint(polys) }; });
+    let x0 = Infinity, x1 = -Infinity, y0 = Infinity, y1 = -Infinity;
+    list.forEach((s) => s.polys.forEach((p) => p.forEach((ring) => ring.forEach(([x, y]) => { x0 = Math.min(x0, x); x1 = Math.max(x1, x); y0 = Math.min(y0, y); y1 = Math.max(y1, y); }))));
+    SHAPES = { src: g.data, list, b: [x0, x1, y0, y1] };
+    return SHAPES;
+  };
+  const pathOf = (s, k, ox, oy) => s.polys.map((p) => p.map((ring) => 'M' + ring.map(([x, y]) => ((x - ox) * k).toFixed(1) + ',' + ((y - oy) * k).toFixed(1)).join('L') + 'Z').join('')).join('');
+
+  // mapa coroplético genérico
+  const drawMap = (box, o) => {
+    const S = shapes();
+    box.replaceChildren();
+    if (!S) { fail(box, dash.data('limites').status); return; }
+    const w = box.clientWidth; if (!w) return;
+    const [x0, x1, y0, y1] = S.b;
+    const k = Math.min((w - 8) / (x1 - x0), 620 / (y1 - y0));
+    const h = (y1 - y0) * k + 8, ox = x0 - (w / k - (x1 - x0)) / 2, oy = y0 - 4 / k;
+    const svg = svgEl('svg', { width: '100%', viewBox: `0 0 ${w} ${h}`, role: 'img', 'aria-label': o.aria }, box);
+    const tip = tipFor(box);
+    const g = svgEl('g', {}, svg), gl = svgEl('g', { class: 'fx-labs' }, svg);
+    S.list.forEach((s) => {
+      const v = o.val(s.id);
+      const p = svgEl('path', { d: pathOf(s, k, ox, oy), class: 'fx-hit', 'stroke-width': o.sel === s.id ? 2.4 : 0.7, tabindex: 0, role: 'button', 'aria-label': NOM[s.id] }, g);
+      p.style.fill = v == null ? 'var(--color-bg)' : o.color(v);
+      p.style.stroke = o.sel === s.id ? 'var(--color-fg)' : 'var(--color-panel)';
+      if (o.sel && o.sel !== s.id) p.style.opacity = 0.55;
+      p.addEventListener('mousemove', (ev) => showTip(box, tip, ev, o.tip(s.id)));
+      p.addEventListener('mouseleave', () => hideTip(tip));
+      p.addEventListener('click', () => o.pick(s.id));
+      p.addEventListener('keydown', (ev) => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); o.pick(s.id); } });
+    });
+    if (o.sel) { const s = S.list.find((q) => q.id === o.sel); if (s) { const p = svgEl('path', { d: pathOf(s, k, ox, oy), fill: 'none', 'stroke-width': 2.4 }, g); p.style.stroke = 'var(--color-fg)'; } }
+    const narrow = w < 470;
+    const placed = [];
+    S.list.forEach((s) => {
+      const v = o.val(s.id); if (v == null) return;
+      let [lx, ly] = [(s.lab[0] - ox) * k, (s.lab[1] - oy) * k];
+      const off = { '07': [-58, -6] }[s.id];
+      if (off) { const ln = svgEl('line', { x1: lx, y1: ly, x2: lx + off[0] * 0.8, y2: ly + off[1] * 0.8, 'stroke-width': 0.8 }, gl); ln.style.stroke = 'var(--color-fg-muted)'; lx += off[0]; ly += off[1]; }
+      const mk = (xx, yy) => { const t = svgEl('text', { x: xx, y: yy, 'text-anchor': 'middle', class: 'fx-lab' }, gl); if (!narrow) { const a = svgEl('tspan', { x: xx, dy: '-0.15em' }, t); a.textContent = NOM[s.id]; } const b = svgEl('tspan', { x: xx, dy: narrow ? '0.35em' : '1.1em', class: 'v' }, t); b.textContent = o.lab(v); return t; };
+      const hits = (bb) => placed.some((q) => bb.x < q.x + q.width && bb.x + bb.width > q.x && bb.y < q.y + q.height && bb.y + bb.height > q.y);
+      let t = null, bb = null;
+      for (const [dx, dy] of [[0, 0], [0, -12], [0, 12], [-14, 0], [14, 0], [-10, -14], [10, 14], [0, -22], [0, 22]]) {
+        if (t) t.remove();
+        t = mk(lx + dx, ly + dy); bb = t.getBBox();
+        if (!hits(bb)) break;
+      }
+      placed.push(bb);
+    });
+  };
+  const sextiles = (vals, ramp) => {
+    const v = vals.filter((x) => x != null && isFinite(x)).sort(d3.ascending);
+    const q = d3.scaleQuantile(v, ramp);
+    return q;
+  };
+  const divScale = (th, up) => (v) => {
+    const s = up ? v : -v; let i;
+    if (s <= -th[3]) i = 0; else if (s <= -th[2]) i = 1; else if (s <= -th[1]) i = 2; else if (s <= -th[0]) i = 3; else if (s < th[0]) i = 4; else if (s < th[1]) i = 5; else if (s < th[2]) i = 6; else if (s < th[3]) i = 7; else i = 8;
+    return DIV[i];
+  };
+  const divLegend = (box, th, unit) => legend(box, [
+    [DIV[0], '≤ −' + th[3] + unit], [DIV[2], '−' + th[2] + ' a −' + th[1]], [DIV[3], '−' + th[1] + ' a −' + th[0]], [DIV[4], '±' + th[0] + unit], [DIV[5], '+' + th[0] + ' a +' + th[1]], [DIV[6], '+' + th[1] + ' a +' + th[2]], [DIV[8], '≥ +' + th[3] + unit]]);
+  const qLegend = (box, q, fmt) => { const th = q.quantiles(); const r = q.range(); legend(box, r.map((c, i) => [c, i === 0 ? '< ' + fmt(th[0]) : i === r.length - 1 ? '≥ ' + fmt(th[i - 1]) : fmt(th[i - 1]) + ' a ' + fmt(th[i])])); };
+
+  // ---------- treemap ----------
+  const drawTree = (box, rows, o) => {
+    box.replaceChildren();
+    const w = box.clientWidth; if (!w) return;
+    if (!rows.length) { empty(box, 'Sin datos para la selección.'); return; }
+    const h = Math.max(320, Math.min(520, w * 0.5));
+    const data = { name: 'root', children: d3.groups(rows, (r) => r.sec).map(([s, rs]) => ({ name: s, children: rs.map((r) => ({ name: r.sub, r, value: o.size(r) })) })) };
+    const hr = d3.hierarchy(data).sum((d) => d.value || 0).sort((a, b) => b.value - a.value);
+    d3.treemap().size([w, h]).paddingOuter(2).paddingTop(18).paddingInner(1.5).round(true)(hr);
+    const svg = svgEl('svg', { width: '100%', viewBox: `0 0 ${w} ${h}`, role: 'img', 'aria-label': o.aria }, box);
+    const tip = tipFor(box);
+    const total = hr.value;
+    hr.children.forEach((sn) => {
+      const r = svgEl('rect', { x: sn.x0, y: sn.y0, width: sn.x1 - sn.x0, height: sn.y1 - sn.y0, rx: 3 }, svg);
+      r.style.fill = 'none'; r.style.stroke = 'var(--color-border-line)';
+      if (sn.x1 - sn.x0 > 60) { const t = txt(svg, { x: sn.x0 + 5, y: sn.y0 + 13, class: 'fx-strong' }, sn.data.name + ' · ' + f1(sn.value / total * 100) + '%'); const maxw = sn.x1 - sn.x0 - 10; while (t.getComputedTextLength() > maxw && t.textContent.length > 4) t.textContent = t.textContent.slice(0, -2) + '…'; }
+    });
+    hr.leaves().forEach((n) => {
+      const c = o.color(n.data.r);
+      const r = svgEl('rect', { x: n.x0, y: n.y0, width: Math.max(0, n.x1 - n.x0), height: Math.max(0, n.y1 - n.y0), rx: 2, class: 'fx-hit' }, svg);
+      r.style.fill = c;
+      r.addEventListener('mousemove', (ev) => showTip(box, tip, ev, o.tip(n.data.r, n.value / total * 100)));
+      r.addEventListener('mouseleave', () => hideTip(tip));
+      const bw = n.x1 - n.x0, bh = n.y1 - n.y0;
+      if (bw > 54 && bh > 30) {
+        const cls = dark(c) ? 'fx-in' : 'fx-ind';
+        const t = txt(svg, { x: n.x0 + 4, y: n.y0 + 13, class: cls }, n.data.name);
+        while (t.getComputedTextLength() > bw - 8 && t.textContent.length > 4) t.textContent = t.textContent.slice(0, -2) + '…';
+        const t2 = txt(svg, { x: n.x0 + 4, y: n.y0 + 26, class: cls, 'font-weight': 400 }, o.lab(n.data.r));
+        if (t2.getComputedTextLength() > bw - 8) t2.remove();
+      }
+    });
+  };
+
+  // ---------- tabla ----------
+  const tables = {};
+  const table = (id, qid, cols, sk, bi) => {
+    const T = { sort: { k: sk, d: -1 } };
+    tables[id] = T;
+    const tb = $(id);
+    tb.querySelectorAll('.fx-th').forEach((b) => b.addEventListener('click', () => { const k = b.dataset.k; T.sort = { k, d: T.sort.k === k ? -T.sort.d : (k === 'dep' ? 1 : -1) }; T.draw && T.draw(); }));
+    $(qid).addEventListener('input', () => T.draw && T.draw());
+    T.fill = (rows, sel, pick) => {
+      T.draw = () => {
+        const q = $(qid).value.trim().toLowerCase();
+        const { k, d } = T.sort;
+        const rs = rows.filter((r) => !q || r.dep.toLowerCase().includes(q)).sort((a, b) => k === 'dep' ? d * a.dep.localeCompare(b.dep, 'es') : d * ((a[k] ?? -Infinity) - (b[k] ?? -Infinity)));
+        tb.querySelectorAll('th').forEach((th) => { const b = th.querySelector('button'); th.setAttribute('aria-sort', b.dataset.k === k ? (d > 0 ? 'ascending' : 'descending') : 'none'); });
+        const body = tb.tBodies[0]; body.replaceChildren();
+        const mx = d3.max(rows, (r) => r[cols[bi].k]) || 1;
+        rs.forEach((r) => {
+          const tr = document.createElement('tr'); tr.dataset.key = r.clave; if (sel === r.ccdd) tr.className = 'sel';
+          cols.forEach((c, i) => {
+            const td = document.createElement('td');
+            if (i === bi && r[c.k] != null) { const s = document.createElement('span'); s.className = 'fx-bar'; s.style.width = Math.max(2, 56 * r[c.k] / mx) + 'px'; s.style.background = c.bar; td.appendChild(s); }
+            td.appendChild(document.createTextNode(c.f(r[c.k])));
+            tr.appendChild(td);
+          });
+          tr.addEventListener('click', () => pick(r.ccdd));
+          body.appendChild(tr);
+        });
+      };
+      T.draw();
+    };
+  };
+  const nf = (f) => (v) => v == null ? '—' : f(v);
+  table('fin-tb', 'fin-q', [{ k: 'dep', f: (v) => v }, { k: 'pad', f: nf(f0) }, { k: 'emp', f: nf(f0) }, { k: 'tasa', f: nf(f1), bar: RF[4] }, { k: 'var_pp', f: nf(sg1) }, { k: 'saldo_mm', f: nf(f0) }, { k: 'prom', f: nf(f0) }, { k: 'emp_ns', f: nf(f0) }], 'tasa', 3);
+  table('fac-tb', 'fac-q', [{ k: 'dep', f: (v) => v }, { k: 'monto_mm', f: nf(f1), bar: RG[4] }, { k: 'var', f: nf(sg1) }, { k: 'fact', f: nf(f0) }, { k: 'ticket', f: nf(f0) }, { k: 'part', f: nf(f1) }, { k: 'part_mipyme', f: nf(f1) }], 'monto_mm', 1);
+
+  // =============== FINANCIAMIENTO ===============
+  const drawFin = (p) => {
+    const F = FI(); const sF = dash.data('fin_ind').status;
+    const a = p.fa, t = p.ft, s = p.fs, d = p.fd || '00';
+    $('fa-in').value = a; $('fa-out').textContent = String(a);
+    segShow($('ft-seg'), t); segShow($('fm-seg'), p.fm); $('fs-sel').value = s;
+    $('fd-chip').hidden = !p.fd; $('fd-chip').textContent = p.fd ? NOM[p.fd] + ' ×' : '';
+    const ttxt = t === 'Todas' ? 'todas las empresas' : t === 'MIPYME' ? 'MIPYME' : t === 'Gran empresa' ? 'gran empresa' : t.toLowerCase() + ' empresa';
+    const ctx = [NOM[d], s === 'Todos' ? null : s, ttxt, String(a)].filter(Boolean).join(' · ');
+    // tiles
+    const r = F ? F.get(a + '|' + t + '|' + s + '|' + d) : null;
+    const wh = whereF(a, t, s, d);
+    ['fin-t1', 'fin-d1', 'fin-t2', 'fin-d2', 'fin-t3', 'fin-d3', 'fin-t4', 'fin-t5'].forEach((id) => { $(id).dataset.where = wh; });
+    if (!F || !r) {
+      ['fin-t1', 'fin-t2', 'fin-t3', 'fin-t4', 'fin-t5'].forEach((id) => { $(id).textContent = '—'; });
+      ['fin-d1', 'fin-d2', 'fin-d3'].forEach((id) => { $(id).textContent = F ? 'Sin datos para la selección' : '—'; });
+    } else {
+      $('fin-t1').textContent = pct(r.tasa);
+      const d1 = $('fin-d1'); d1.className = 'fx-td ' + (r.var_pp > 0 ? 'fx-up' : r.var_pp < 0 ? 'fx-dn' : '');
+      d1.textContent = r.var_pp == null ? 'Sin año previo comparable' : sg1(r.var_pp) + ' pp frente a ' + (a - 1);
+      $('fin-t2').textContent = f0(r.emp);
+      $('fin-d2').textContent = 'de ' + f0(r.pad) + ' empresas en el padrón';
+      $('fin-t3').replaceChildren(document.createTextNode('S/ ' + f0(r.saldo_mm)), Object.assign(document.createElement('small'), { textContent: 'millones' }));
+      const d3e = $('fin-d3'); d3e.className = 'fx-td ' + (r.var_saldo > 0 ? 'fx-up' : r.var_saldo < 0 ? 'fx-dn' : '');
+      d3e.textContent = r.var_saldo == null ? '—' : sg1(r.var_saldo) + '% frente a ' + (a - 1);
+      $('fin-t4').textContent = r.prom == null ? '—' : 'S/ ' + f0(r.prom);
+      $('fin-t5').textContent = f0(r.emp_ns);
+    }
+    // mapa
+    const mapBox = $('fin-map');
+    const deps = Object.keys(NOM).filter((c) => c !== '00');
+    const val = (c) => { const x = F && F.get(a + '|' + t + '|' + s + '|' + c); return x ? x[p.fm] : null; };
+    const MT = { tasa: ['Tasa de acceso al financiamiento por departamento', 'Porcentaje de empresas del padrón SUNAT con financiamiento. Seis grupos de igual número de departamentos; más oscuro, mayor acceso. Haga clic en un departamento para filtrar el tablero.'],
+      var_pp: ['Variación anual de la tasa de acceso', 'Cambio frente al año anterior, en puntos porcentuales. Azul: la tasa subió; rojo: bajó.'],
+      prom: ['Saldo promedio por empresa con financiamiento', 'Soles por empresa. Seis grupos de igual número de departamentos; más oscuro, mayor saldo promedio.'] };
+    $('fin-map-t').textContent = MT[p.fm][0]; $('fin-map-n').textContent = MT[p.fm][1] + ' ' + ctx.replace(/^Perú · /, '').replace(/^./, (c) => c.toUpperCase()) + '.';
+    if (!F) { fail(mapBox, sF); $('fin-map-lg').replaceChildren(); }
+    else {
+      const vals = deps.map(val);
+      let color, lab;
+      if (p.fm === 'var_pp') { const th = [0.5, 1.5, 3, 5]; color = divScale(th, true); lab = sg1; divLegend($('fin-map-lg'), th, ' pp'); }
+      else { const q = sextiles(vals, RF); color = q; lab = p.fm === 'tasa' ? f1 : (v) => f0(v / 1000) + ' mil'; qLegend($('fin-map-lg'), q, p.fm === 'tasa' ? (v) => f1(v) + '%' : (v) => 'S/ ' + f0(v / 1000) + ' mil'); }
+      drawMap(mapBox, { aria: MT[p.fm][0], sel: p.fd, val, color, lab, pick: pickF,
+        tip: (c) => { const x = F.get(a + '|' + t + '|' + s + '|' + c); return x ? [NOM[c] + ' · ' + a, { k: 'Tasa de acceso', v: pct(x.tasa) }, { k: 'Variación', v: x.var_pp == null ? '—' : sg1(x.var_pp) + ' pp' }, { k: 'Con financiamiento', v: f0(x.emp) }, { k: 'Padrón SUNAT', v: f0(x.pad) }, { k: 'Saldo', v: 'S/ ' + f0(x.saldo_mm) + ' mill.' }, { k: 'Saldo promedio', v: x.prom == null ? '—' : 'S/ ' + f0(x.prom) }] : [NOM[c], { k: 'Sin datos', v: '' }]; } });
+      if (vals.every((v) => v == null)) empty(mapBox, 'Sin datos para la selección.');
+    }
+    // burbujas
+    drawBubbles(p, F, sF, a, t, s);
+    // líneas por tamaño
+    drawLines(p, F, sF, s, d);
+    // matriz
+    drawMatrix(p, F, sF, a, d);
+    // treemap
+    const SB = dash.data('fin_sub_ind');
+    $('fin-tr-t').textContent = 'Saldo de financiamiento por subsector, ' + a + (t === 'Todas' ? '' : ' · ' + ttxt);
+    if (SB.status !== 'ok') { fail($('fin-tr'), SB.status); $('fin-tr-lg').replaceChildren(); }
+    else {
+      const rows = SB.data.filter((x) => x.anio === a && x.tam === t && (s === 'Todos' || x.sec === s) && x.saldo_mm > 0);
+      const q = sextiles(rows.map((x) => x.tasa), RF);
+      drawTree($('fin-tr'), rows, { aria: 'Saldo por subsector', size: (x) => x.saldo_mm, color: (x) => x.tasa == null ? 'var(--color-bg)' : q(x.tasa), lab: (x) => 'S/ ' + f0(x.saldo_mm) + ' mill. · ' + pct(x.tasa),
+        tip: (x, sh) => [x.sub, { k: 'Sector', v: x.sec }, { k: 'Saldo', v: 'S/ ' + f0(x.saldo_mm) + ' millones' }, { k: 'Participación', v: f1(sh) + '%' }, { k: 'Tasa de acceso', v: pct(x.tasa) }, { k: 'Con financiamiento', v: f0(x.emp) }, { k: 'Padrón SUNAT', v: f0(x.pad) }] });
+      if (rows.length) { qLegend($('fin-tr-lg'), q, (v) => f1(v) + '%'); $('fin-tr-lg').prepend(Object.assign(document.createElement('span'), { textContent: 'Tasa de acceso:' })); } else $('fin-tr-lg').replaceChildren();
+    }
+    // tabla
+    $('fin-tb-t').textContent = 'Detalle por departamento · ' + ctx.replace(/^Perú · /, '').replace(/^./, (c) => c.toUpperCase());
+    if (F) tables['fin-tb'].fill(deps.map((c) => F.get(a + '|' + t + '|' + s + '|' + c)).filter(Boolean), p.fd, pickF);
+    else tables['fin-tb'].fill([], null, pickF);
+    return r;
+  };
+
+  const drawBubbles = (p, F, sF, a, t, s) => {
+    const box = $('fin-sc'); box.replaceChildren();
+    if (!F) { fail(box, sF); return; }
+    const w = box.clientWidth; if (!w) return;
+    const rows = Object.keys(NOM).filter((c) => c !== '00').map((c) => F.get(a + '|' + t + '|' + s + '|' + c)).filter((r) => r && r.tasa != null && r.prom > 0);
+    const nat = F.get(a + '|' + t + '|' + s + '|00');
+    if (!rows.length || !nat) { empty(box, 'Sin datos para la selección.'); return; }
+    const h = Math.max(320, Math.min(480, w * 0.85)), m = { l: 58, r: 16, t: 14, b: 38 };
+    const x = d3.scaleLinear(d3.extent(rows, (r) => r.tasa), [m.l, w - m.r]).nice();
+    const ye = d3.extent(rows, (r) => r.prom); const y = d3.scaleLog([ye[0] / 1.25, ye[1] * 1.25], [h - m.b, m.t]);
+    const rr = d3.scaleSqrt([0, d3.max(rows, (r) => r.emp)], [3, Math.max(16, w / 26)]);
+    const svg = svgEl('svg', { width: '100%', viewBox: `0 0 ${w} ${h}`, role: 'img', 'aria-label': 'Burbujas por departamento' }, box);
+    x.ticks(6).forEach((v) => { const l = svgEl('line', { x1: x(v), x2: x(v), y1: m.t, y2: h - m.b }, svg); l.style.stroke = 'var(--cds-chart-grid)'; txt(svg, { x: x(v), y: h - m.b + 14, 'text-anchor': 'middle' }, f0(v) + '%'); });
+    y.ticks(8).filter((v) => /^[125]/.test(String(v))).forEach((v) => { const l = svgEl('line', { x1: m.l, x2: w - m.r, y1: y(v), y2: y(v) }, svg); l.style.stroke = 'var(--cds-chart-grid)'; txt(svg, { x: m.l - 6, y: y(v) + 4, 'text-anchor': 'end' }, 'S/ ' + loc.format('~s')(v).replace('k', ' mil').replace('M', ' mill.')); });
+    txt(svg, { x: w - m.r, y: h - 4, 'text-anchor': 'end' }, 'Tasa de acceso (%)');
+    txt(svg, { x: m.l, y: m.t - 2 }, 'Saldo promedio por empresa');
+    if (nat.tasa >= x.domain()[0] && nat.tasa <= x.domain()[1]) { const l = svgEl('line', { x1: x(nat.tasa), x2: x(nat.tasa), y1: m.t, y2: h - m.b, 'stroke-dasharray': '4 3' }, svg); l.style.stroke = 'var(--cds-chart-reference)'; }
+    if (nat.prom >= y.domain()[0] && nat.prom <= y.domain()[1]) { const l = svgEl('line', { x1: m.l, x2: w - m.r, y1: y(nat.prom), y2: y(nat.prom), 'stroke-dasharray': '4 3' }, svg); l.style.stroke = 'var(--cds-chart-reference)'; }
+    [['Mayor acceso y mayor saldo', w - m.r - 4, m.t + 12, 'end'], ['Menor acceso y menor saldo', m.l + 4, h - m.b - 6, 'start']].forEach(([s2, xx, yy, an]) => txt(svg, { x: xx, y: yy, 'text-anchor': an }, s2));
+    const tip = tipFor(box);
+    const q = sextiles(rows.map((r) => r.tasa), RF);
+    rows.sort((a2, b) => b.emp - a2.emp).forEach((r) => {
+      const c = svgEl('circle', { cx: x(r.tasa), cy: y(r.prom), r: rr(r.emp), class: 'fx-hit', 'stroke-width': p.fd === r.ccdd ? 2.4 : 1 }, svg);
+      c.style.fill = q(r.tasa); c.style.fillOpacity = 0.85; c.style.stroke = p.fd === r.ccdd ? 'var(--color-fg)' : 'var(--color-panel)';
+      if (p.fd && p.fd !== r.ccdd) c.style.opacity = 0.45;
+      c.addEventListener('mousemove', (ev) => showTip(box, tip, ev, [r.dep, { k: 'Tasa de acceso', v: pct(r.tasa) }, { k: 'Saldo promedio', v: 'S/ ' + f0(r.prom) }, { k: 'Con financiamiento', v: f0(r.emp) }]));
+      c.addEventListener('mouseleave', () => hideTip(tip));
+      c.addEventListener('click', () => pickF(r.ccdd));
+    });
+    // etiquetas sin choques
+    const placed = [];
+    const g = svgEl('g', { class: 'fx-labs' }, svg);
+    [...rows].sort((a2, b) => (b.ccdd === p.fd) - (a2.ccdd === p.fd) || b.emp - a2.emp).forEach((r) => {
+      const cx = x(r.tasa), cy = y(r.prom), rad = rr(r.emp);
+      const tries = [[cx, cy - rad - 3, 'middle'], [cx + rad + 3, cy + 4, 'start'], [cx - rad - 3, cy + 4, 'end'], [cx, cy + rad + 11, 'middle']];
+      for (const [lx, ly, an] of tries) {
+        const t2 = txt(g, { x: lx, y: ly, 'text-anchor': an, class: 'fx-lab' }, r.dep);
+        const bb = t2.getBBox();
+        const hit = bb.x < 0 || bb.x + bb.width > w || placed.some((q2) => bb.x < q2.x + q2.width && bb.x + bb.width > q2.x && bb.y < q2.y + q2.height && bb.y + bb.height > q2.y);
+        if (!hit) { placed.push(bb); break; }
+        t2.remove();
+      }
+    });
+  };
+
+  const drawLines = (p, F, sF, s, d) => {
+    const box = $('fin-ln'); box.replaceChildren();
+    $('fin-ln-t').textContent = 'Tasa de acceso por tamaño empresarial' + (d !== '00' || s !== 'Todos' ? ' · ' + [d !== '00' ? NOM[d] : null, s !== 'Todos' ? s : null].filter(Boolean).join(' · ') : '');
+    if (!F) { fail(box, sF); return; }
+    const w = box.clientWidth; if (!w) return;
+    const years = [...new Set(dash.data('fin_ind').data.map((r) => r.anio))].sort();
+    const ser = TAMS.map((t, i) => ({ t, c: dash.colors[i], pts: years.map((a) => { const r = F.get(a + '|' + t + '|' + s + '|' + d); return r && r.tasa != null ? { a, v: r.tasa } : null; }).filter(Boolean) })).filter((q) => q.pts.length);
+    if (!ser.length) { empty(box, 'Sin datos para la selección.'); return; }
+    const h = Math.max(260, Math.min(360, w * 0.62));
+    const lw = 96, m = { l: 34, r: lw, t: 12, b: 26 };
+    const x = d3.scaleLinear(d3.extent(years), [m.l, w - m.r]);
+    const y = d3.scaleLinear([0, Math.min(100, d3.max(ser, (q) => d3.max(q.pts, (z) => z.v)) * 1.08)], [h - m.b, m.t]).nice();
+    const svg = svgEl('svg', { width: '100%', viewBox: `0 0 ${w} ${h}`, role: 'img', 'aria-label': 'Tasa de acceso por tamaño' }, box);
+    y.ticks(5).forEach((v) => { const l = svgEl('line', { x1: m.l, x2: w - m.r, y1: y(v), y2: y(v) }, svg); l.style.stroke = 'var(--cds-chart-grid)'; txt(svg, { x: m.l - 6, y: y(v) + 4, 'text-anchor': 'end' }, f0(v) + '%'); });
+    years.forEach((a) => { if (w < 420 && a % 2) return; txt(svg, { x: x(a), y: h - 8, 'text-anchor': 'middle' }, String(a)); });
+    const ax = svgEl('line', { x1: x(p.fa), x2: x(p.fa), y1: m.t, y2: h - m.b, 'stroke-dasharray': '3 3' }, svg); ax.style.stroke = 'var(--cds-chart-reference)';
+    const tip = tipFor(box);
+    const ends = [];
+    ser.forEach((q) => {
+      const p19 = q.pts.filter((z) => z.a <= 2020), rest = q.pts.filter((z) => z.a >= 2020);
+      const line = d3.line().x((z) => x(z.a)).y((z) => y(z.v));
+      if (p19.length > 1) { const pa = svgEl('path', { d: line(p19), fill: 'none', 'stroke-width': 1.6, 'stroke-dasharray': '3 3' }, svg); pa.style.stroke = q.c; }
+      const pb = svgEl('path', { d: line(rest), fill: 'none', 'stroke-width': 2, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, svg); pb.style.stroke = q.c;
+      q.pts.forEach((z) => { const c = svgEl('circle', { cx: x(z.a), cy: y(z.v), r: z.a === p.fa ? 4.5 : 2.6, 'stroke-width': 1.5 }, svg); c.style.fill = z.a === 2019 ? 'var(--color-panel)' : q.c; c.style.stroke = q.c; });
+      const lst = q.pts[q.pts.length - 1]; ends.push({ q, y: y(lst.v), v: lst.v });
+    });
+    ends.sort((a2, b) => a2.y - b.y); for (let i = 1; i < ends.length; i++) if (ends[i].y - ends[i - 1].y < 13) ends[i].y = ends[i - 1].y + 13;
+    ends.forEach((e) => { const t = txt(svg, { x: w - m.r + 6, y: e.y + 4, class: 'fx-strong' }, (e.q.t === 'Gran empresa' ? 'Grande' : e.q.t) + ' ' + f1(e.v) + '%'); t.style.fill = e.q.c; });
+    const hov = svgEl('rect', { x: m.l, y: m.t, width: w - m.l - m.r, height: h - m.t - m.b, fill: 'transparent' }, svg);
+    hov.addEventListener('mousemove', (ev) => { const r = svg.getBoundingClientRect(); const xx = (ev.clientX - r.left) * w / r.width; const a = Math.round(x.invert(xx)); showTip(box, tip, ev, [String(a) + (a === 2019 ? ' (padrón no comparable)' : ''), ...ser.map((q) => { const z = q.pts.find((z2) => z2.a === a); return { k: q.t, v: z ? pct(z.v) : '—' }; })]); });
+    hov.addEventListener('mouseleave', () => hideTip(tip));
+    hov.addEventListener('click', (ev) => { const r = svg.getBoundingClientRect(); dash.setParams({ fa: Math.round(x.invert((ev.clientX - r.left) * w / r.width)) }); });
+  };
+
+  const drawMatrix = (p, F, sF, a, d) => {
+    const box = $('fin-hm'); box.replaceChildren();
+    $('fin-hm-t').textContent = 'Matriz de acceso: sector y tamaño · ' + NOM[d] + ' ' + a;
+    if (!F) { fail(box, sF); return; }
+    const w = box.clientWidth; if (!w) return;
+    const cols = ['Todas', ...TAMS], rows = ['Todos', ...SECS];
+    const lw = Math.min(104, w * 0.27), cw = (w - lw) / cols.length, rh = 34, ht = 22;
+    const h = ht + rh * rows.length;
+    const svg = svgEl('svg', { width: '100%', viewBox: `0 0 ${w} ${h}`, role: 'img', 'aria-label': 'Matriz de acceso' }, box);
+    const tip = tipFor(box);
+    const vals = []; rows.forEach((s) => cols.forEach((t) => { const r = F.get(a + '|' + t + '|' + s + '|' + d); if (r && r.tasa != null) vals.push(r.tasa); }));
+    const col = d3.scaleQuantize([0, Math.max(10, d3.max(vals) || 10)], RF);
+    cols.forEach((t, j) => txt(svg, { x: lw + cw * j + cw / 2, y: 14, 'text-anchor': 'middle', class: t === p.ft ? 'fx-strong' : '' }, w < 460 ? { Todas: 'Todas', Micro: 'Micro', 'Pequeña': 'Peq.', Mediana: 'Med.', 'Gran empresa': 'Gran' }[t] : t === 'Gran empresa' ? 'Grande' : t));
+    rows.forEach((s, i) => {
+      const yy = ht + rh * i;
+      txt(svg, { x: lw - 8, y: yy + rh / 2 + 4, 'text-anchor': 'end', class: s === p.fs ? 'fx-strong' : '' }, s === 'Todos' ? 'Todos' : s);
+      cols.forEach((t, j) => {
+        const r = F.get(a + '|' + t + '|' + s + '|' + d);
+        const c = r && r.tasa != null ? col(r.tasa) : 'var(--color-bg)';
+        const on = s === p.fs && (t === p.ft || (p.ft === 'MIPYME' && t !== 'Gran empresa' && t !== 'Todas'));
+        const rc = svgEl('rect', { x: lw + cw * j + 1, y: yy + 1, width: cw - 2, height: rh - 2, rx: 3, class: 'fx-hit', 'stroke-width': on ? 2 : 0 }, svg);
+        rc.style.fill = c; if (on) rc.style.stroke = 'var(--color-fg)';
+        if (r && r.tasa != null) txt(svg, { x: lw + cw * j + cw / 2, y: yy + rh / 2 + 4, 'text-anchor': 'middle', class: dark(c) ? 'fx-in' : 'fx-ind', 'pointer-events': 'none' }, f1(r.tasa));
+        rc.addEventListener('mousemove', (ev) => showTip(box, tip, ev, [s + ' · ' + t, { k: 'Tasa de acceso', v: r ? pct(r.tasa) : '—' }, { k: 'Con financiamiento', v: r ? f0(r.emp) : '—' }, { k: 'Padrón SUNAT', v: r ? f0(r.pad) : '—' }]));
+        rc.addEventListener('mouseleave', () => hideTip(tip));
+        rc.addEventListener('click', () => dash.setParams({ fs: s, ft: t }));
+      });
+    });
+  };
+
+  // =============== FACTORING ===============
+  const perTxt = (a, mm) => mm && mm < 12 ? (mm === 1 ? 'enero ' : 'enero-' + MESL[mm - 1] + ' ') + a : String(a);
+  const drawFac = (p) => {
+    const G = GI(); const sG = dash.data('fac_ind').status;
+    const a = p.ga, t = p.gt, s = p.gs, d = p.gd || '00';
+    $('ga-in').value = a;
+    segShow($('gt-seg'), t); segShow($('gm-seg'), p.gm); segShow($('gc-seg'), p.gc); $('gs-sel').value = s;
+    $('gd-chip').hidden = !p.gd; $('gd-chip').textContent = p.gd ? NOM[p.gd] + ' ×' : '';
+    const r = G ? G.get(a + '|' + t + '|' + s + '|' + d) : null;
+    const nat0 = G ? G.get(a + '|Todas|Todos|00') : null;
+    const mm = r ? r.meses : nat0 ? nat0.meses : 12;
+    $('ga-out').textContent = mm < 12 ? a + ' (ene-' + MES[mm - 1].toLowerCase() + ')' : String(a);
+    const ttxt = t === 'Todas' ? 'todas las empresas' : t === 'MIPYME' ? 'MIPYME' : t === 'Gran empresa' ? 'gran empresa' : t.toLowerCase() + ' empresa';
+    const ctx = [d !== '00' ? NOM[d] : null, s === 'Todos' ? null : s, ttxt, perTxt(a, mm)].filter(Boolean).join(' · ');
+    const wh = W({ anio: a, tam: t, sec: s, ccdd: d });
+    ['fac-t1', 'fac-d1', 'fac-t2', 'fac-d2', 'fac-t3', 'fac-t5'].forEach((id) => { $(id).dataset.where = wh; });
+    $('fac-t4').dataset.where = W({ anio: a, tam: 'Todas', sec: s, ccdd: d });
+    const rAll = G ? G.get(a + '|Todas|' + s + '|' + d) : null;
+    $('fac-l1').textContent = 'Monto negociado' + (mm < 12 ? ' (ene-' + MES[mm - 1].toLowerCase() + ')' : '');
+    if (!G || !r) {
+      ['fac-t1', 'fac-t2', 'fac-t3', 'fac-t5'].forEach((id) => { $(id).textContent = '—'; });
+      ['fac-d1', 'fac-d2'].forEach((id) => { $(id).textContent = G ? 'Sin operaciones para la selección' : '—'; });
+    } else {
+      $('fac-t1').replaceChildren(document.createTextNode('S/ ' + f1(r.monto_mm)), Object.assign(document.createElement('small'), { textContent: 'millones' }));
+      const vtx = (v, el) => { el.className = 'fx-td ' + (v > 0 ? 'fx-up' : v < 0 ? 'fx-dn' : ''); el.textContent = v == null ? 'Sin periodo previo' : sg1(v) + '% frente a ' + perTxt(a - 1, mm < 12 ? mm : 12); };
+      vtx(r.var, $('fac-d1'));
+      $('fac-t2').textContent = f0(r.fact); vtx(r.var_fact, $('fac-d2'));
+      $('fac-t3').textContent = r.ticket == null ? '—' : 'S/ ' + f0(r.ticket);
+      $('fac-t5').textContent = pct(r.part);
+      $('fac-d5').textContent = d === '00' && t === 'Todas' && s === 'Todos' ? 'Total nacional' : 'De ' + (t === 'Todas' ? 'todas las empresas' : ttxt) + (s === 'Todos' ? '' : ' de ' + s.toLowerCase()) + ' del país';
+    }
+    $('fac-t4').textContent = rAll && rAll.part_mipyme != null ? pct(rAll.part_mipyme) : '—';
+    // calendario y mensual
+    drawCal(p, s, t, d);
+    drawMonthly(p, s, t, d);
+    drawComp(p, G, sG, s, d);
+    // mapa
+    const deps = Object.keys(NOM).filter((c) => c !== '00');
+    const val = (c) => { const x = G && G.get(a + '|' + t + '|' + s + '|' + c); return x ? x[p.gm] : null; };
+    const MT = { monto_mm: ['Monto negociado por departamento', 'S/ millones, según el departamento del proveedor. Seis grupos de igual número de departamentos; más oscuro, mayor monto.'],
+      var: ['Variación del monto negociado', 'Cambio porcentual frente al mismo periodo del año anterior. Azul: el monto creció; rojo: cayó.'],
+      ticket: ['Monto promedio por factura', 'Soles por factura negociada. Seis grupos de igual número de departamentos.'],
+      part_mipyme: ['Participación de la MIPYME en el monto', 'Porcentaje del monto negociado que corresponde a micro, pequeñas y medianas empresas.'] };
+    $('fac-map-t').textContent = MT[p.gm][0]; $('fac-map-n').textContent = MT[p.gm][1] + ' ' + ctx.charAt(0).toUpperCase() + ctx.slice(1) + '.';
+    const mapBox = $('fac-map');
+    if (!G) { fail(mapBox, sG); $('fac-map-lg').replaceChildren(); }
+    else {
+      const tt = p.gm === 'part_mipyme' ? 'Todas' : t;
+      const val2 = (c) => { const x = G.get(a + '|' + tt + '|' + s + '|' + c); return x ? x[p.gm] : null; };
+      const vals = deps.map(val2);
+      let color, lab;
+      if (p.gm === 'var') { const th = [5, 15, 30, 60]; color = divScale(th, true); lab = (v) => sg1(v) + '%'; divLegend($('fac-map-lg'), th, '%'); }
+      else { const q = sextiles(vals, RG); color = q; const fm = p.gm === 'monto_mm' ? (v) => f0(v) : p.gm === 'ticket' ? (v) => f0(v / 1000) + ' mil' : (v) => f1(v) + '%'; lab = fm; qLegend($('fac-map-lg'), q, p.gm === 'monto_mm' ? (v) => 'S/ ' + f0(v) + ' mill.' : p.gm === 'ticket' ? (v) => 'S/ ' + f0(v / 1000) + ' mil' : (v) => f1(v) + '%'); }
+      drawMap(mapBox, { aria: MT[p.gm][0], sel: p.gd, val: val2, color, lab, pick: pickG,
+        tip: (c) => { const x = G.get(a + '|' + t + '|' + s + '|' + c); return x ? [NOM[c] + ' · ' + perTxt(a, mm), { k: 'Monto', v: 'S/ ' + f1(x.monto_mm) + ' mill.' }, { k: 'Variación', v: x.var == null ? '—' : sg1(x.var) + '%' }, { k: 'Facturas', v: f0(x.fact) }, { k: 'Monto por factura', v: x.ticket == null ? '—' : 'S/ ' + f0(x.ticket) }, { k: 'Participación', v: pct(x.part) }] : [NOM[c], { k: 'Sin operaciones', v: '' }]; } });
+      if (vals.every((v) => v == null)) empty(mapBox, 'Sin datos para la selección.');
+    }
+    drawPareto(p, G, sG, a, t, s);
+    // treemap
+    const SB = dash.data('fac_sub_ind');
+    $('fac-tr-t').textContent = 'Monto negociado por subsector, ' + perTxt(a, mm) + (t === 'Todas' ? '' : ' · ' + ttxt);
+    if (SB.status !== 'ok') { fail($('fac-tr'), SB.status); $('fac-tr-lg').replaceChildren(); }
+    else {
+      const rows = SB.data.filter((x) => x.anio === a && x.tam === t && (s === 'Todos' || x.sec === s) && x.monto_mm > 0);
+      const sc = (sec) => dash.colors[SECS.indexOf(sec) % 8];
+      drawTree($('fac-tr'), rows, { aria: 'Monto por subsector', size: (x) => x.monto_mm, color: (x) => sc(x.sec), lab: (x) => 'S/ ' + f0(x.monto_mm) + ' mill.',
+        tip: (x, sh) => [x.sub, { k: 'Sector', v: x.sec }, { k: 'Monto', v: 'S/ ' + f1(x.monto_mm) + ' millones' }, { k: 'Participación', v: f1(sh) + '%' }, { k: 'Facturas', v: f0(x.fact) }, { k: 'Monto por factura', v: x.fact ? 'S/ ' + f0(x.monto_mm * 1e6 / x.fact) : '—' }] });
+      legend($('fac-tr-lg'), [...new Set(rows.map((x) => x.sec))].sort((u, v) => SECS.indexOf(u) - SECS.indexOf(v)).map((x) => [sc(x), x]));
+    }
+    // tabla
+    $('fac-tb-t').textContent = 'Detalle por departamento · ' + ctx.replace(/^todas las empresas · /, '').replace(/^./, (c) => c.toUpperCase());
+    if (G) tables['fac-tb'].fill(deps.map((c) => { const x = G.get(a + '|' + t + '|' + s + '|' + c); return x || null; }).filter(Boolean), p.gd, pickG);
+    else tables['fac-tb'].fill([], null, pickG);
+    return { r, mm, rAll };
+  };
+
+  const monthly = (s, t, d) => {
+    const M = GM(); if (!M) return null;
+    const D = dash.data('fac_mes_ind').data;
+    const keys = [...new Set(D.map((r) => r.anio * 100 + r.mes))].sort((u, v) => u - v);
+    return keys.map((k) => { const a = Math.floor(k / 100), m = k % 100; const r = M.get(a + '|' + m + '|' + t + '|' + s + '|' + d); return { a, m, r, monto: r ? r.monto_mm : 0, fact: r ? r.fact : 0, ticket: r ? r.ticket : null }; });
+  };
+  const drawCal = (p, s, t, d) => {
+    const box = $('fac-cal'); box.replaceChildren();
+    const L = monthly(s, t, d);
+    const CT = { monto: ['Calendario del factoring: monto negociado', 'S/ millones por mes. Cada fila es un año; más oscuro, mayor monto. Haga clic en una fila para elegir el año.'], fact: ['Calendario del factoring: facturas negociadas', 'Número de facturas por mes; más oscuro, más facturas.'], ticket: ['Calendario del factoring: monto por factura', 'Soles por factura negociada en cada mes; más oscuro, mayor monto promedio.'] };
+    $('fac-cal-t').textContent = CT[p.gc][0];
+    $('fac-cal-n').textContent = CT[p.gc][1] + ([d !== '00' ? NOM[d] : null, s !== 'Todos' ? s : null, t !== 'Todas' ? t : null].filter(Boolean).length ? ' Selección: ' + [d !== '00' ? NOM[d] : null, s !== 'Todos' ? s : null, t !== 'Todas' ? t : null].filter(Boolean).join(' · ') + '.' : '');
+    if (!L) { fail(box, dash.data('fac_mes_ind').status); return; }
+    const w = box.clientWidth; if (!w) return;
+    const years = [...new Set(L.map((z) => z.a))];
+    const lw = 44, rw = w < 520 ? 0 : 92, cw = (w - lw - rw) / 12, rh = Math.max(22, Math.min(30, cw * 0.6)), ht = 18;
+    const h = ht + rh * years.length + 4;
+    const vals = L.map((z) => z[p.gc]).filter((v) => v != null && v > 0);
+    if (!vals.length) { empty(box, 'Sin operaciones para la selección.'); return; }
+    const col = d3.scaleQuantile(vals, RG);
+    const svg = svgEl('svg', { width: '100%', viewBox: `0 0 ${w} ${h}`, role: 'img', 'aria-label': CT[p.gc][0] }, box);
+    const tip = tipFor(box);
+    MES.forEach((mn, j) => txt(svg, { x: lw + cw * j + cw / 2, y: 12, 'text-anchor': 'middle' }, w < 420 ? mn[0] : mn));
+    const fmt = p.gc === 'monto' ? f0 : p.gc === 'fact' ? (v) => loc.format('.2~s')(v).replace('k', ' mil') : (v) => f0(v / 1000) + 'k';
+    years.forEach((a, i) => {
+      const yy = ht + rh * i;
+      const yt = txt(svg, { x: lw - 8, y: yy + rh / 2 + 4, 'text-anchor': 'end', class: a === p.ga ? 'fx-strong fx-hit' : 'fx-hit' }, String(a));
+      yt.addEventListener('click', () => dash.setParams({ ga: a }));
+      L.filter((z) => z.a === a).forEach((z) => {
+        const v = z[p.gc]; const c = v ? col(v) : 'var(--color-bg)';
+        const rc = svgEl('rect', { x: lw + cw * (z.m - 1) + 1, y: yy + 1, width: cw - 2, height: rh - 2, rx: 3, class: 'fx-hit' }, svg);
+        rc.style.fill = c;
+        if (cw > 38 && v) txt(svg, { x: lw + cw * (z.m - 0.5), y: yy + rh / 2 + 4, 'text-anchor': 'middle', class: dark(c) ? 'fx-in' : 'fx-ind', 'pointer-events': 'none' }, fmt(v));
+        rc.addEventListener('mousemove', (ev) => showTip(box, tip, ev, [MESL[z.m - 1] + ' ' + a, { k: 'Monto', v: 'S/ ' + f1(z.monto) + ' mill.' }, { k: 'Facturas', v: f0(z.fact) }, { k: 'Monto por factura', v: z.ticket ? 'S/ ' + f0(z.ticket) : '—' }]));
+        rc.addEventListener('mouseleave', () => hideTip(tip));
+        rc.addEventListener('click', () => dash.setParams({ ga: a }));
+      });
+      if (a === p.ga) { const fr = svgEl('rect', { x: lw, y: yy + 0.5, width: cw * 12, height: rh - 1, rx: 4, fill: 'none', 'stroke-width': 1.6, 'pointer-events': 'none' }, svg); fr.style.stroke = 'var(--color-fg)'; }
+      if (rw) {
+        const zs = L.filter((z) => z.a === a);
+        const tot = p.gc === 'ticket' ? (d3.sum(zs, (z) => z.fact) ? d3.sum(zs, (z) => z.monto) * 1e6 / d3.sum(zs, (z) => z.fact) : null) : d3.sum(zs, (z) => z[p.gc]);
+        txt(svg, { x: w - 4, y: yy + rh / 2 + 4, 'text-anchor': 'end', class: 'fx-strong' }, tot == null ? '—' : p.gc === 'monto' ? 'S/ ' + f0(tot) + ' mill.' : p.gc === 'fact' ? f0(tot) : 'S/ ' + f0(tot));
+      }
+    });
+    if (rw) txt(svg, { x: w - 4, y: 12, 'text-anchor': 'end' }, p.gc === 'ticket' ? 'Promedio del año' : 'Total del año');
+  };
+  const drawMonthly = (p, s, t, d) => {
+    const box = $('fac-ms'); box.replaceChildren();
+    const L = monthly(s, t, d);
+    $('fac-ms-t').textContent = 'Monto mensual y tendencia' + ([d !== '00' ? NOM[d] : null, s !== 'Todos' ? s : null, t !== 'Todas' ? t : null].filter(Boolean).length ? ' · ' + [d !== '00' ? NOM[d] : null, s !== 'Todos' ? s : null, t !== 'Todas' ? t : null].filter(Boolean).join(' · ') : '');
+    if (!L) { fail(box, dash.data('fac_mes_ind').status); return; }
+    const w = box.clientWidth; if (!w) return;
+    if (!L.some((z) => z.monto > 0)) { empty(box, 'Sin operaciones para la selección.'); return; }
+    const h = Math.max(260, Math.min(340, w * 0.6)), m = { l: 46, r: 10, t: 12, b: 26 };
+    const x = d3.scaleBand(L.map((_, i) => i), [m.l, w - m.r]).paddingInner(0.25);
+    const ma = L.map((z, i) => i >= 11 ? d3.mean(L.slice(i - 11, i + 1), (q) => q.monto) : null);
+    const y = d3.scaleLinear([0, d3.max(L, (z) => z.monto) * 1.08], [h - m.b, m.t]).nice();
+    const svg = svgEl('svg', { width: '100%', viewBox: `0 0 ${w} ${h}`, role: 'img', 'aria-label': 'Monto mensual' }, box);
+    y.ticks(5).forEach((v) => { const l = svgEl('line', { x1: m.l, x2: w - m.r, y1: y(v), y2: y(v) }, svg); l.style.stroke = 'var(--cds-chart-grid)'; txt(svg, { x: m.l - 6, y: y(v) + 4, 'text-anchor': 'end' }, f0(v)); });
+    L.forEach((z, i) => { if (z.m === 1 && (w > 420 || z.a % 2 === 1)) txt(svg, { x: x(i), y: h - 8, 'text-anchor': 'start' }, String(z.a)); });
+    L.forEach((z, i) => { const b = svgEl('rect', { x: x(i), y: y(z.monto), width: x.bandwidth(), height: Math.max(0, y(0) - y(z.monto)), rx: Math.min(2, x.bandwidth() / 2) }, svg); b.style.fill = z.a === p.ga ? RG[4] : RG[2]; });
+    const line = d3.line().defined((v) => v != null).x((v, i) => x(i) + x.bandwidth() / 2).y((v) => y(v));
+    const pl = svgEl('path', { d: line(ma), fill: 'none', 'stroke-width': 2, 'stroke-linejoin': 'round', 'stroke-linecap': 'round' }, svg); pl.style.stroke = 'var(--color-fg)';
+    const li = ma.length - 1; if (ma[li] != null) { const c = svgEl('circle', { cx: x(li) + x.bandwidth() / 2, cy: y(ma[li]), r: 3.5 }, svg); c.style.fill = 'var(--color-fg)'; }
+    const tip = tipFor(box);
+    const hl = svgEl('line', { y1: m.t, y2: h - m.b, 'stroke-width': 1, visibility: 'hidden' }, svg); hl.style.stroke = 'var(--cds-chart-reference)';
+    const hov = svgEl('rect', { x: m.l, y: m.t, width: w - m.l - m.r, height: h - m.t - m.b, fill: 'transparent' }, svg);
+    hov.addEventListener('mousemove', (ev) => { const r = svg.getBoundingClientRect(); const xx = (ev.clientX - r.left) * w / r.width; const i = Math.max(0, Math.min(L.length - 1, Math.floor((xx - m.l) / x.step()))); const z = L[i]; hl.setAttribute('x1', x(i) + x.bandwidth() / 2); hl.setAttribute('x2', x(i) + x.bandwidth() / 2); hl.setAttribute('visibility', 'visible'); showTip(box, tip, ev, [MESL[z.m - 1] + ' ' + z.a, { k: 'Monto', v: 'S/ ' + f1(z.monto) + ' mill.' }, { k: 'Promedio 12 meses', v: ma[i] == null ? '—' : 'S/ ' + f1(ma[i]) + ' mill.' }, { k: 'Facturas', v: f0(z.fact) }]); });
+    hov.addEventListener('mouseleave', () => { hideTip(tip); hl.setAttribute('visibility', 'hidden'); });
+  };
+  const drawComp = (p, G, sG, s, d) => {
+    const box = $('fac-cp'); box.replaceChildren();
+    $('fac-cp-t').textContent = '¿Quién negocia sus facturas?' + ([d !== '00' ? NOM[d] : null, s !== 'Todos' ? s : null].filter(Boolean).length ? ' · ' + [d !== '00' ? NOM[d] : null, s !== 'Todos' ? s : null].filter(Boolean).join(' · ') : '');
+    if (!G) { fail(box, sG); $('fac-cp-lg').replaceChildren(); return; }
+    const w = box.clientWidth; if (!w) return;
+    const years = [...new Set(dash.data('fac_ind').data.map((r) => r.anio))].sort();
+    const data = years.map((a) => { const tot = G.get(a + '|Todas|' + s + '|' + d); const o = { a, tot: tot ? tot.monto_mm : 0, mm: tot ? tot.meses : 12 }; TAMS.forEach((t) => { const r = G.get(a + '|' + t + '|' + s + '|' + d); o[t] = tot && tot.monto_mm ? (r ? r.monto_mm : 0) / tot.monto_mm * 100 : 0; }); return o; }).filter((o) => o.tot > 0);
+    if (!data.length) { empty(box, 'Sin operaciones para la selección.'); return; }
+    const h = Math.max(260, Math.min(340, w * 0.6)), m = { l: 40, r: 10, t: 12, b: 26 };
+    const x = d3.scaleBand(data.map((o) => o.a), [m.l, w - m.r]).paddingInner(0.28);
+    const y = d3.scaleLinear([0, 100], [h - m.b, m.t]);
+    const svg = svgEl('svg', { width: '100%', viewBox: `0 0 ${w} ${h}`, role: 'img', 'aria-label': 'Composición por tamaño' }, box);
+    [0, 25, 50, 75, 100].forEach((v) => { const l = svgEl('line', { x1: m.l, x2: w - m.r, y1: y(v), y2: y(v) }, svg); l.style.stroke = 'var(--cds-chart-grid)'; txt(svg, { x: m.l - 6, y: y(v) + 4, 'text-anchor': 'end' }, v + '%'); });
+    const tip = tipFor(box);
+    const stack = d3.stack().keys(TAMS)(data);
+    stack.forEach((ser, i) => ser.forEach((seg2) => {
+      const o = seg2.data; const r = svgEl('rect', { x: x(o.a), y: y(seg2[1]), width: x.bandwidth(), height: Math.max(0, y(seg2[0]) - y(seg2[1])), class: 'fx-hit' }, svg);
+      r.style.fill = dash.colors[i]; r.style.stroke = 'var(--color-panel)'; r.style.strokeWidth = '1';
+      if (o.a !== p.ga) r.style.opacity = 0.62;
+      if (y(seg2[0]) - y(seg2[1]) > 14 && x.bandwidth() > 30) txt(svg, { x: x(o.a) + x.bandwidth() / 2, y: (y(seg2[0]) + y(seg2[1])) / 2 + 4, 'text-anchor': 'middle', class: 'fx-in', 'pointer-events': 'none' }, f0(seg2[1] - seg2[0]));
+      r.addEventListener('mousemove', (ev) => showTip(box, tip, ev, [perTxt(o.a, o.mm), ...TAMS.map((t) => ({ k: t, v: f1(o[t]) + '%' })), { k: 'Monto total', v: 'S/ ' + f0(o.tot) + ' mill.' }]));
+      r.addEventListener('mouseleave', () => hideTip(tip));
+      r.addEventListener('click', () => dash.setParams({ ga: o.a }));
+    }));
+    data.forEach((o) => txt(svg, { x: x(o.a) + x.bandwidth() / 2, y: h - 8, 'text-anchor': 'middle', class: o.a === p.ga ? 'fx-strong' : '' }, w < 420 ? "'" + String(o.a).slice(2) : String(o.a)));
+    legend($('fac-cp-lg'), TAMS.map((t, i) => [dash.colors[i], t]));
+  };
+  const drawPareto = (p, G, sG, a, t, s) => {
+    const box = $('fac-pa'); box.replaceChildren();
+    if (!G) { fail(box, sG); return; }
+    const w = box.clientWidth; if (!w) return;
+    const rows = Object.keys(NOM).filter((c) => c !== '00').map((c) => G.get(a + '|' + t + '|' + s + '|' + c)).filter((r) => r && r.part != null && r.monto_mm > 0).sort((u, v) => v.part - u.part);
+    if (!rows.length) { empty(box, 'Sin operaciones para la selección.'); return; }
+    let acc = 0; rows.forEach((r) => { acc += r.part; r.acc = Math.min(100, acc); });
+    const n80 = rows.findIndex((r) => r.acc >= 80) + 1;
+    $('fac-pa-t').textContent = 'Concentración territorial: ' + n80 + (n80 === 1 ? ' departamento explica' : ' departamentos explican') + ' el 80% del monto';
+    const rh = Math.max(17, Math.min(26, 620 / rows.length)), lw = 98, h = rh * rows.length + 30, m = { t: 22, r: 44 };
+    const x = d3.scaleLinear([0, 100], [lw, w - m.r]);
+    const svg = svgEl('svg', { width: '100%', viewBox: `0 0 ${w} ${h}`, role: 'img', 'aria-label': 'Concentración territorial' }, box);
+    [0, 25, 50, 75, 100].forEach((v) => { const l = svgEl('line', { x1: x(v), x2: x(v), y1: m.t - 4, y2: h - 6 }, svg); l.style.stroke = 'var(--cds-chart-grid)'; txt(svg, { x: x(v), y: 12, 'text-anchor': 'middle' }, v + '%'); });
+    const l80 = svgEl('line', { x1: x(80), x2: x(80), y1: m.t - 4, y2: h - 6, 'stroke-dasharray': '4 3' }, svg); l80.style.stroke = 'var(--cds-chart-reference)';
+    const tip = tipFor(box);
+    rows.forEach((r, i) => {
+      const yy = m.t + rh * i;
+      const lt = txt(svg, { x: lw - 6, y: yy + rh / 2 + 4, 'text-anchor': 'end', class: r.ccdd === p.gd ? 'fx-strong' : '' }, NOM[r.ccdd]);
+      const b = svgEl('rect', { x: lw, y: yy + 2, width: Math.max(1, x(r.part) - lw), height: rh - 4, rx: 3, class: 'fx-hit' }, svg);
+      b.style.fill = i < n80 ? RG[4] : RG[2]; if (p.gd && p.gd !== r.ccdd) b.style.opacity = 0.5;
+      if (x(r.part) - lw > 46) txt(svg, { x: x(r.part) - 4, y: yy + rh / 2 + 4, 'text-anchor': 'end', class: 'fx-in' }, f1(r.part) + '%'); else txt(svg, { x: x(r.part) + 4, y: yy + rh / 2 + 4 }, f1(r.part) + '%');
+      b.addEventListener('mousemove', (ev) => showTip(box, tip, ev, [NOM[r.ccdd], { k: 'Participación', v: f1(r.part) + '%' }, { k: 'Acumulado', v: f1(r.acc) + '%' }, { k: 'Monto', v: 'S/ ' + f1(r.monto_mm) + ' mill.' }]));
+      b.addEventListener('mouseleave', () => hideTip(tip));
+      b.addEventListener('click', () => pickG(r.ccdd));
+      lt.classList.add('fx-hit'); lt.addEventListener('click', () => pickG(r.ccdd));
+    });
+    const line = d3.line().x((r) => x(r.acc)).y((r, i) => m.t + rh * i + rh / 2);
+    const pl = svgEl('path', { d: line(rows), fill: 'none', 'stroke-width': 2, 'stroke-linejoin': 'round' }, svg); pl.style.stroke = 'var(--color-fg)';
+    rows.forEach((r, i) => { const c = svgEl('circle', { cx: x(r.acc), cy: m.t + rh * i + rh / 2, r: 2.4 }, svg); c.style.fill = 'var(--color-fg)'; });
+    const last = rows[n80 - 1]; if (last) txt(svg, { x: Math.min(x(last.acc) + 6, w - 2), y: m.t + rh * (n80 - 1) + rh / 2 - 6, 'text-anchor': x(last.acc) + 60 > w ? 'end' : 'start', class: 'fx-strong' }, 'Acumulado ' + f1(last.acc) + '%');
+  };
+
+  // ---------- redibujo ----------
+  let linked = false;
+  dash.onData(() => {
+    const p = st();
+    root.querySelectorAll('.fx-tab').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.tab === p.tab)));
+    $('financiamiento').hidden = p.tab !== 'fin'; $('factoring').hidden = p.tab !== 'fac';
+    const take = $('fx-take');
+    if (p.tab === 'fin') {
+      const r = drawFin(p);
+      const F = FI();
+      if (!F || !r) { take.textContent = F ? 'Sin datos para la selección.' : '—'; setMark(take, 'fin_ind'); }
+      else {
+        setMark(take, 'fin_ind', 'tasa', whereF(p.fa, p.ft, p.fs, p.fd || '00'));
+        const who = { Todas: 'las empresas', MIPYME: 'las MIPYME', Micro: 'las microempresas', 'Pequeña': 'las pequeñas empresas', Mediana: 'las medianas empresas', 'Gran empresa': 'las grandes empresas' }[p.ft];
+        const where = (p.fd ? ' de ' + NOM[p.fd] : '') + (p.fs !== 'Todos' ? ' del sector ' + p.fs.toLowerCase() : '');
+        const g = F.get(p.fa + '|Gran empresa|' + p.fs + '|' + (p.fd || '00')), mi = F.get(p.fa + '|Micro|' + p.fs + '|' + (p.fd || '00'));
+        take.textContent = 'En ' + p.fa + ', ' + f1(r.tasa) + '% de ' + who + where + ' registradas en SUNAT tenía financiamiento' + (r.var_pp == null ? '' : ' (' + sg1(r.var_pp) + ' pp frente a ' + (p.fa - 1) + ')') + ', con un saldo de S/ ' + f0(r.saldo_mm) + ' millones.' + (g && mi && g.tasa != null && mi.tasa != null ? ' La brecha por tamaño es amplia: accede ' + f1(g.tasa) + '% de las grandes empresas frente a ' + f1(mi.tasa) + '% de las microempresas.' : '') + (p.fa === 2019 ? ' El padrón de 2019 no es comparable con el de años siguientes.' : '');
+      }
+    } else {
+      const o = drawFac(p);
+      const G = GI();
+      if (!G || !o.r) { take.textContent = G ? 'Sin operaciones de factoring para la selección.' : '—'; setMark(take, 'fac_ind'); }
+      else {
+        setMark(take, 'fac_ind', 'monto_mm', W({ anio: p.ga, tam: p.gt, sec: p.gs, ccdd: p.gd || '00' }));
+        const r = o.r;
+        const who = { Todas: '', MIPYME: ' de MIPYME', Micro: ' de microempresas', 'Pequeña': ' de pequeñas empresas', Mediana: ' de medianas empresas', 'Gran empresa': ' de grandes empresas' }[p.gt];
+        const where = (p.gd ? ' en ' + NOM[p.gd] : '') + (p.gs !== 'Todos' ? ' del sector ' + p.gs.toLowerCase() : '');
+        take.textContent = 'En ' + perTxt(p.ga, o.mm) + ' se negociaron ' + f0(r.fact) + ' facturas' + who + where + ' por S/ ' + f1(r.monto_mm) + ' millones' + (r.var == null ? '.' : ', ' + (r.var >= 0 ? f1(r.var) + '% más' : f1(-r.var) + '% menos') + ' que en ' + perTxt(p.ga - 1, o.mm < 12 ? o.mm : 12) + '.') + (o.rAll && o.rAll.part_mipyme != null && p.gt === 'Todas' ? ' La MIPYME explica ' + f1(o.rAll.part_mipyme) + '% del monto; el monto promedio por factura es S/ ' + f0(r.ticket) + '.' : '');
+      }
+    }
+    if (!linked) { linked = true; const h = location.hash.slice(1); if (h === 'factoring' && p.tab !== 'fac') dash.setParams({ tab: 'fac' }); else if (h === 'financiamiento' && p.tab !== 'fin') dash.setParams({ tab: 'fin' }); }
+  });
+})();
+</script>
+
+</body>
+</html>
