@@ -259,7 +259,7 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
     </article>
   </section>
 
-  <p class="fx-foot" id="metodologia">Notas: la inclusión financiera es el número de empresas con saldo de financiamiento en el sistema financiero dividido entre el total de empresas (padrón SUNAT más las empresas con financiamiento no registradas en SUNAT), para el mismo año, tamaño, sector y departamento; es la definición del tablero de PRODUCE. El saldo promedio es el saldo entre las empresas con financiamiento. MIPYME agrupa a la micro, pequeña y mediana empresa. Se presenta 2021-2026, como en el tablero de PRODUCE; 2026 corresponde a saldos a julio. El padrón de 2025 repite el de 2024. Factoring: monto en soles y número de facturas negociadas, por tamaño empresarial, sector y departamento del proveedor; 2026 corresponde a enero-agosto y sus variaciones comparan con el mismo periodo de 2025. Colores de variación: azul indica aumento y rojo disminución. Fuentes: financiamiento, SUNAT y SBS; factoring, SUNAT, CAVALI, SBS y SMV (Observatorio PRODUCEmpresarial). Elaboración: Good Guys Insight.</p>
+  <p class="fx-foot" id="metodologia">Notas: La inclusión financiera es el número de empresas con saldo de financiamiento en el sistema financiero dividido entre el total de empresas (padrón SUNAT más las empresas con financiamiento no registradas en SUNAT), para el mismo año, tamaño, sector y departamento. El saldo promedio es el saldo entre las empresas con financiamiento. MIPYME agrupa a la micro, pequeña y mediana empresa; MYPE, a la micro y pequeña; PYME, a la pequeña y mediana. Se presenta 2021-2026; 2026 corresponde a saldos a julio. El padrón de 2025 repite el de 2024. Factoring: monto en soles y número de facturas negociadas, por tamaño empresarial, sector y departamento del proveedor; 2026 corresponde a enero-agosto y sus variaciones comparan con el mismo periodo de 2025. Colores de variación: azul indica aumento y rojo disminución. Fuentes: financiamiento, SUNAT, SBS y PRODUCE; factoring, SUNAT, CAVALI, SBS, SMV y PRODUCE. Elaboración: Good Guys Insight.</p>
 </div>
 
 
@@ -305,7 +305,8 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
   const DEF = { tab: 'fin', fa: 2026, ft: 'MIPYME', fs: 'Todos', fd: null, fm: 'tasa', ga: 2026, gt: 'Todas', gs: 'Todos', gd: null, gm: 'monto_mm', gc: 'monto' };
   const st = () => ({ ...DEF, ...dash.params() });
   const TAMS = ['Micro', 'Pequeña', 'Mediana', 'Gran empresa'];
-  const TOPT = ['Todas', 'MIPYME', ...TAMS];
+  const TOPT = ['Todas', 'MIPYME', 'MYPE', 'PYME', ...TAMS];
+  const GRUPO = { MIPYME: ['Micro', 'Pequeña', 'Mediana'], MYPE: ['Micro', 'Pequeña'], PYME: ['Pequeña', 'Mediana'] };
   const SECS = ['Comercio', 'Servicios', 'Manufactura', 'Agropecuario', 'Construcción', 'Minería', 'Pesca'];
   const MES = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Set', 'Oct', 'Nov', 'Dic'];
   const MESL = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'setiembre', 'octubre', 'noviembre', 'diciembre'];
@@ -346,11 +347,11 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
   dash.calc('fin_ind', {
     inputs: ['fin'],
     title: 'Indicadores de financiamiento',
-    description: 'Suma empresas con financiamiento, total de empresas y saldo por año, tamaño (incluye Todas y MIPYME), sector (incluye Todos) y departamento (00 = Perú); inclusión financiera = empresas con financiamiento / total de empresas × 100, como en el tablero de PRODUCE.',
+    description: 'Suma empresas con financiamiento, total de empresas y saldo por año, tamaño (incluye Todas, MIPYME, MYPE y PYME), sector (incluye Todos) y departamento (00 = Perú); inclusión financiera = empresas con financiamiento / total de empresas × 100, como en el tablero de PRODUCE.',
     fn: (fin) => {
       const m = new Map();
       for (const r of fin) {
-        const ts = ['Todas', r.tam]; if (r.tam !== 'Gran empresa') ts.push('MIPYME');
+        const ts = ['Todas', r.tam]; if (r.tam !== 'Gran empresa') ts.push('MIPYME'); if (r.tam === 'Micro' || r.tam === 'Pequeña') ts.push('MYPE'); if (r.tam === 'Pequeña' || r.tam === 'Mediana') ts.push('PYME');
         for (const t of ts) for (const s of ['Todos', r.sec]) for (const d of ['00', r.ccdd]) {
           const k = r.anio + '|' + t + '|' + s + '|' + d;
           let o = m.get(k);
@@ -375,11 +376,11 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
   dash.calc('fin_sub_ind', {
     inputs: ['fin_sub'],
     title: 'Financiamiento por subsector',
-    description: 'Suma empresas con financiamiento, total de empresas y saldo por año, tamaño (incluye Todas y MIPYME) y subsector; inclusión financiera = empresas con financiamiento / total de empresas × 100.',
+    description: 'Suma empresas con financiamiento, total de empresas y saldo por año, tamaño (incluye Todas, MIPYME, MYPE y PYME) y subsector; inclusión financiera = empresas con financiamiento / total de empresas × 100.',
     fn: (fin_sub) => {
       const m = new Map();
       for (const r of fin_sub) {
-        const ts = ['Todas', r.tam]; if (r.tam !== 'Gran empresa') ts.push('MIPYME');
+        const ts = ['Todas', r.tam]; if (r.tam !== 'Gran empresa') ts.push('MIPYME'); if (r.tam === 'Micro' || r.tam === 'Pequeña') ts.push('MYPE'); if (r.tam === 'Pequeña' || r.tam === 'Mediana') ts.push('PYME');
         for (const t of ts) {
           const k = r.anio + '|' + t + '|' + r.sub;
           let o = m.get(k);
@@ -394,7 +395,7 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
   dash.calc('fac_ind', {
     inputs: ['fac'],
     title: 'Indicadores de factoring',
-    description: 'Suma monto y facturas por año, tamaño (incluye Todas y MIPYME), sector (incluye Todos) y departamento (00 = Perú); la variación compara con los mismos meses del año anterior; participación = monto / monto nacional.',
+    description: 'Suma monto y facturas por año, tamaño (incluye Todas, MIPYME, MYPE y PYME), sector (incluye Todos) y departamento (00 = Perú); la variación compara con los mismos meses del año anterior; participación = monto / monto nacional.',
     fn: (fac) => {
       const NOMBRE = { '00': 'Perú', '01': 'Amazonas', '02': 'Áncash', '03': 'Apurímac', '04': 'Arequipa', '05': 'Ayacucho', '06': 'Cajamarca', '07': 'Callao', '08': 'Cusco', '09': 'Huancavelica', '10': 'Huánuco', '11': 'Ica', '12': 'Junín', '13': 'La Libertad', '14': 'Lambayeque', '15': 'Lima', '16': 'Loreto', '17': 'Madre de Dios', '18': 'Moquegua', '19': 'Pasco', '20': 'Piura', '21': 'Puno', '22': 'San Martín', '23': 'Tacna', '24': 'Tumbes', '25': 'Ucayali' };
       const mx = new Map();
@@ -402,7 +403,7 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
       const m = new Map();
       const get = (a, t, s, d) => { const k = a + '|' + t + '|' + s + '|' + d; let o = m.get(k); if (!o) { o = { anio: a, tam: t, sec: s, ccdd: d, monto: 0, fact: 0, monto_a: 0, fact_a: 0 }; m.set(k, o); } return o; };
       for (const r of fac) {
-        const ts = ['Todas', r.tam]; if (r.tam !== 'Gran empresa') ts.push('MIPYME');
+        const ts = ['Todas', r.tam]; if (r.tam !== 'Gran empresa') ts.push('MIPYME'); if (r.tam === 'Micro' || r.tam === 'Pequeña') ts.push('MYPE'); if (r.tam === 'Pequeña' || r.tam === 'Mediana') ts.push('PYME');
         for (const t of ts) for (const s of ['Todos', r.sec]) for (const d of ['00', r.ccdd]) {
           const o = get(r.anio, t, s, d); o.monto += r.monto; o.fact += r.fact;
           if (mx.has(r.anio + 1) && r.mes <= mx.get(r.anio + 1)) { const n = get(r.anio + 1, t, s, d); n.monto_a += r.monto; n.fact_a += r.fact; }
@@ -425,11 +426,11 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
   dash.calc('fac_mes_ind', {
     inputs: ['fac'],
     title: 'Factoring mensual',
-    description: 'Suma monto y facturas por año, mes, tamaño (incluye Todas y MIPYME), sector (incluye Todos) y departamento (00 = Perú).',
+    description: 'Suma monto y facturas por año, mes, tamaño (incluye Todas, MIPYME, MYPE y PYME), sector (incluye Todos) y departamento (00 = Perú).',
     fn: (fac) => {
       const m = new Map();
       for (const r of fac) {
-        const ts = ['Todas', r.tam]; if (r.tam !== 'Gran empresa') ts.push('MIPYME');
+        const ts = ['Todas', r.tam]; if (r.tam !== 'Gran empresa') ts.push('MIPYME'); if (r.tam === 'Micro' || r.tam === 'Pequeña') ts.push('MYPE'); if (r.tam === 'Pequeña' || r.tam === 'Mediana') ts.push('PYME');
         for (const t of ts) for (const s of ['Todos', r.sec]) for (const d of ['00', r.ccdd]) {
           const k = r.anio + '|' + r.mes + '|' + t + '|' + s + '|' + d;
           let o = m.get(k);
@@ -443,11 +444,11 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
   dash.calc('fac_sub_ind', {
     inputs: ['fac_sub'],
     title: 'Factoring por subsector',
-    description: 'Suma monto y facturas por año, tamaño (incluye Todas y MIPYME) y subsector.',
+    description: 'Suma monto y facturas por año, tamaño (incluye Todas, MIPYME, MYPE y PYME) y subsector.',
     fn: (fac_sub) => {
       const m = new Map();
       for (const r of fac_sub) {
-        const ts = ['Todas', r.tam]; if (r.tam !== 'Gran empresa') ts.push('MIPYME');
+        const ts = ['Todas', r.tam]; if (r.tam !== 'Gran empresa') ts.push('MIPYME'); if (r.tam === 'Micro' || r.tam === 'Pequeña') ts.push('MYPE'); if (r.tam === 'Pequeña' || r.tam === 'Mediana') ts.push('PYME');
         for (const t of ts) { const k = r.anio + '|' + t + '|' + r.sub; let o = m.get(k); if (!o) { o = { anio: r.anio, tam: t, sec: r.sec, sub: r.sub, monto: 0, fact: 0 }; m.set(k, o); } o.monto += r.monto; o.fact += r.fact; }
       }
       return [...m.values()].map((o) => ({ clave: o.anio + '-' + o.tam + '-' + o.sub, anio: o.anio, tam: o.tam, sec: o.sec, sub: o.sub, monto_mm: Math.round(o.monto / 1e5) / 10, fact: o.fact }));
@@ -654,7 +655,7 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
     $('fa-in').value = a; $('fa-out').textContent = String(a);
     segShow($('ft-seg'), t); segShow($('fm-seg'), p.fm); $('fs-sel').value = s;
     $('fd-chip').hidden = !p.fd; $('fd-chip').textContent = p.fd ? NOM[p.fd] + ' ×' : '';
-    const ttxt = t === 'Todas' ? 'todas las empresas' : t === 'MIPYME' ? 'MIPYME' : t === 'Gran empresa' ? 'gran empresa' : t.toLowerCase() + ' empresa';
+    const ttxt = t === 'Todas' ? 'todas las empresas' : GRUPO[t] ? t : t === 'Gran empresa' ? 'gran empresa' : t.toLowerCase() + ' empresa';
     const ctx = [NOM[d], s === 'Todos' ? null : s, ttxt, String(a)].filter(Boolean).join(' · ');
     // tiles
     const r = F ? F.get(a + '|' + t + '|' + s + '|' + d) : null;
@@ -814,7 +815,7 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
       cols.forEach((t, j) => {
         const r = F.get(a + '|' + t + '|' + s + '|' + d);
         const c = r && r.tasa != null ? col(r.tasa) : 'var(--color-bg)';
-        const on = s === p.fs && (t === p.ft || (p.ft === 'MIPYME' && t !== 'Gran empresa' && t !== 'Todas'));
+        const on = s === p.fs && (t === p.ft || (GRUPO[p.ft] || []).includes(t));
         const rc = svgEl('rect', { x: lw + cw * j + 1, y: yy + 1, width: cw - 2, height: rh - 2, rx: 3, class: 'fx-hit', 'stroke-width': on ? 2 : 0 }, svg);
         rc.style.fill = c; if (on) rc.style.stroke = 'var(--color-fg)';
         if (r && r.tasa != null) txt(svg, { x: lw + cw * j + cw / 2, y: yy + rh / 2 + 4, 'text-anchor': 'middle', class: dark(c) ? 'fx-in' : 'fx-ind', 'pointer-events': 'none' }, f1(r.tasa));
@@ -837,7 +838,7 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
     const nat0 = G ? G.get(a + '|Todas|Todos|00') : null;
     const mm = r ? r.meses : nat0 ? nat0.meses : 12;
     $('ga-out').textContent = mm < 12 ? a + ' (ene-' + MES[mm - 1].toLowerCase() + ')' : String(a);
-    const ttxt = t === 'Todas' ? 'todas las empresas' : t === 'MIPYME' ? 'MIPYME' : t === 'Gran empresa' ? 'gran empresa' : t.toLowerCase() + ' empresa';
+    const ttxt = t === 'Todas' ? 'todas las empresas' : GRUPO[t] ? t : t === 'Gran empresa' ? 'gran empresa' : t.toLowerCase() + ' empresa';
     const ctx = [d !== '00' ? NOM[d] : null, s === 'Todos' ? null : s, ttxt, perTxt(a, mm)].filter(Boolean).join(' · ');
     const wh = W({ anio: a, tam: t, sec: s, ccdd: d });
     ['fac-t1', 'fac-d1', 'fac-t2', 'fac-d2', 'fac-t3', 'fac-t5'].forEach((id) => { $(id).dataset.where = wh; });
@@ -1043,7 +1044,7 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
       if (!F || !r) { take.textContent = F ? 'Sin datos para la selección.' : '—'; setMark(take, 'fin_ind'); }
       else {
         setMark(take, 'fin_ind', 'tasa', whereF(p.fa, p.ft, p.fs, p.fd || '00'));
-        const who = { Todas: 'las empresas', MIPYME: 'las MIPYME', Micro: 'las microempresas', 'Pequeña': 'las pequeñas empresas', Mediana: 'las medianas empresas', 'Gran empresa': 'las grandes empresas' }[p.ft];
+        const who = { Todas: 'las empresas', MIPYME: 'las MIPYME', MYPE: 'las MYPE', PYME: 'las PYME', Micro: 'las microempresas', 'Pequeña': 'las pequeñas empresas', Mediana: 'las medianas empresas', 'Gran empresa': 'las grandes empresas' }[p.ft];
         const where = (p.fd ? ' de ' + NOM[p.fd] : '') + (p.fs !== 'Todos' ? ' del sector ' + p.fs.toLowerCase() : '');
         const g = F.get(p.fa + '|Gran empresa|' + p.fs + '|' + (p.fd || '00')), mi = F.get(p.fa + '|Micro|' + p.fs + '|' + (p.fd || '00'));
         take.textContent = 'En ' + p.fa + (p.fa === 2026 ? ' (a julio)' : '') + ', ' + f1(r.tasa) + '% de ' + who + where + ' tenía financiamiento' + (r.var_pp == null ? '' : ' (' + sg1(r.var_pp) + ' pp frente a ' + (p.fa - 1) + ')') + ', con un saldo de S/ ' + f0(r.saldo_mm) + ' millones.' + (g && mi && g.tasa != null && mi.tasa != null ? ' La brecha por tamaño es amplia: la inclusión financiera es ' + f1(g.tasa) + '% en la gran empresa y ' + f1(mi.tasa) + '% en la microempresa.' : '');
@@ -1055,7 +1056,7 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
       else {
         setMark(take, 'fac_ind', 'monto_mm', W({ anio: p.ga, tam: p.gt, sec: p.gs, ccdd: p.gd || '00' }));
         const r = o.r;
-        const who = { Todas: '', MIPYME: ' de MIPYME', Micro: ' de microempresas', 'Pequeña': ' de pequeñas empresas', Mediana: ' de medianas empresas', 'Gran empresa': ' de grandes empresas' }[p.gt];
+        const who = { Todas: '', MIPYME: ' de MIPYME', MYPE: ' de MYPE', PYME: ' de PYME', Micro: ' de microempresas', 'Pequeña': ' de pequeñas empresas', Mediana: ' de medianas empresas', 'Gran empresa': ' de grandes empresas' }[p.gt];
         const where = (p.gd ? ' en ' + NOM[p.gd] : '') + (p.gs !== 'Todos' ? ' del sector ' + p.gs.toLowerCase() : '');
         take.textContent = 'En ' + perTxt(p.ga, o.mm) + ' se negociaron ' + f0(r.fact) + ' facturas' + who + where + ' por S/ ' + f1(r.monto_mm) + ' millones' + (r.var == null ? '.' : ', ' + (r.var >= 0 ? f1(r.var) + '% más' : f1(-r.var) + '% menos') + ' que en ' + perTxt(p.ga - 1, o.mm < 12 ? o.mm : 12) + '.') + (o.rAll && o.rAll.part_mipyme != null && p.gt === 'Todas' ? ' La MIPYME explica ' + f1(o.rAll.part_mipyme) + '% del monto; el monto promedio por factura es S/ ' + f0(r.ticket) + '.' : '');
       }

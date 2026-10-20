@@ -31,8 +31,8 @@ Tablero interactivo con dos pestañas: indicadores de inclusión financiera empr
 
 - **Inclusión financiera** = empresas con financiamiento / total de empresas × 100 (el total suma el padrón SUNAT y las empresas con financiamiento no registradas en SUNAT), para el mismo año, tamaño, sector y departamento. Es la definición del tablero de PRODUCE.
 - **Saldo promedio** = saldo / empresas con financiamiento.
-- **MIPYME** = micro + pequeña + mediana empresa.
-- Se presenta 2021-2026, como en el tablero de PRODUCE (2019 y 2020 se usan solo para la variación de 2021); 2026 corresponde a saldos a julio. El padrón de 2025 repite el de 2024.
+- **MIPYME** = micro + pequeña + mediana empresa; **MYPE** = micro + pequeña; **PYME** = pequeña + mediana. El filtro de tamaño ofrece además cada tamaño por separado.
+- Se presenta 2021-2026; 2026 corresponde a saldos a julio. El padrón de 2025 repite el de 2024.
 - **Factoring**: 2026 cubre enero-agosto; sus variaciones se comparan con enero-agosto de 2025.
 - Colores de variación: azul = aumento, rojo = disminución.
 
@@ -63,4 +63,4 @@ El script lee `Indicadores_financiamiento.xlsx` (todas sus hojas) e `indicadores
 1. Suba todos los archivos manteniendo las carpetas.
 2. En **Settings → Pages**, elija la rama `main` y la carpeta `/ (root)`.
 
-Elaboración: Good Guys Insight.
+Fuentes: financiamiento, SUNAT, SBS y PRODUCE; factoring, SUNAT, CAVALI, SBS, SMV y PRODUCE. Elaboración: Good Guys Insight.
