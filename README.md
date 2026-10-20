@@ -1,17 +1,17 @@
 # Financiamiento y factoring empresarial
 
-Tablero interactivo con dos pestañas: indicadores de acceso al financiamiento empresarial (2019-2026) y operaciones de factoring (enero 2019-agosto 2026), por tamaño empresarial, sector y departamento.
+Tablero interactivo con dos pestañas: indicadores de inclusión financiera empresarial (2021-2026) y operaciones de factoring (enero 2019-agosto 2026), por tamaño empresarial, sector y departamento.
 
 ## Pestaña 1: Indicadores financieros
 
 | Elemento | Contenido |
 |---|---|
-| Indicadores principales | Tasa de acceso, empresas formales con financiamiento, saldo, saldo promedio por empresa y empresas no registradas en SUNAT con financiamiento |
-| Mapa departamental | Tasa de acceso, variación anual (pp) o saldo promedio; clic en un departamento filtra todo el tablero |
-| Burbujas | Acceso (eje X) frente a saldo promedio (eje Y, logarítmico); tamaño = empresas con financiamiento |
-| Líneas por tamaño | Evolución de la tasa de acceso de micro, pequeña, mediana y gran empresa |
-| Matriz sector × tamaño | Tasa de acceso en cada cruce; clic en una celda filtra por ese sector y tamaño |
-| Mapa de árbol | Saldo por subsector (área) coloreado por tasa de acceso |
+| Indicadores principales | Inclusión financiera, empresas con financiamiento, saldo, saldo promedio por empresa y empresas con financiamiento no registradas en SUNAT |
+| Mapa departamental | Inclusión financiera, variación anual (pp) o saldo promedio; clic en un departamento filtra todo el tablero |
+| Burbujas | Inclusión financiera (eje X) frente a saldo promedio (eje Y, logarítmico); tamaño = empresas con financiamiento |
+| Líneas por tamaño | Evolución de la inclusión financiera de micro, pequeña, mediana y gran empresa |
+| Matriz sector × tamaño | Inclusión financiera en cada cruce; clic en una celda filtra por ese sector y tamaño |
+| Mapa de árbol | Saldo por subsector (área) coloreado por inclusión financiera |
 | Tabla | Detalle por departamento, ordenable y con búsqueda |
 
 ## Pestaña 2: Factoring
@@ -29,12 +29,16 @@ Tablero interactivo con dos pestañas: indicadores de acceso al financiamiento e
 
 ## Definiciones
 
-- **Tasa de acceso** = empresas registradas en SUNAT con financiamiento / empresas del padrón SUNAT × 100, para el mismo año, tamaño, sector y departamento.
-- **Saldo** y **saldo promedio** incluyen también a las empresas con financiamiento no registradas en SUNAT.
+- **Inclusión financiera** = empresas con financiamiento / total de empresas × 100 (el total suma el padrón SUNAT y las empresas con financiamiento no registradas en SUNAT), para el mismo año, tamaño, sector y departamento. Es la definición del tablero de PRODUCE.
+- **Saldo promedio** = saldo / empresas con financiamiento.
 - **MIPYME** = micro + pequeña + mediana empresa.
-- El padrón de 2019 no es comparable con el de los años siguientes; el padrón de 2025 repite el de 2024.
+- Se presenta 2021-2026, como en el tablero de PRODUCE (2019 y 2020 se usan solo para la variación de 2021); 2026 corresponde a saldos a julio. El padrón de 2025 repite el de 2024.
 - **Factoring**: 2026 cubre enero-agosto; sus variaciones se comparan con enero-agosto de 2025.
 - Colores de variación: azul = aumento, rojo = disminución.
+
+## Validación
+
+Las cifras coinciden con el [tablero de PRODUCEmpresarial](https://www.producempresarial.pe/financiamiento-tablero-indicadores/): saldo e inclusión financiera por año y tamaño (por ejemplo, 2026: S/ 224,154 millones y 27.3%), saldo por sector y subsector, y monto y facturas de factoring por año, sector, subsector y departamento.
 
 ## Contenido
 

@@ -122,18 +122,18 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
   <!-- ==================== FINANCIAMIENTO ==================== -->
   <section class="fx-panel" id="financiamiento" role="tabpanel" aria-labelledby="tab-financiamiento">
     <div class="fx-ctrl" id="fin-filtros">
-      <div class="fx-grp fx-year"><span class="fx-lbl">Año</span><input type="range" id="fa-in" min="2019" max="2026" step="1" aria-label="Año"><span class="fx-yr" id="fa-out">—</span></div>
+      <div class="fx-grp fx-year"><span class="fx-lbl">Año</span><input type="range" id="fa-in" min="2021" max="2026" step="1" aria-label="Año"><span class="fx-yr" id="fa-out">—</span></div>
       <div class="fx-grp"><span class="fx-lbl">Tamaño</span><div class="fx-seg" id="ft-seg" role="group" aria-label="Tamaño empresarial"></div></div>
       <div class="fx-grp"><label class="fx-lbl" for="fs-sel">Sector</label><select class="fx-sel" id="fs-sel"></select></div>
       <button class="fx-chip" id="fd-chip" type="button" hidden></button>
     </div>
 
     <div class="fx-tiles" id="fin-tiles">
-      <div class="fx-tile"><span class="fx-tl">Tasa de acceso al financiamiento</span><span class="fx-tv" id="fin-t1" data-source="fin_ind" data-field="tasa">—</span><span class="fx-td" id="fin-d1" data-source="fin_ind" data-field="var_pp">—</span></div>
-      <div class="fx-tile"><span class="fx-tl">Empresas formales con financiamiento</span><span class="fx-tv" id="fin-t2" data-source="fin_ind" data-field="emp">—</span><span class="fx-td" id="fin-d2" data-source="fin_ind" data-field="pad">—</span></div>
+      <div class="fx-tile"><span class="fx-tl">Inclusión financiera</span><span class="fx-tv" id="fin-t1" data-source="fin_ind" data-field="tasa">—</span><span class="fx-td" id="fin-d1" data-source="fin_ind" data-field="var_pp">—</span></div>
+      <div class="fx-tile"><span class="fx-tl">Empresas con financiamiento</span><span class="fx-tv" id="fin-t2" data-source="fin_ind" data-field="emp">—</span><span class="fx-td" id="fin-d2" data-source="fin_ind" data-field="pad">—</span></div>
       <div class="fx-tile"><span class="fx-tl">Saldo de financiamiento</span><span class="fx-tv" id="fin-t3" data-source="fin_ind" data-field="saldo_mm">—</span><span class="fx-td" id="fin-d3" data-source="fin_ind" data-field="var_saldo">—</span></div>
       <div class="fx-tile"><span class="fx-tl">Saldo promedio por empresa</span><span class="fx-tv" id="fin-t4" data-source="fin_ind" data-field="prom">—</span><span class="fx-td" id="fin-d4">Soles por empresa con financiamiento</span></div>
-      <div class="fx-tile"><span class="fx-tl">Empresas no registradas en SUNAT con financiamiento</span><span class="fx-tv" id="fin-t5" data-source="fin_ind" data-field="emp_ns">—</span><span class="fx-td" id="fin-d5">Fuera del padrón; no entran en la tasa</span></div>
+      <div class="fx-tile"><span class="fx-tl">De ellas, no registradas en SUNAT</span><span class="fx-tv" id="fin-t5" data-source="fin_ind" data-field="emp_ns">—</span><span class="fx-td" id="fin-d5">Empresas con crédito fuera del padrón SUNAT</span></div>
     </div>
 
     <div class="fx-grid">
@@ -144,28 +144,28 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
         <div class="fx-legend" id="fin-map-lg" data-source="fin_ind"></div>
       </article>
       <article class="fx-card" id="fin-burbujas">
-        <h2>Acceso y profundidad del crédito por departamento</h2>
-        <p class="fx-note" id="fin-sc-n">Eje horizontal: tasa de acceso. Eje vertical: saldo promedio por empresa (escala logarítmica). Tamaño: empresas con financiamiento. Las líneas marcan el valor nacional.</p>
+        <h2>Inclusión y profundidad del crédito por departamento</h2>
+        <p class="fx-note" id="fin-sc-n">Eje horizontal: inclusión financiera. Eje vertical: saldo promedio por empresa (escala logarítmica). Tamaño: empresas con financiamiento. Las líneas marcan el valor nacional.</p>
         <div class="fx-chart fx-tall" id="fin-sc" data-source="fin_ind"></div>
       </article>
     </div>
 
     <div class="fx-grid">
       <article class="fx-card" id="fin-tamano">
-        <h2 id="fin-ln-t">Tasa de acceso por tamaño empresarial</h2>
-        <p class="fx-note">Porcentaje de empresas del padrón SUNAT con financiamiento. El tramo punteado une 2019, cuyo padrón no es comparable con el resto de la serie.</p>
+        <h2 id="fin-ln-t">Inclusión financiera por tamaño empresarial</h2>
+        <p class="fx-note">Porcentaje de empresas con financiamiento sobre el total de empresas de cada tamaño. Haga clic en el gráfico para elegir el año.</p>
         <div class="fx-chart fx-mid" id="fin-ln" data-source="fin_ind"></div>
       </article>
       <article class="fx-card" id="fin-matriz">
-        <h2 id="fin-hm-t">Matriz de acceso: sector y tamaño</h2>
-        <p class="fx-note">Tasa de acceso en cada cruce. Haga clic en una celda para filtrar el tablero por ese sector y tamaño.</p>
+        <h2 id="fin-hm-t">Matriz de inclusión: sector y tamaño</h2>
+        <p class="fx-note">Inclusión financiera (%) en cada cruce. Haga clic en una celda para filtrar el tablero por ese sector y tamaño.</p>
         <div class="fx-chart fx-mid" id="fin-hm" data-source="fin_ind"></div>
       </article>
     </div>
 
     <article class="fx-card" id="fin-subsectores">
       <h2 id="fin-tr-t">Saldo de financiamiento por subsector</h2>
-      <p class="fx-note">Cada rectángulo es un subsector: su área es el saldo y su color, la tasa de acceso. Alcance nacional (la base por subsector no se desagrega por departamento).</p>
+      <p class="fx-note">Cada rectángulo es un subsector: su área es el saldo y su color, la inclusión financiera. Alcance nacional (la base por subsector no se desagrega por departamento).</p>
       <div class="fx-chart fx-tree" id="fin-tr" data-source="fin_sub_ind"></div>
       <div class="fx-legend" id="fin-tr-lg" data-source="fin_sub_ind"></div>
     </article>
@@ -175,13 +175,13 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
       <div class="fx-tw"><table id="fin-tb" data-source="fin_ind" data-row-key="clave">
         <thead><tr>
           <th data-field="dep"><button class="fx-th" type="button" data-k="dep">Departamento</button></th>
-          <th data-field="pad"><button class="fx-th" type="button" data-k="pad">Padrón SUNAT</button></th>
+          <th data-field="pad"><button class="fx-th" type="button" data-k="pad">Total de empresas</button></th>
           <th data-field="emp"><button class="fx-th" type="button" data-k="emp">Con financiamiento</button></th>
-          <th data-field="tasa"><button class="fx-th" type="button" data-k="tasa">Tasa de acceso (%)</button></th>
+          <th data-field="tasa"><button class="fx-th" type="button" data-k="tasa">Inclusión (%)</button></th>
           <th data-field="var_pp"><button class="fx-th" type="button" data-k="var_pp">Var. (pp)</button></th>
           <th data-field="saldo_mm"><button class="fx-th" type="button" data-k="saldo_mm">Saldo (S/ millones)</button></th>
           <th data-field="prom"><button class="fx-th" type="button" data-k="prom">Saldo promedio (S/)</button></th>
-          <th data-field="emp_ns"><button class="fx-th" type="button" data-k="emp_ns">No SUNAT</button></th>
+          <th data-field="emp_ns"><button class="fx-th" type="button" data-k="emp_ns">Con financiamiento no SUNAT</button></th>
         </tr></thead><tbody></tbody></table></div>
     </article>
   </section>
@@ -259,7 +259,7 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
     </article>
   </section>
 
-  <p class="fx-foot" id="metodologia">Notas: la tasa de acceso al financiamiento es el número de empresas registradas en SUNAT con saldo de financiamiento en el sistema financiero, dividido entre las empresas del padrón SUNAT del mismo año, tamaño, sector y departamento. El saldo y el saldo promedio incluyen además a las empresas con financiamiento que no figuran en el padrón SUNAT. MIPYME agrupa a la micro, pequeña y mediana empresa. El padrón de 2019 no es comparable con el de los años siguientes (registra muchas más microempresas sin financiamiento), por lo que su tasa debe leerse con cautela; el padrón de 2025 repite el de 2024. Factoring: monto en soles y número de facturas negociadas, por tamaño empresarial, sector y departamento del proveedor. En 2026 se dispone de enero a agosto; para ese año, las variaciones comparan con el mismo periodo de 2025. Colores de variación: azul indica aumento y rojo disminución. Fuente: bases de indicadores de financiamiento y de factoring. Elaboración: Good Guys Insight.</p>
+  <p class="fx-foot" id="metodologia">Notas: la inclusión financiera es el número de empresas con saldo de financiamiento en el sistema financiero dividido entre el total de empresas (padrón SUNAT más las empresas con financiamiento no registradas en SUNAT), para el mismo año, tamaño, sector y departamento; es la definición del tablero de PRODUCE. El saldo promedio es el saldo entre las empresas con financiamiento. MIPYME agrupa a la micro, pequeña y mediana empresa. Se presenta 2021-2026, como en el tablero de PRODUCE; 2026 corresponde a saldos a julio. El padrón de 2025 repite el de 2024. Factoring: monto en soles y número de facturas negociadas, por tamaño empresarial, sector y departamento del proveedor; 2026 corresponde a enero-agosto y sus variaciones comparan con el mismo periodo de 2025. Colores de variación: azul indica aumento y rojo disminución. Fuentes: financiamiento, SUNAT y SBS; factoring, SUNAT, CAVALI, SBS y SMV (Observatorio PRODUCEmpresarial). Elaboración: Good Guys Insight.</p>
 </div>
 
 
@@ -346,7 +346,7 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
   dash.calc('fin_ind', {
     inputs: ['fin'],
     title: 'Indicadores de financiamiento',
-    description: 'Suma empresas, padrón y saldo por año, tamaño (incluye Todas y MIPYME), sector (incluye Todos) y departamento (00 = Perú); tasa = empresas SUNAT con financiamiento / padrón SUNAT × 100.',
+    description: 'Suma empresas con financiamiento, total de empresas y saldo por año, tamaño (incluye Todas y MIPYME), sector (incluye Todos) y departamento (00 = Perú); inclusión financiera = empresas con financiamiento / total de empresas × 100, como en el tablero de PRODUCE.',
     fn: (fin) => {
       const m = new Map();
       for (const r of fin) {
@@ -355,7 +355,7 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
           const k = r.anio + '|' + t + '|' + s + '|' + d;
           let o = m.get(k);
           if (!o) { o = { anio: r.anio, tam: t, sec: s, ccdd: d, dep: d === '00' ? 'Perú' : r.dep, emp: 0, pad: 0, emp_ns: 0, saldo: 0 }; m.set(k, o); }
-          if (r.reg === 'SUNAT') { o.emp += r.emp; o.pad += r.pad; } else o.emp_ns += r.emp;
+          o.emp += r.emp; o.pad += r.pad; if (r.reg !== 'SUNAT') o.emp_ns += r.emp;
           o.saldo += r.saldo;
         }
       }
@@ -367,7 +367,7 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
         out.push({ clave: o.anio + '-' + o.tam + '-' + o.sec + '-' + o.ccdd, anio: o.anio, tam: o.tam, sec: o.sec, ccdd: o.ccdd, dep: o.dep, pad: o.pad, emp: o.emp, tasa,
           var_pp: tasa != null && tp != null ? Math.round((tasa - tp) * 10) / 10 : null,
           saldo_mm: Math.round(o.saldo / 1e6), var_saldo: p && p.saldo ? Math.round((o.saldo / p.saldo - 1) * 1000) / 10 : null,
-          prom: o.emp + o.emp_ns ? Math.round(o.saldo / (o.emp + o.emp_ns)) : null, emp_ns: o.emp_ns });
+          prom: o.emp ? Math.round(o.saldo / o.emp) : null, emp_ns: o.emp_ns });
       }
       return out;
     }
@@ -375,7 +375,7 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
   dash.calc('fin_sub_ind', {
     inputs: ['fin_sub'],
     title: 'Financiamiento por subsector',
-    description: 'Suma empresas, padrón y saldo por año, tamaño (incluye Todas y MIPYME) y subsector; tasa = empresas SUNAT con financiamiento / padrón SUNAT × 100.',
+    description: 'Suma empresas con financiamiento, total de empresas y saldo por año, tamaño (incluye Todas y MIPYME) y subsector; inclusión financiera = empresas con financiamiento / total de empresas × 100.',
     fn: (fin_sub) => {
       const m = new Map();
       for (const r of fin_sub) {
@@ -384,7 +384,7 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
           const k = r.anio + '|' + t + '|' + r.sub;
           let o = m.get(k);
           if (!o) { o = { anio: r.anio, tam: t, sec: r.sec, sub: r.sub, emp: 0, pad: 0, saldo: 0 }; m.set(k, o); }
-          if (r.reg === 'SUNAT') { o.emp += r.emp; o.pad += r.pad; }
+          o.emp += r.emp; o.pad += r.pad;
           o.saldo += r.saldo;
         }
       }
@@ -478,7 +478,7 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
   const segShow = (box, v) => box.querySelectorAll('button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.v === v)));
   seg($('ft-seg'), TOPT.map((t) => [t, t === 'Gran empresa' ? 'Grande' : t]), 'ft');
   seg($('gt-seg'), TOPT.map((t) => [t, t === 'Gran empresa' ? 'Grande' : t]), 'gt');
-  seg($('fm-seg'), [['tasa', 'Tasa de acceso'], ['var_pp', 'Variación'], ['prom', 'Saldo promedio']], 'fm');
+  seg($('fm-seg'), [['tasa', 'Inclusión'], ['var_pp', 'Variación'], ['prom', 'Saldo promedio']], 'fm');
   seg($('gm-seg'), [['monto_mm', 'Monto'], ['var', 'Variación'], ['ticket', 'Monto por factura'], ['part_mipyme', 'MIPYME']], 'gm');
   seg($('gc-seg'), [['monto', 'Monto'], ['fact', 'Facturas'], ['ticket', 'Monto por factura']], 'gc');
   const fillSel = (sel, key) => { sel.replaceChildren(new Option('Todos los sectores', 'Todos'), ...SECS.map((s) => new Option(s, s))); sel.addEventListener('change', () => { const o = {}; o[key] = sel.value; dash.setParams(o); }); };
@@ -668,7 +668,7 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
       const d1 = $('fin-d1'); d1.className = 'fx-td ' + (r.var_pp > 0 ? 'fx-up' : r.var_pp < 0 ? 'fx-dn' : '');
       d1.textContent = r.var_pp == null ? 'Sin año previo comparable' : sg1(r.var_pp) + ' pp frente a ' + (a - 1);
       $('fin-t2').textContent = f0(r.emp);
-      $('fin-d2').textContent = 'de ' + f0(r.pad) + ' empresas en el padrón';
+      $('fin-d2').textContent = 'de ' + f0(r.pad) + ' empresas en total';
       $('fin-t3').replaceChildren(document.createTextNode('S/ ' + f0(r.saldo_mm)), Object.assign(document.createElement('small'), { textContent: 'millones' }));
       const d3e = $('fin-d3'); d3e.className = 'fx-td ' + (r.var_saldo > 0 ? 'fx-up' : r.var_saldo < 0 ? 'fx-dn' : '');
       d3e.textContent = r.var_saldo == null ? '—' : sg1(r.var_saldo) + '% frente a ' + (a - 1);
@@ -679,8 +679,8 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
     const mapBox = $('fin-map');
     const deps = Object.keys(NOM).filter((c) => c !== '00');
     const val = (c) => { const x = F && F.get(a + '|' + t + '|' + s + '|' + c); return x ? x[p.fm] : null; };
-    const MT = { tasa: ['Tasa de acceso al financiamiento por departamento', 'Porcentaje de empresas del padrón SUNAT con financiamiento. Seis grupos de igual número de departamentos; más oscuro, mayor acceso. Haga clic en un departamento para filtrar el tablero.'],
-      var_pp: ['Variación anual de la tasa de acceso', 'Cambio frente al año anterior, en puntos porcentuales. Azul: la tasa subió; rojo: bajó.'],
+    const MT = { tasa: ['Inclusión financiera por departamento', 'Porcentaje de empresas con financiamiento sobre el total de empresas. Seis grupos de igual número de departamentos; más oscuro, mayor acceso. Haga clic en un departamento para filtrar el tablero.'],
+      var_pp: ['Variación anual de la inclusión financiera', 'Cambio frente al año anterior, en puntos porcentuales. Azul: la inclusión subió; rojo: bajó.'],
       prom: ['Saldo promedio por empresa con financiamiento', 'Soles por empresa. Seis grupos de igual número de departamentos; más oscuro, mayor saldo promedio.'] };
     $('fin-map-t').textContent = MT[p.fm][0]; $('fin-map-n').textContent = MT[p.fm][1] + ' ' + ctx.replace(/^Perú · /, '').replace(/^./, (c) => c.toUpperCase()) + '.';
     if (!F) { fail(mapBox, sF); $('fin-map-lg').replaceChildren(); }
@@ -690,7 +690,7 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
       if (p.fm === 'var_pp') { const th = [0.5, 1.5, 3, 5]; color = divScale(th, true); lab = sg1; divLegend($('fin-map-lg'), th, ' pp'); }
       else { const q = sextiles(vals, RF); color = q; lab = p.fm === 'tasa' ? f1 : (v) => f0(v / 1000) + ' mil'; qLegend($('fin-map-lg'), q, p.fm === 'tasa' ? (v) => f1(v) + '%' : (v) => 'S/ ' + f0(v / 1000) + ' mil'); }
       drawMap(mapBox, { aria: MT[p.fm][0], sel: p.fd, val, color, lab, pick: pickF,
-        tip: (c) => { const x = F.get(a + '|' + t + '|' + s + '|' + c); return x ? [NOM[c] + ' · ' + a, { k: 'Tasa de acceso', v: pct(x.tasa) }, { k: 'Variación', v: x.var_pp == null ? '—' : sg1(x.var_pp) + ' pp' }, { k: 'Con financiamiento', v: f0(x.emp) }, { k: 'Padrón SUNAT', v: f0(x.pad) }, { k: 'Saldo', v: 'S/ ' + f0(x.saldo_mm) + ' mill.' }, { k: 'Saldo promedio', v: x.prom == null ? '—' : 'S/ ' + f0(x.prom) }] : [NOM[c], { k: 'Sin datos', v: '' }]; } });
+        tip: (c) => { const x = F.get(a + '|' + t + '|' + s + '|' + c); return x ? [NOM[c] + ' · ' + a, { k: 'Inclusión financiera', v: pct(x.tasa) }, { k: 'Variación', v: x.var_pp == null ? '—' : sg1(x.var_pp) + ' pp' }, { k: 'Con financiamiento', v: f0(x.emp) }, { k: 'Total de empresas', v: f0(x.pad) }, { k: 'Saldo', v: 'S/ ' + f0(x.saldo_mm) + ' mill.' }, { k: 'Saldo promedio', v: x.prom == null ? '—' : 'S/ ' + f0(x.prom) }] : [NOM[c], { k: 'Sin datos', v: '' }]; } });
       if (vals.every((v) => v == null)) empty(mapBox, 'Sin datos para la selección.');
     }
     // burbujas
@@ -707,8 +707,8 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
       const rows = SB.data.filter((x) => x.anio === a && x.tam === t && (s === 'Todos' || x.sec === s) && x.saldo_mm > 0);
       const q = sextiles(rows.map((x) => x.tasa), RF);
       drawTree($('fin-tr'), rows, { aria: 'Saldo por subsector', size: (x) => x.saldo_mm, color: (x) => x.tasa == null ? 'var(--color-bg)' : q(x.tasa), lab: (x) => 'S/ ' + f0(x.saldo_mm) + ' mill. · ' + pct(x.tasa),
-        tip: (x, sh) => [x.sub, { k: 'Sector', v: x.sec }, { k: 'Saldo', v: 'S/ ' + f0(x.saldo_mm) + ' millones' }, { k: 'Participación', v: f1(sh) + '%' }, { k: 'Tasa de acceso', v: pct(x.tasa) }, { k: 'Con financiamiento', v: f0(x.emp) }, { k: 'Padrón SUNAT', v: f0(x.pad) }] });
-      if (rows.length) { qLegend($('fin-tr-lg'), q, (v) => f1(v) + '%'); $('fin-tr-lg').prepend(Object.assign(document.createElement('span'), { textContent: 'Tasa de acceso:' })); } else $('fin-tr-lg').replaceChildren();
+        tip: (x, sh) => [x.sub, { k: 'Sector', v: x.sec }, { k: 'Saldo', v: 'S/ ' + f0(x.saldo_mm) + ' millones' }, { k: 'Participación', v: f1(sh) + '%' }, { k: 'Inclusión financiera', v: pct(x.tasa) }, { k: 'Con financiamiento', v: f0(x.emp) }, { k: 'Total de empresas', v: f0(x.pad) }] });
+      if (rows.length) { qLegend($('fin-tr-lg'), q, (v) => f1(v) + '%'); $('fin-tr-lg').prepend(Object.assign(document.createElement('span'), { textContent: 'Inclusión financiera:' })); } else $('fin-tr-lg').replaceChildren();
     }
     // tabla
     $('fin-tb-t').textContent = 'Detalle por departamento · ' + ctx.replace(/^Perú · /, '').replace(/^./, (c) => c.toUpperCase());
@@ -731,18 +731,18 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
     const svg = svgEl('svg', { width: '100%', viewBox: `0 0 ${w} ${h}`, role: 'img', 'aria-label': 'Burbujas por departamento' }, box);
     x.ticks(6).forEach((v) => { const l = svgEl('line', { x1: x(v), x2: x(v), y1: m.t, y2: h - m.b }, svg); l.style.stroke = 'var(--cds-chart-grid)'; txt(svg, { x: x(v), y: h - m.b + 14, 'text-anchor': 'middle' }, f0(v) + '%'); });
     y.ticks(8).filter((v) => /^[125]/.test(String(v))).forEach((v) => { const l = svgEl('line', { x1: m.l, x2: w - m.r, y1: y(v), y2: y(v) }, svg); l.style.stroke = 'var(--cds-chart-grid)'; txt(svg, { x: m.l - 6, y: y(v) + 4, 'text-anchor': 'end' }, 'S/ ' + loc.format('~s')(v).replace('k', ' mil').replace('M', ' mill.')); });
-    txt(svg, { x: w - m.r, y: h - 4, 'text-anchor': 'end' }, 'Tasa de acceso (%)');
+    txt(svg, { x: w - m.r, y: h - 4, 'text-anchor': 'end' }, 'Inclusión financiera (%)');
     txt(svg, { x: m.l, y: m.t - 2 }, 'Saldo promedio por empresa');
     if (nat.tasa >= x.domain()[0] && nat.tasa <= x.domain()[1]) { const l = svgEl('line', { x1: x(nat.tasa), x2: x(nat.tasa), y1: m.t, y2: h - m.b, 'stroke-dasharray': '4 3' }, svg); l.style.stroke = 'var(--cds-chart-reference)'; }
     if (nat.prom >= y.domain()[0] && nat.prom <= y.domain()[1]) { const l = svgEl('line', { x1: m.l, x2: w - m.r, y1: y(nat.prom), y2: y(nat.prom), 'stroke-dasharray': '4 3' }, svg); l.style.stroke = 'var(--cds-chart-reference)'; }
-    [['Mayor acceso y mayor saldo', w - m.r - 4, m.t + 12, 'end'], ['Menor acceso y menor saldo', m.l + 4, h - m.b - 6, 'start']].forEach(([s2, xx, yy, an]) => txt(svg, { x: xx, y: yy, 'text-anchor': an }, s2));
+    [['Mayor inclusión y mayor saldo', w - m.r - 4, m.t + 12, 'end'], ['Menor inclusión y menor saldo', m.l + 4, h - m.b - 6, 'start']].forEach(([s2, xx, yy, an]) => txt(svg, { x: xx, y: yy, 'text-anchor': an }, s2));
     const tip = tipFor(box);
     const q = sextiles(rows.map((r) => r.tasa), RF);
     rows.sort((a2, b) => b.emp - a2.emp).forEach((r) => {
       const c = svgEl('circle', { cx: x(r.tasa), cy: y(r.prom), r: rr(r.emp), class: 'fx-hit', 'stroke-width': p.fd === r.ccdd ? 2.4 : 1 }, svg);
       c.style.fill = q(r.tasa); c.style.fillOpacity = 0.85; c.style.stroke = p.fd === r.ccdd ? 'var(--color-fg)' : 'var(--color-panel)';
       if (p.fd && p.fd !== r.ccdd) c.style.opacity = 0.45;
-      c.addEventListener('mousemove', (ev) => showTip(box, tip, ev, [r.dep, { k: 'Tasa de acceso', v: pct(r.tasa) }, { k: 'Saldo promedio', v: 'S/ ' + f0(r.prom) }, { k: 'Con financiamiento', v: f0(r.emp) }]));
+      c.addEventListener('mousemove', (ev) => showTip(box, tip, ev, [r.dep, { k: 'Inclusión financiera', v: pct(r.tasa) }, { k: 'Saldo promedio', v: 'S/ ' + f0(r.prom) }, { k: 'Con financiamiento', v: f0(r.emp) }]));
       c.addEventListener('mouseleave', () => hideTip(tip));
       c.addEventListener('click', () => pickF(r.ccdd));
     });
@@ -764,41 +764,40 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
 
   const drawLines = (p, F, sF, s, d) => {
     const box = $('fin-ln'); box.replaceChildren();
-    $('fin-ln-t').textContent = 'Tasa de acceso por tamaño empresarial' + (d !== '00' || s !== 'Todos' ? ' · ' + [d !== '00' ? NOM[d] : null, s !== 'Todos' ? s : null].filter(Boolean).join(' · ') : '');
+    $('fin-ln-t').textContent = 'Inclusión financiera por tamaño empresarial' + (d !== '00' || s !== 'Todos' ? ' · ' + [d !== '00' ? NOM[d] : null, s !== 'Todos' ? s : null].filter(Boolean).join(' · ') : '');
     if (!F) { fail(box, sF); return; }
     const w = box.clientWidth; if (!w) return;
-    const years = [...new Set(dash.data('fin_ind').data.map((r) => r.anio))].sort();
+    const years = [...new Set(dash.data('fin_ind').data.map((r) => r.anio))].filter((a) => a >= 2021).sort();
     const ser = TAMS.map((t, i) => ({ t, c: dash.colors[i], pts: years.map((a) => { const r = F.get(a + '|' + t + '|' + s + '|' + d); return r && r.tasa != null ? { a, v: r.tasa } : null; }).filter(Boolean) })).filter((q) => q.pts.length);
     if (!ser.length) { empty(box, 'Sin datos para la selección.'); return; }
     const h = Math.max(260, Math.min(360, w * 0.62));
     const lw = 96, m = { l: 34, r: lw, t: 12, b: 26 };
     const x = d3.scaleLinear(d3.extent(years), [m.l, w - m.r]);
     const y = d3.scaleLinear([0, Math.min(100, d3.max(ser, (q) => d3.max(q.pts, (z) => z.v)) * 1.08)], [h - m.b, m.t]).nice();
-    const svg = svgEl('svg', { width: '100%', viewBox: `0 0 ${w} ${h}`, role: 'img', 'aria-label': 'Tasa de acceso por tamaño' }, box);
+    const svg = svgEl('svg', { width: '100%', viewBox: `0 0 ${w} ${h}`, role: 'img', 'aria-label': 'Inclusión financiera por tamaño' }, box);
     y.ticks(5).forEach((v) => { const l = svgEl('line', { x1: m.l, x2: w - m.r, y1: y(v), y2: y(v) }, svg); l.style.stroke = 'var(--cds-chart-grid)'; txt(svg, { x: m.l - 6, y: y(v) + 4, 'text-anchor': 'end' }, f0(v) + '%'); });
     years.forEach((a) => { if (w < 420 && a % 2) return; txt(svg, { x: x(a), y: h - 8, 'text-anchor': 'middle' }, String(a)); });
     const ax = svgEl('line', { x1: x(p.fa), x2: x(p.fa), y1: m.t, y2: h - m.b, 'stroke-dasharray': '3 3' }, svg); ax.style.stroke = 'var(--cds-chart-reference)';
     const tip = tipFor(box);
     const ends = [];
     ser.forEach((q) => {
-      const p19 = q.pts.filter((z) => z.a <= 2020), rest = q.pts.filter((z) => z.a >= 2020);
+      const rest = q.pts;
       const line = d3.line().x((z) => x(z.a)).y((z) => y(z.v));
-      if (p19.length > 1) { const pa = svgEl('path', { d: line(p19), fill: 'none', 'stroke-width': 1.6, 'stroke-dasharray': '3 3' }, svg); pa.style.stroke = q.c; }
       const pb = svgEl('path', { d: line(rest), fill: 'none', 'stroke-width': 2, 'stroke-linecap': 'round', 'stroke-linejoin': 'round' }, svg); pb.style.stroke = q.c;
-      q.pts.forEach((z) => { const c = svgEl('circle', { cx: x(z.a), cy: y(z.v), r: z.a === p.fa ? 4.5 : 2.6, 'stroke-width': 1.5 }, svg); c.style.fill = z.a === 2019 ? 'var(--color-panel)' : q.c; c.style.stroke = q.c; });
+      q.pts.forEach((z) => { const c = svgEl('circle', { cx: x(z.a), cy: y(z.v), r: z.a === p.fa ? 4.5 : 2.6, 'stroke-width': 1.5 }, svg); c.style.fill = q.c; c.style.stroke = q.c; });
       const lst = q.pts[q.pts.length - 1]; ends.push({ q, y: y(lst.v), v: lst.v });
     });
     ends.sort((a2, b) => a2.y - b.y); for (let i = 1; i < ends.length; i++) if (ends[i].y - ends[i - 1].y < 13) ends[i].y = ends[i - 1].y + 13;
     ends.forEach((e) => { const t = txt(svg, { x: w - m.r + 6, y: e.y + 4, class: 'fx-strong' }, (e.q.t === 'Gran empresa' ? 'Grande' : e.q.t) + ' ' + f1(e.v) + '%'); t.style.fill = e.q.c; });
     const hov = svgEl('rect', { x: m.l, y: m.t, width: w - m.l - m.r, height: h - m.t - m.b, fill: 'transparent' }, svg);
-    hov.addEventListener('mousemove', (ev) => { const r = svg.getBoundingClientRect(); const xx = (ev.clientX - r.left) * w / r.width; const a = Math.round(x.invert(xx)); showTip(box, tip, ev, [String(a) + (a === 2019 ? ' (padrón no comparable)' : ''), ...ser.map((q) => { const z = q.pts.find((z2) => z2.a === a); return { k: q.t, v: z ? pct(z.v) : '—' }; })]); });
+    hov.addEventListener('mousemove', (ev) => { const r = svg.getBoundingClientRect(); const xx = (ev.clientX - r.left) * w / r.width; const a = Math.round(x.invert(xx)); showTip(box, tip, ev, [String(a), ...ser.map((q) => { const z = q.pts.find((z2) => z2.a === a); return { k: q.t, v: z ? pct(z.v) : '—' }; })]); });
     hov.addEventListener('mouseleave', () => hideTip(tip));
     hov.addEventListener('click', (ev) => { const r = svg.getBoundingClientRect(); dash.setParams({ fa: Math.round(x.invert((ev.clientX - r.left) * w / r.width)) }); });
   };
 
   const drawMatrix = (p, F, sF, a, d) => {
     const box = $('fin-hm'); box.replaceChildren();
-    $('fin-hm-t').textContent = 'Matriz de acceso: sector y tamaño · ' + NOM[d] + ' ' + a;
+    $('fin-hm-t').textContent = 'Matriz de inclusión: sector y tamaño · ' + NOM[d] + ' ' + a;
     if (!F) { fail(box, sF); return; }
     const w = box.clientWidth; if (!w) return;
     const cols = ['Todas', ...TAMS], rows = ['Todos', ...SECS];
@@ -819,7 +818,7 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
         const rc = svgEl('rect', { x: lw + cw * j + 1, y: yy + 1, width: cw - 2, height: rh - 2, rx: 3, class: 'fx-hit', 'stroke-width': on ? 2 : 0 }, svg);
         rc.style.fill = c; if (on) rc.style.stroke = 'var(--color-fg)';
         if (r && r.tasa != null) txt(svg, { x: lw + cw * j + cw / 2, y: yy + rh / 2 + 4, 'text-anchor': 'middle', class: dark(c) ? 'fx-in' : 'fx-ind', 'pointer-events': 'none' }, f1(r.tasa));
-        rc.addEventListener('mousemove', (ev) => showTip(box, tip, ev, [s + ' · ' + t, { k: 'Tasa de acceso', v: r ? pct(r.tasa) : '—' }, { k: 'Con financiamiento', v: r ? f0(r.emp) : '—' }, { k: 'Padrón SUNAT', v: r ? f0(r.pad) : '—' }]));
+        rc.addEventListener('mousemove', (ev) => showTip(box, tip, ev, [s + ' · ' + t, { k: 'Inclusión financiera', v: r ? pct(r.tasa) : '—' }, { k: 'Con financiamiento', v: r ? f0(r.emp) : '—' }, { k: 'Total de empresas', v: r ? f0(r.pad) : '—' }]));
         rc.addEventListener('mouseleave', () => hideTip(tip));
         rc.addEventListener('click', () => dash.setParams({ fs: s, ft: t }));
       });
@@ -1047,7 +1046,7 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
         const who = { Todas: 'las empresas', MIPYME: 'las MIPYME', Micro: 'las microempresas', 'Pequeña': 'las pequeñas empresas', Mediana: 'las medianas empresas', 'Gran empresa': 'las grandes empresas' }[p.ft];
         const where = (p.fd ? ' de ' + NOM[p.fd] : '') + (p.fs !== 'Todos' ? ' del sector ' + p.fs.toLowerCase() : '');
         const g = F.get(p.fa + '|Gran empresa|' + p.fs + '|' + (p.fd || '00')), mi = F.get(p.fa + '|Micro|' + p.fs + '|' + (p.fd || '00'));
-        take.textContent = 'En ' + p.fa + ', ' + f1(r.tasa) + '% de ' + who + where + ' registradas en SUNAT tenía financiamiento' + (r.var_pp == null ? '' : ' (' + sg1(r.var_pp) + ' pp frente a ' + (p.fa - 1) + ')') + ', con un saldo de S/ ' + f0(r.saldo_mm) + ' millones.' + (g && mi && g.tasa != null && mi.tasa != null ? ' La brecha por tamaño es amplia: accede ' + f1(g.tasa) + '% de las grandes empresas frente a ' + f1(mi.tasa) + '% de las microempresas.' : '') + (p.fa === 2019 ? ' El padrón de 2019 no es comparable con el de años siguientes.' : '');
+        take.textContent = 'En ' + p.fa + (p.fa === 2026 ? ' (a julio)' : '') + ', ' + f1(r.tasa) + '% de ' + who + where + ' tenía financiamiento' + (r.var_pp == null ? '' : ' (' + sg1(r.var_pp) + ' pp frente a ' + (p.fa - 1) + ')') + ', con un saldo de S/ ' + f0(r.saldo_mm) + ' millones.' + (g && mi && g.tasa != null && mi.tasa != null ? ' La brecha por tamaño es amplia: la inclusión financiera es ' + f1(g.tasa) + '% en la gran empresa y ' + f1(mi.tasa) + '% en la microempresa.' : '');
       }
     } else {
       const o = drawFac(p);
