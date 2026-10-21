@@ -1,6 +1,6 @@
 # Financiamiento y factoring empresarial
 
-Tablero interactivo con tres pestañas: indicadores de inclusión financiera empresarial (2021-2026), operaciones de factoring (enero 2019-agosto 2026) y un análisis con diez indicadores complementarios, por tamaño empresarial, sector y departamento.
+Tablero interactivo con tres pestañas: indicadores de inclusión financiera empresarial (2021-2026), operaciones de factoring (enero 2019-agosto 2026) y un análisis con once indicadores complementarios, por tamaño empresarial, sector y departamento.
 
 ## Pestaña 1: Indicadores financieros
 
@@ -43,6 +43,7 @@ Filtros: año de análisis, año base, tamaño y departamento (clic en mapas, ba
 | 8 | Concentración | HHI del crédito y del factoring, por departamento y por sector |
 | 9 | Estacionalidad y proyección | Índice estacional mensual y proyección del año en curso con rango |
 | 10 | Fichas | Mapa de cuadros con la evolución de la inclusión y ficha por departamento |
+| 11 | Factoring como % del PBI | Factoring anual / valor agregado a precios corrientes del INEI, por departamento y actividad (2019-2025) |
 
 ## Definiciones
 
@@ -65,6 +66,8 @@ Las cifras coinciden con el [tablero de PRODUCEmpresarial](https://www.producemp
 | `index.html` | Tablero (carga d3 desde CDN y los datos desde `data/datos.js`). |
 | `data/datos.js` | Datos agregados (financiamiento, factoring y límites departamentales). |
 | `data/limites.json` | Contornos simplificados de los 25 departamentos (INEI). |
+| `data/pbi.json` | VAB a precios corrientes por departamento y actividad, 2019-2025 (INEI, PBI departamental 2007-2025). |
+| `scripts/pbi_extract.py` | Extrae `data/pbi.json` de `pbi_departamentos_2007_2025.xlsm`. |
 | `data/vecinos.csv` | Pares de departamentos contiguos (contigüidad tipo reina) para el análisis espacial. |
 | `scripts/agregar_datos.py` | Agrega los Excel fuente y regenera `data/datos.js`. |
 
@@ -75,11 +78,11 @@ pip install pandas openpyxl python-calamine
 python scripts/agregar_datos.py "F:/2026/Pedro_2026/Tablero_indicadores_financieros"
 ```
 
-El script lee `Indicadores_financiamiento.xlsx` (todas sus hojas) e `indicadores_factoring.xlsx` y reescribe `data/datos.js`. El tablero no recalcula los datos fuente: solo suma y divide los agregados.
+El script lee `Indicadores_financiamiento.xlsx` (todas sus hojas), `indicadores_factoring.xlsx` y, si está en la misma carpeta, `pbi_departamentos_2007_2025.xlsm` del INEI; luego reescribe `data/datos.js`. El tablero no recalcula los datos fuente: solo suma y divide los agregados.
 
 ## Publicar en GitHub Pages
 
 1. Suba todos los archivos manteniendo las carpetas.
 2. En **Settings → Pages**, elija la rama `main` y la carpeta `/ (root)`.
 
-Fuente: PRODUCE. Elaboración: **Good Guys Insight**.
+Fuente: PRODUCE; PBI, INEI. Elaboración: **Good Guys Insight**.

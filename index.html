@@ -358,12 +358,21 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
       </div>
     </article>
 
+    <article class="fx-card" id="an-factoring-pbi">
+      <div class="fx-ch"><h2 id="an-pb-t">11. Factoring como % del PBI</h2><div class="fx-grp"><label class="fx-lbl" for="ap-sel">Actividad</label><select class="fx-sel" id="ap-sel"></select></div></div>
+      <p class="fx-note" id="an-pb-n">—</p>
+      <div class="fx-grid">
+        <div><div class="fx-chart fx-map" id="an-pb" data-source="an_fpbi limites"></div><div class="fx-legend" id="an-pb-lg"></div></div>
+        <div style="display:flex;flex-direction:column;gap:var(--cds-gap-md);min-width:0"><p class="fx-note"><b>Evolución (2023 preliminar; 2025 estimado)</b></p><div class="fx-chart" id="an-pl" data-source="an_fpbi"></div><p class="fx-note"><b id="an-ps-t">Por sector</b> · haga clic en un sector para verlo en el mapa</p><div class="fx-chart" id="an-ps" data-source="an_fpbi"></div></div>
+      </div>
+    </article>
+
     <article class="fx-card" id="an-fichas">
       <h2 id="an-fc-t">10. Fichas por departamento</h2>
       <p class="fx-note">Cada cuadro es un departamento, ubicado según su posición aproximada en el mapa, con la evolución de la inclusión financiera desde 2021. Haga clic en uno para ver su ficha.</p>
       <div class="fx-grid">
         <div class="fx-chart fx-map" id="an-gr" data-source="fin_ind"></div>
-        <div class="fx-ficha" id="an-ficha" data-source="an_indice an_fxc an_lisa an_brecha fin_ind"></div>
+        <div class="fx-ficha" id="an-ficha" data-source="an_indice an_fxc an_lisa an_brecha an_fpbi fin_ind"></div>
       </div>
     </article>
 
@@ -378,11 +387,12 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
       <p class="fx-foot">7. Índice de acceso financiero empresarial: promedio simple de cuatro dimensiones normalizadas como (x − mínimo) / (máximo − mínimo) entre departamentos del mismo año y tamaño: inclusión, logaritmo del saldo promedio, monto de factoring de 12 meses por empresa y facturas de 12 meses por cada mil empresas. Sigue el método de Sarma (2008) y del IDH.</p>
       <p class="fx-foot">8. Concentración: HHI = Σ (participación en %)², de 0 a 10,000, del saldo y del monto de factoring entre departamentos y entre sectores.</p>
       <p class="fx-foot">9. Estacionalidad y proyección: índice del mes = monto del mes / promedio mensual del año, promediado en 2021-2025. Proyección = acumulado del año / fracción promedio que esos meses representaron en 2021-2025; el rango usa la fracción mínima y máxima.</p>
-      <p class="fx-foot">10. Fichas: resumen por departamento con su inclusión, posición, brecha, factoring respecto del crédito, índice compuesto y clúster espacial del año y tamaño elegidos.</p>
+      <p class="fx-foot">10. Fichas: resumen por departamento con su inclusión, posición, brecha, factoring respecto del crédito y del PBI, índice compuesto y clúster espacial del año y tamaño elegidos.</p>
+      <p class="fx-foot">11. Factoring como % del PBI: monto anual de factoring / valor agregado a precios corrientes × 100 (INEI, PBI departamental 2007-2025, información a junio de 2026; 2023-2024 preliminares y 2025 estimado). El total nacional se divide entre el PBI; cada departamento, entre su valor agregado bruto (VAB), con Lima = Provincia de Lima + Región Lima y Callao por separado. Por actividad, el factoring de cada sector se divide entre el VAB de esa actividad en el departamento; Servicios y Pesca van juntos porque el INEI publica la pesca dentro de «otras actividades». El factoring se asigna al departamento del proveedor (domicilio fiscal), lo que eleva el indicador de Lima y Callao, donde se registran muchas empresas que operan en otras regiones. Solo años completos (2019-2025).</p>
     </div>
   </section>
 
-  <div class="fx-footw" id="metodologia"><p class="fx-foot">Fuente: PRODUCE.</p><p class="fx-foot">Elaboración: <b>Good Guys Insight</b>.</p><p class="fx-foot">Nota: La inclusión financiera (porcentaje de empresas con acceso al financiamiento) es el número de empresas con saldo de financiamiento en el sistema financiero dividido entre el total de empresas (padrón SUNAT más las empresas con financiamiento no registradas en SUNAT), para el mismo año, tamaño, sector y departamento. El saldo promedio es el saldo entre las empresas con financiamiento. MIPYME agrupa a la micro, pequeña y mediana empresa; MYPE, a la micro y pequeña; PYME, a la pequeña y mediana. Se presenta 2021-2026; 2026 corresponde a saldos a julio. El padrón de 2025 repite el de 2024. Lima comprende Lima Metropolitana y Lima Provincias, pues la base no distingue provincias. Factoring: monto en soles y número de facturas negociadas, por tamaño empresarial, sector y departamento del proveedor; 2026 corresponde a enero-agosto y sus variaciones comparan con el mismo periodo de 2025. Colores de variación: azul indica aumento y rojo disminución. Información de base: financiamiento, SUNAT y SBS; factoring, SUNAT, CAVALI, SBS y SMV.</p></div>
+  <div class="fx-footw" id="metodologia"><p class="fx-foot">Fuente: PRODUCE.</p><p class="fx-foot">Elaboración: <b>Good Guys Insight</b>.</p><p class="fx-foot">Nota: La inclusión financiera (porcentaje de empresas con acceso al financiamiento) es el número de empresas con saldo de financiamiento en el sistema financiero dividido entre el total de empresas (padrón SUNAT más las empresas con financiamiento no registradas en SUNAT), para el mismo año, tamaño, sector y departamento. El saldo promedio es el saldo entre las empresas con financiamiento. MIPYME agrupa a la micro, pequeña y mediana empresa; MYPE, a la micro y pequeña; PYME, a la pequeña y mediana. Se presenta 2021-2026; 2026 corresponde a saldos a julio. El padrón de 2025 repite el de 2024. Lima comprende Lima Metropolitana y Lima Provincias, pues la base no distingue provincias. Factoring: monto en soles y número de facturas negociadas, por tamaño empresarial, sector y departamento del proveedor; 2026 corresponde a enero-agosto y sus variaciones comparan con el mismo periodo de 2025. Colores de variación: azul indica aumento y rojo disminución. Información de base: financiamiento, SUNAT y SBS; factoring, SUNAT, CAVALI, SBS y SMV; PBI, INEI.</p></div>
 </div>
 
 
@@ -395,7 +405,7 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
 (function () {
   const src = window.FX_DATA || {};
   const calcs = {};
-  const DEF = { tab: 'fin', fa: 2026, ft: 'MIPYME', fs: 'Todos', fd: null, fm: 'tasa', ga: 2026, gt: 'Todas', gs: 'Todos', gd: null, gm: 'monto_mm', gc: 'monto', aa: 2026, ab: 2021, at: 'MIPYME', ad: null };
+  const DEF = { tab: 'fin', fa: 2026, ft: 'MIPYME', fs: 'Todos', fd: null, fm: 'tasa', ga: 2026, gt: 'Todas', gs: 'Todos', gd: null, gm: 'monto_mm', gc: 'monto', aa: 2026, ab: 2021, at: 'MIPYME', ad: null, ap: 'Total' };
   let params = { ...DEF };
   const subs = [];
   const fire = () => subs.forEach((fn) => { try { fn(); } catch (e) { console.error(e); } });
@@ -425,7 +435,7 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
 (function () {
   const $ = (id) => document.getElementById(id);
   const NS = 'http://www.w3.org/2000/svg';
-  const DEF = { tab: 'fin', fa: 2026, ft: 'MIPYME', fs: 'Todos', fd: null, fm: 'tasa', ga: 2026, gt: 'Todas', gs: 'Todos', gd: null, gm: 'monto_mm', gc: 'monto', aa: 2026, ab: 2021, at: 'MIPYME', ad: null };
+  const DEF = { tab: 'fin', fa: 2026, ft: 'MIPYME', fs: 'Todos', fd: null, fm: 'tasa', ga: 2026, gt: 'Todas', gs: 'Todos', gd: null, gm: 'monto_mm', gc: 'monto', aa: 2026, ab: 2021, at: 'MIPYME', ad: null, ap: 'Total' };
   const st = () => ({ ...DEF, ...dash.params() });
   const TAMS = ['Micro', 'Pequeña', 'Mediana', 'Gran empresa'];
   const TOPT = ['Todas', 'MIPYME', 'MYPE', 'PYME', ...TAMS];
@@ -1350,11 +1360,37 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
     }
   });
 
+  dash.calc('an_fpbi', {
+    inputs: ['fac', 'pbi'],
+    title: 'Factoring como % del PBI',
+    description: 'Monto anual de factoring (años completos) / valor agregado a precios corrientes del INEI × 100, por año, tamaño, departamento y sector; el total nacional usa el PBI y los departamentos su VAB. Servicios incluye Pesca, como en el INEI.',
+    fn: (fac, pbi) => {
+      const P = new Map(pbi.map((r) => [r.cod + '|' + r.sec + '|' + r.anio, r]));
+      const mx = new Map(); for (const r of fac) mx.set(r.anio, Math.max(mx.get(r.anio) || 0, r.mes));
+      const gs = (t) => { const s = ['Todas', t]; if (t !== 'Gran empresa') s.push('MIPYME'); if (t === 'Micro' || t === 'Pequeña') s.push('MYPE'); if (t === 'Pequeña' || t === 'Mediana') s.push('PYME'); return s; };
+      const a = new Map(), add = (k, v) => a.set(k, (a.get(k) || 0) + v);
+      for (const r of fac) {
+        if (mx.get(r.anio) !== 12) continue;
+        const sec = r.sec === 'Servicios' || r.sec === 'Pesca' ? 'Servicios y pesca' : r.sec;
+        for (const t of gs(r.tam)) for (const c of ['00', r.ccdd]) for (const q of ['Total', sec]) add(r.anio + '|' + t + '|' + c + '|' + q, r.monto);
+      }
+      const out = [];
+      for (const [k, v] of a) {
+        const [y, t, c, q] = k.split('|'); const b = P.get(c + '|' + q + '|' + y);
+        if (!b || !b.pbi_mm) continue;
+        out.push({ clave: y + '-' + t + '-' + c + '-' + q, anio: +y, tam: t, cod: c, sec: q, fac_mm: Math.round(v / 1e5) / 10, pbi_mm: b.pbi_mm, pct: Math.round(v / 1e6 / b.pbi_mm * 10000) / 100, estado: b.estado });
+      }
+      return out;
+    }
+  });
+
   // ---------- controles de análisis ----------
   seg($('at-seg'), TOPT.map((t) => [t, t === 'Gran empresa' ? 'Grande' : t]), 'at');
   $('aa-in').addEventListener('input', () => { const a = +$('aa-in').value; dash.setParams({ aa: a, ab: Math.min(st().ab, a - 1) }); });
   $('ab-sel').addEventListener('change', () => dash.setParams({ ab: +$('ab-sel').value }));
   $('ad-chip').addEventListener('click', () => dash.setParams({ ad: null }));
+  $('ap-sel').replaceChildren(...[['Total', 'Total (PBI / VAB)'], ['Comercio', 'Comercio'], ['Manufactura', 'Manufactura'], ['Servicios y pesca', 'Servicios y pesca'], ['Construcción', 'Construcción'], ['Minería', 'Minería'], ['Agropecuario', 'Agropecuario']].map(([v, l]) => new Option(l, v)));
+  $('ap-sel').addEventListener('change', () => dash.setParams({ ap: $('ap-sel').value }));
   const pickA = (d) => dash.setParams({ ad: st().ad === d ? null : d });
   const LC = { 'Alto-Alto': '#d7191c', 'Bajo-Bajo': '#2c7bb6', 'Alto-Bajo': '#fdae61', 'Bajo-Alto': '#abd9e9' };
   const DIMC = ['#0f766e', '#1d4ed8', '#b45309', '#7c3aed'];
@@ -1371,6 +1407,7 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
   const AIX = () => aidx('an_indice', (r) => r.anio + '|' + r.tam + '|' + r.ccdd);
   const AHH = () => aidx('an_hhi', (r) => r.anio + '|' + r.tam + '|' + r.serie);
   const AES = () => aidx('an_estac', (r) => r.clave);
+  const APB = () => aidx('an_fpbi', (r) => r.anio + '|' + r.tam + '|' + r.cod + '|' + r.sec);
   const DEPS = Object.keys(NOM).filter((c) => c !== '00');
   const ttxtA = (t) => t === 'Todas' ? 'todas las empresas' : GRUPO[t] ? t : t === 'Gran empresa' ? 'gran empresa' : t.toLowerCase() + ' empresa';
 
@@ -1583,6 +1620,42 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
           $('an-es-n').textContent = 'Izquierda: índice estacional del monto (1.00 = mes promedio), años completos 2021-2025. Derecha: proyección de ' + pr.anio + ': S/ ' + f0(pr.proy_mm) + ' millones (rango S/ ' + f0(pr.lo_mm) + '-' + f0(pr.hi_mm) + ' millones), ' + (pr.prev_mm ? sg1((pr.proy_mm / pr.prev_mm - 1) * 100) + '% frente a ' + (pr.anio - 1) : '') + '. La proyección divide lo acumulado a ' + MESL[pr.mes - 1] + ' entre la fracción del año que esos meses suelen representar.';
         } else if (wp) empty(bp, 'Sin proyección para la selección.');
       } } }
+    // ----- 11. factoring / PBI -----
+    { const PB = APB(), yp = Math.min(a, 2025), sp = p.ap || 'Total', box = $('an-pb'), bl = $('an-pl'), bs = $('an-ps');
+      $('ap-sel').value = sp;
+      const nat = PB && PB.get(yp + '|' + t + '|00|' + sp), d0 = p.ad || '00';
+      $('an-pb-t').textContent = '11. Factoring como % del PBI · ' + ttxtA(t) + ', ' + yp;
+      $('an-pb-n').textContent = 'Monto anual de factoring como porcentaje del valor agregado a precios corrientes (INEI): el total nacional sobre el PBI y cada departamento sobre su valor agregado bruto (VAB)' + (sp === 'Total' ? '' : '; para ' + sp.toLowerCase() + ', el factoring del sector sobre el VAB de la actividad') + '.' + (a > 2025 ? ' El INEI publica hasta 2025, por lo que se muestra 2025.' : '') + (nat ? ' Perú ' + yp + ': ' + f2(nat.pct) + '%' + (nat.estado !== 'definitivo' ? ' (cifra ' + (nat.estado === 'estimado' ? 'estimada' : nat.estado) + ' del INEI)' : '') + '.' : '');
+      if (!PB) { fail(box, dash.data('an_fpbi').status); bl.replaceChildren(); bs.replaceChildren(); $('an-pb-lg').replaceChildren(); }
+      else {
+        const val = (c) => { const r = PB.get(yp + '|' + t + '|' + c + '|' + sp); return r ? r.pct : null; };
+        const q = sextiles(DEPS.map(val), RG);
+        drawMap(box, { aria: 'Factoring como porcentaje del PBI', sel: p.ad, val, color: q, lab: (v) => f2(v) + '%', pick: pickA,
+          tip: (c) => { const r = PB.get(yp + '|' + t + '|' + c + '|' + sp); return r ? [NOM[c] + ' · ' + (sp === 'Total' ? 'Total' : sp) + ' · ' + yp, { k: 'Factoring', v: 'S/ ' + f1(r.fac_mm) + ' mill.' }, { k: 'VAB (precios corrientes)', v: 'S/ ' + f0(r.pbi_mm) + ' mill.' }, { k: 'Factoring / VAB', v: f2(r.pct) + '%' }, { k: 'Cifra del INEI', v: r.estado }] : [NOM[c], { k: 'Sin factoring en ' + yp, v: '' }]; } });
+        if (DEPS.every((c) => val(c) == null)) empty(box, 'Sin datos para la selección.');
+        qLegend($('an-pb-lg'), q, (v) => f2(v) + '%');
+        $('an-ps-t').textContent = 'Por sector · ' + (p.ad ? NOM[p.ad] : 'Perú');
+        const sr = ['Comercio', 'Manufactura', 'Servicios y pesca', 'Construcción', 'Minería', 'Agropecuario'].map((sc) => { const r = PB.get(yp + '|' + t + '|' + d0 + '|' + sc); return r ? { k: sc, v: r.pct, r, sel: sc === sp } : null; }).filter(Boolean).sort((u, v) => v.v - u.v);
+        hbars(bs, sr, { aria: 'Factoring como porcentaje del VAB por sector', color: RG[4], lw: 112, fmt: (v) => f2(v) + '%', sel: sp !== 'Total', pick: (k) => dash.setParams({ ap: st().ap === k ? 'Total' : k }), tip: (r) => [r.k + ' · ' + (p.ad ? NOM[p.ad] : 'Perú') + ' ' + yp, { k: 'Factoring', v: 'S/ ' + f1(r.r.fac_mm) + ' mill.' }, { k: 'VAB', v: 'S/ ' + f0(r.r.pbi_mm) + ' mill.' }, { k: 'Factoring / VAB', v: f2(r.r.pct) + '%' }] });
+        bs.querySelectorAll('rect').forEach((rc, i) => { if (sr[i]) { rc.classList.add('fx-hit'); rc.addEventListener('click', () => dash.setParams({ ap: st().ap === sr[i].k ? 'Total' : sr[i].k })); } });
+        bl.replaceChildren(); const w = bl.clientWidth;
+        if (w) {
+          const ys = [2019, 2020, 2021, 2022, 2023, 2024, 2025];
+          const mk = (c) => ys.map((y) => { const r = PB.get(y + '|' + t + '|' + c + '|' + sp); return r ? { y, v: r.pct, e: r.estado } : null; }).filter(Boolean);
+          const ser = [{ k: 'Perú', c: 'var(--color-fg)', pts: mk('00') }]; if (p.ad) ser.push({ k: NOM[p.ad], c: RG[4], pts: mk(p.ad) });
+          const h = 220, m = { l: 44, r: 96, t: 14, b: 24 };
+          const x = d3.scaleLinear([2019, 2025], [m.l, w - m.r]), y = d3.scaleLinear([0, (d3.max(ser.flatMap((q2) => q2.pts), (z) => z.v) || 1) * 1.15], [h - m.b, m.t]).nice();
+          const svg = svgEl('svg', { width: '100%', viewBox: `0 0 ${w} ${h}`, role: 'img', 'aria-label': 'Evolución del factoring como porcentaje del PBI' }, bl);
+          y.ticks(4).forEach((v) => { const l = svgEl('line', { x1: m.l, x2: w - m.r, y1: y(v), y2: y(v) }, svg); l.style.stroke = 'var(--cds-chart-grid)'; txt(svg, { x: m.l - 6, y: y(v) + 4, 'text-anchor': 'end' }, f1(v) + '%'); });
+          ys.forEach((v) => txt(svg, { x: x(v), y: h - 6, 'text-anchor': 'middle', class: v === yp ? 'fx-strong' : '' }, String(v) + (v === 2025 ? 'E' : v >= 2023 ? 'P' : '')));
+          const tip = tipFor(bl), ends = [];
+          ser.forEach((q2) => { if (!q2.pts.length) return; const pa = svgEl('path', { d: d3.line().x((z) => x(z.y)).y((z) => y(z.v))(q2.pts), fill: 'none', 'stroke-width': 2, 'stroke-linejoin': 'round' }, svg); pa.style.stroke = q2.c;
+            q2.pts.forEach((z) => { const c = svgEl('circle', { cx: x(z.y), cy: y(z.v), r: z.y === yp ? 4.5 : 2.8, class: 'fx-hit' }, svg); c.style.fill = q2.c; c.addEventListener('mousemove', (ev) => showTip(bl, tip, ev, [q2.k + ' · ' + z.y, { k: 'Factoring / PBI', v: f2(z.v) + '%' }, { k: 'Cifra del INEI', v: z.e }])); c.addEventListener('mouseleave', () => hideTip(tip)); });
+            const lz = q2.pts[q2.pts.length - 1]; ends.push({ q2, yy: y(lz.v), v: lz.v, x: x(lz.y) }); });
+          ends.sort((u, v) => u.yy - v.yy); for (let i = 1; i < ends.length; i++) if (ends[i].yy - ends[i - 1].yy < 13) ends[i].yy = ends[i - 1].yy + 13;
+          ends.forEach((e) => { const lt = txt(svg, { x: e.x + 6, y: e.yy + 4, class: 'fx-strong' }, e.q2.k + ' ' + f2(e.v) + '%'); lt.style.fill = e.q2.c; });
+        }
+      } }
     // ----- 10. fichas -----
     drawGrid(p, a, t);
     drawFicha(p, a, b, t);
@@ -1638,6 +1711,7 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
       ['Saldo promedio por empresa', r && r.prom != null ? 'S/ ' + f0(r.prom) : '—', 'fin_ind', 'prom', W({ anio: a, tam: t, sec: 'Todos', ccdd: d })],
       ['Factoring de 12 meses', fx ? 'S/ ' + f1(fx.fac_mm) + ' millones' : '—', 'an_fxc', 'fac_mm', W({ anio: a, tam: t, ccdd: d })],
       ['Factoring respecto del crédito', fx && fx.ratio != null ? pct(fx.ratio) : '—', 'an_fxc', 'ratio', W({ anio: a, tam: t, ccdd: d })],
+      ['Factoring como % del PBI (' + Math.min(a, 2025) + ')', (() => { const r = APB() && APB().get(Math.min(a, 2025) + '|' + t + '|' + d + '|Total'); return r ? f2(r.pct) + '%' : '—'; })(), APB() && APB().get(Math.min(a, 2025) + '|' + t + '|' + d + '|Total') ? 'an_fpbi' : null, 'pct', W({ anio: Math.min(a, 2025), tam: t, cod: d, sec: 'Total' })],
       ['Índice de acceso financiero', ix ? f3(ix.indice) : d === '00' ? 'Solo departamentos' : '—', ix ? 'an_indice' : null, 'indice', W({ anio: a, tam: t, ccdd: d }), ix ? '(puesto ' + ix.rank + ' de 25)' : ''],
       ['Clúster espacial (LISA)', ls && ls.cluster ? ls.cluster : d === '00' ? 'Solo departamentos' : '—', ls && ls.cluster ? 'an_lisa' : null, 'cluster', W({ anio: a, tam: t, ccdd: d })]
     ];
