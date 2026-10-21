@@ -100,6 +100,13 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
 .fx-tnote{margin:calc(-1 * var(--cds-gap-sm)) 0 0;font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);font-variant-numeric:tabular-nums}
 .fx-footw{display:flex;flex-direction:column;gap:2px}
 .fx-foot{margin:0;font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);line-height:1.55;text-align:justify;hyphens:auto;-webkit-hyphens:auto}
+.fx-ficha{display:flex;flex-direction:column;gap:var(--cds-gap-sm);min-width:0}
+.fx-fh{margin:0;font-size:var(--cds-font-size-heading);font-weight:var(--cds-font-weight-medium)}
+.fx-dl{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px var(--cds-gap-md);margin:0;font-size:var(--cds-font-size-body);font-variant-numeric:tabular-nums}
+.fx-dl dt{color:var(--color-fg-muted);border-bottom:1px solid var(--color-border-line);padding-bottom:5px}
+.fx-dl dd{margin:0;text-align:right;font-weight:600;border-bottom:1px solid var(--color-border-line);padding-bottom:5px}
+.fx-dl dd small{font-weight:400;color:var(--color-fg-muted)}
+#an-notas{padding:var(--cds-pad-md) var(--cds-pad-lg);background:var(--color-panel);border:1px solid var(--color-border-line);border-radius:var(--cds-radius)}
 [data-dash-source-state=refreshing]{opacity:.5;transition:opacity var(--cds-dur-slow)}
 [data-dash-source-state=empty]{color:transparent}
 
@@ -116,12 +123,13 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
       <img class="fx-logo" src="data:image/jpeg;base64,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" alt="Good Guys Insight" width="56" height="56">
       <h1>Financiamiento y factoring empresarial</h1>
     </div>
-    <p class="fx-take" id="fx-take" data-source="fin_ind fac_ind">—</p>
+    <p class="fx-take" id="fx-take" data-source="fin_ind fac_ind an_margen an_shift">—</p>
   </header>
 
   <nav class="fx-tabs" role="tablist" aria-label="Secciones">
     <button class="fx-tab" role="tab" id="tab-financiamiento" data-tab="fin" aria-controls="financiamiento" type="button">Indicadores financieros</button>
     <button class="fx-tab" role="tab" id="tab-factoring" data-tab="fac" aria-controls="factoring" type="button">Factoring</button>
+    <button class="fx-tab" role="tab" id="tab-analisis" data-tab="an" aria-controls="analisis" type="button">Análisis</button>
   </nav>
 
   <!-- ==================== FINANCIAMIENTO ==================== -->
@@ -265,6 +273,115 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
     </article>
   </section>
 
+  <!-- ==================== ANÁLISIS ==================== -->
+  <section class="fx-panel" id="analisis" role="tabpanel" aria-labelledby="tab-analisis" hidden>
+    <div class="fx-ctrl" id="an-filtros">
+      <div class="fx-grp fx-year"><span class="fx-lbl">Año</span><input type="range" id="aa-in" min="2022" max="2026" step="1" aria-label="Año de análisis"><span class="fx-yr" id="aa-out">—</span></div>
+      <div class="fx-grp"><label class="fx-lbl" for="ab-sel">Año base</label><select class="fx-sel" id="ab-sel"></select></div>
+      <div class="fx-grp"><span class="fx-lbl">Tamaño</span><div class="fx-seg" id="at-seg" role="group" aria-label="Tamaño empresarial"></div></div>
+      <button class="fx-chip" id="ad-chip" type="button" hidden></button>
+    </div>
+
+    <div class="fx-tiles" id="an-tiles">
+      <div class="fx-tile"><span class="fx-tl" id="an-l1">Cambio del saldo</span><span class="fx-tv" id="an-t1" data-source="an_margen" data-field="ds">—</span><span class="fx-td" id="an-d1">—</span></div>
+      <div class="fx-tile"><span class="fx-tl">Empresas sin financiamiento</span><span class="fx-tv" id="an-t2" data-source="an_brecha" data-field="sin">—</span><span class="fx-td" id="an-d2" data-source="an_brecha" data-field="pct_sin">—</span></div>
+      <div class="fx-tile"><span class="fx-tl">Factoring respecto del crédito</span><span class="fx-tv" id="an-t3" data-source="an_fxc" data-field="ratio">—</span><span class="fx-td" id="an-d3">Monto de factoring de 12 meses / saldo de crédito</span></div>
+      <div class="fx-tile"><span class="fx-tl">Agrupamiento espacial de la inclusión</span><span class="fx-tv" id="an-t4" data-source="an_lisa" data-field="Ii">—</span><span class="fx-td" id="an-d4" data-source="an_lisa" data-field="p">—</span></div>
+      <div class="fx-tile"><span class="fx-tl">Concentración del saldo por departamento</span><span class="fx-tv" id="an-t5" data-source="an_hhi" data-field="hhi">—</span><span class="fx-td" id="an-d5">Índice de Herfindahl-Hirschman</span></div>
+    </div>
+
+    <div class="fx-grid">
+      <article class="fx-card" id="an-margenes">
+        <h2 id="an-mg-t">1. ¿Crece el crédito por más empresas o por más saldo por empresa?</h2>
+        <p class="fx-note">Cambio anual del saldo (S/ millones) separado en dos partes: el efecto del número de empresas con financiamiento y el efecto del saldo promedio por empresa. El punto es el cambio total.</p>
+        <div class="fx-chart fx-mid" id="an-mg" data-source="an_margen"></div>
+        <div class="fx-legend" id="an-mg-lg"></div>
+      </article>
+      <article class="fx-card" id="an-descomposicion">
+        <h2 id="an-sh-t">3. ¿Por qué cambió la inclusión financiera?</h2>
+        <p class="fx-note">Cambio de la inclusión entre el año base y el año elegido, separado en el cambio dentro de cada sector y tamaño, el cambio en la composición de empresas y su interacción (pp).</p>
+        <div class="fx-chart fx-mid" id="an-sh" data-source="an_shift"></div>
+      </article>
+    </div>
+
+    <div class="fx-grid">
+      <article class="fx-card" id="an-brecha">
+        <h2 id="an-br-t">2. Brecha: empresas sin financiamiento</h2>
+        <p class="fx-note" id="an-br-n">Número de empresas sin saldo de financiamiento por departamento (miles). Haga clic en un departamento para ver su ficha.</p>
+        <div class="fx-chart fx-map" id="an-br" data-source="an_brecha limites"></div>
+        <div class="fx-legend" id="an-br-lg"></div>
+        <div class="fx-chart" id="an-bs" data-source="an_brecha"></div>
+      </article>
+      <article class="fx-card" id="an-factoring-credito">
+        <h2 id="an-fx-t">4. Factoring respecto del crédito</h2>
+        <p class="fx-note">Monto de factoring de los últimos 12 meses como porcentaje del saldo de crédito, por tamaño y por departamento. La línea marca el valor nacional.</p>
+        <div class="fx-chart" id="an-fs" data-source="an_fxc"></div>
+        <div class="fx-chart fx-map" id="an-fx" data-source="an_fxc"></div>
+      </article>
+    </div>
+
+    <div class="fx-grid">
+      <article class="fx-card" id="an-lisa">
+        <h2 id="an-ls-t">5. Clústeres espaciales de la inclusión financiera</h2>
+        <p class="fx-note" id="an-ls-n">I de Moran local (LISA) con contigüidad tipo reina y 999 permutaciones; se colorean los departamentos con p &lt; 0.05.</p>
+        <div class="fx-chart fx-map" id="an-ls" data-source="an_lisa limites"></div>
+        <div class="fx-legend" id="an-ls-lg"></div>
+      </article>
+      <article class="fx-card" id="an-convergencia">
+        <h2 id="an-cv-t">6. Convergencia regional de la inclusión</h2>
+        <p class="fx-note" id="an-cv-n">Eje horizontal: inclusión en el año base. Eje vertical: cambio hasta el año elegido (pp). Pendiente negativa: los departamentos rezagados avanzan más.</p>
+        <div class="fx-chart fx-tall" id="an-cv" data-source="an_conv fin_ind"></div>
+      </article>
+    </div>
+
+    <div class="fx-grid">
+      <article class="fx-card" id="an-indice">
+        <h2 id="an-ix-t">7. Índice de acceso financiero empresarial</h2>
+        <p class="fx-note">Promedio de cuatro dimensiones normalizadas de 0 a 1 entre departamentos: inclusión, saldo promedio, factoring por empresa y facturas por cada mil empresas. Cada color es el aporte de una dimensión.</p>
+        <div class="fx-chart fx-map" id="an-ix" data-source="an_indice"></div>
+        <div class="fx-legend" id="an-ix-lg"></div>
+      </article>
+      <article class="fx-card" id="an-concentracion">
+        <h2>8. Concentración del crédito y del factoring</h2>
+        <p class="fx-note">Índice de Herfindahl-Hirschman (0 a 10,000) por departamento y por sector. Sobre 2,500 se considera alta concentración; entre 1,500 y 2,500, moderada.</p>
+        <div class="fx-chart fx-mid" id="an-hh" data-source="an_hhi"></div>
+        <div class="fx-legend" id="an-hh-lg"></div>
+      </article>
+    </div>
+
+    <article class="fx-card" id="an-estacionalidad">
+      <h2 id="an-es-t">9. Estacionalidad y proyección del factoring</h2>
+      <p class="fx-note" id="an-es-n">Índice estacional: monto de cada mes frente al promedio mensual del año (1.00 = mes promedio), en los años completos. La proyección del año en curso divide lo acumulado entre la fracción del año que esos meses suelen representar.</p>
+      <div class="fx-grid">
+        <div class="fx-chart fx-mid" id="an-es" data-source="an_estac"></div>
+        <div class="fx-chart fx-mid" id="an-pr" data-source="an_estac"></div>
+      </div>
+    </article>
+
+    <article class="fx-card" id="an-fichas">
+      <h2 id="an-fc-t">10. Fichas por departamento</h2>
+      <p class="fx-note">Cada cuadro es un departamento, ubicado según su posición aproximada en el mapa, con la evolución de la inclusión financiera desde 2021. Haga clic en uno para ver su ficha.</p>
+      <div class="fx-grid">
+        <div class="fx-chart fx-map" id="an-gr" data-source="fin_ind"></div>
+        <div class="fx-ficha" id="an-ficha" data-source="an_indice an_fxc an_lisa an_brecha fin_ind"></div>
+      </div>
+    </article>
+
+    <div class="fx-footw" id="an-notas">
+      <p class="fx-foot"><b>Notas de los indicadores de análisis.</b></p>
+      <p class="fx-foot">1. Margen extensivo e intensivo: ΔSaldo = (E₁ − E₀) × P₀ + E₁ × (P₁ − P₀), donde E es el número de empresas con financiamiento y P el saldo promedio. El primer término mide el efecto de más o menos empresas; el segundo, el de más o menos saldo por empresa.</p>
+      <p class="fx-foot">2. Brecha: empresas sin financiamiento = total de empresas − empresas con financiamiento. Su porcentaje es 100 menos la inclusión financiera.</p>
+      <p class="fx-foot">3. Descomposición de la inclusión: con celdas sector × tamaño, ΔI = Σ w₀ Δr (dentro) + Σ Δw r₀ (composición) + Σ Δw Δr (interacción), donde w es el peso de la celda en el total de empresas y r su inclusión.</p>
+      <p class="fx-foot">4. Factoring respecto del crédito: monto de factoring de los últimos 12 meses / saldo de crédito × 100. Para 2026, de setiembre de 2025 a agosto de 2026 frente al saldo a julio de 2026. Compara un flujo con un stock: mide intensidad de uso, no participación.</p>
+      <p class="fx-foot">5. LISA: I de Moran global y local de la inclusión financiera departamental, con matriz de contigüidad tipo reina estandarizada por filas, 999 permutaciones y significancia al 5%. Alto-Alto agrupa departamentos de alta inclusión rodeados de alta inclusión; Bajo-Bajo, lo contrario.</p>
+      <p class="fx-foot">6. Convergencia: β es la pendiente de la regresión del cambio de la inclusión entre el año base y el año elegido sobre su nivel inicial (β &lt; 0 indica convergencia β); σ es la desviación estándar de la inclusión entre departamentos (si baja, hay convergencia σ).</p>
+      <p class="fx-foot">7. Índice de acceso financiero empresarial: promedio simple de cuatro dimensiones normalizadas como (x − mínimo) / (máximo − mínimo) entre departamentos del mismo año y tamaño: inclusión, logaritmo del saldo promedio, monto de factoring de 12 meses por empresa y facturas de 12 meses por cada mil empresas. Sigue el método de Sarma (2008) y del IDH.</p>
+      <p class="fx-foot">8. Concentración: HHI = Σ (participación en %)², de 0 a 10,000, del saldo y del monto de factoring entre departamentos y entre sectores.</p>
+      <p class="fx-foot">9. Estacionalidad y proyección: índice del mes = monto del mes / promedio mensual del año, promediado en 2021-2025. Proyección = acumulado del año / fracción promedio que esos meses representaron en 2021-2025; el rango usa la fracción mínima y máxima.</p>
+      <p class="fx-foot">10. Fichas: resumen por departamento con su inclusión, posición, brecha, factoring respecto del crédito, índice compuesto y clúster espacial del año y tamaño elegidos.</p>
+    </div>
+  </section>
+
   <div class="fx-footw" id="metodologia"><p class="fx-foot">Fuente: PRODUCE.</p><p class="fx-foot">Elaboración: <b>Good Guys Insight</b>.</p><p class="fx-foot">Nota: La inclusión financiera (porcentaje de empresas con acceso al financiamiento) es el número de empresas con saldo de financiamiento en el sistema financiero dividido entre el total de empresas (padrón SUNAT más las empresas con financiamiento no registradas en SUNAT), para el mismo año, tamaño, sector y departamento. El saldo promedio es el saldo entre las empresas con financiamiento. MIPYME agrupa a la micro, pequeña y mediana empresa; MYPE, a la micro y pequeña; PYME, a la pequeña y mediana. Se presenta 2021-2026; 2026 corresponde a saldos a julio. El padrón de 2025 repite el de 2024. Lima comprende Lima Metropolitana y Lima Provincias, pues la base no distingue provincias. Factoring: monto en soles y número de facturas negociadas, por tamaño empresarial, sector y departamento del proveedor; 2026 corresponde a enero-agosto y sus variaciones comparan con el mismo periodo de 2025. Colores de variación: azul indica aumento y rojo disminución. Información de base: financiamiento, SUNAT y SBS; factoring, SUNAT, CAVALI, SBS y SMV.</p></div>
 </div>
 
@@ -278,7 +395,7 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
 (function () {
   const src = window.FX_DATA || {};
   const calcs = {};
-  const DEF = { tab: 'fin', fa: 2026, ft: 'MIPYME', fs: 'Todos', fd: null, fm: 'tasa', ga: 2026, gt: 'Todas', gs: 'Todos', gd: null, gm: 'monto_mm', gc: 'monto' };
+  const DEF = { tab: 'fin', fa: 2026, ft: 'MIPYME', fs: 'Todos', fd: null, fm: 'tasa', ga: 2026, gt: 'Todas', gs: 'Todos', gd: null, gm: 'monto_mm', gc: 'monto', aa: 2026, ab: 2021, at: 'MIPYME', ad: null };
   let params = { ...DEF };
   const subs = [];
   const fire = () => subs.forEach((fn) => { try { fn(); } catch (e) { console.error(e); } });
@@ -286,7 +403,7 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
     colors: ['var(--series-1)', 'var(--series-2)', 'var(--series-3)', 'var(--series-4)', 'var(--series-5)', 'var(--series-6)', 'var(--series-7)', 'var(--series-8)'],
     data(id) {
       if (src[id]) return { status: 'ok', data: src[id] };
-      if (calcs[id]) { if (!calcs[id].value) calcs[id].value = calcs[id].fn(...calcs[id].inputs.map((i) => src[i] || [])); return { status: 'ok', data: calcs[id].value }; }
+      if (calcs[id]) { if (!calcs[id].value) calcs[id].value = calcs[id].fn(...calcs[id].inputs.map((i) => window.dash.data(i).data || [])); return { status: 'ok', data: calcs[id].value }; }
       return { status: 'missing', data: [] };
     },
     calc(id, def) { calcs[id] = { inputs: def.inputs, fn: def.fn }; },
@@ -308,7 +425,7 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
 (function () {
   const $ = (id) => document.getElementById(id);
   const NS = 'http://www.w3.org/2000/svg';
-  const DEF = { tab: 'fin', fa: 2026, ft: 'MIPYME', fs: 'Todos', fd: null, fm: 'tasa', ga: 2026, gt: 'Todas', gs: 'Todos', gd: null, gm: 'monto_mm', gc: 'monto' };
+  const DEF = { tab: 'fin', fa: 2026, ft: 'MIPYME', fs: 'Todos', fd: null, fm: 'tasa', ga: 2026, gt: 'Todas', gs: 'Todos', gd: null, gm: 'monto_mm', gc: 'monto', aa: 2026, ab: 2021, at: 'MIPYME', ad: null };
   const st = () => ({ ...DEF, ...dash.params() });
   const TAMS = ['Micro', 'Pequeña', 'Mediana', 'Gran empresa'];
   const TOPT = ['Todas', 'MIPYME', 'MYPE', 'PYME', ...TAMS];
@@ -477,7 +594,7 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
 
   // ---------- controles ----------
   const root = $('fx');
-  root.querySelectorAll('.fx-tab').forEach((b) => b.addEventListener('click', () => { dash.setParams({ tab: b.dataset.tab }); dash.setLink(b.dataset.tab === 'fin' ? 'financiamiento' : 'factoring'); }));
+  root.querySelectorAll('.fx-tab').forEach((b) => b.addEventListener('click', () => { dash.setParams({ tab: b.dataset.tab }); dash.setLink({ fin: 'financiamiento', fac: 'factoring', an: 'analisis' }[b.dataset.tab]); }));
   const seg = (box, opts, key) => {
     box.replaceChildren();
     opts.forEach(([v, l]) => { const b = document.createElement('button'); b.type = 'button'; b.dataset.v = v; b.textContent = l; b.addEventListener('click', () => { const o = {}; o[key] = v; dash.setParams(o); }); box.appendChild(b); });
@@ -544,7 +661,7 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
     S.list.forEach((s) => {
       const v = o.val(s.id);
       const p = svgEl('path', { d: pathOf(s, k, ox, oy), class: 'fx-hit', 'stroke-width': o.sel === s.id ? 2.4 : 0.7, tabindex: 0, role: 'button', 'aria-label': NOM[s.id] }, g);
-      p.style.fill = v == null ? 'var(--color-bg)' : o.color(v);
+      p.style.fill = o.fill ? o.fill(s.id) : v == null ? 'var(--color-bg)' : o.color(v);
       p.style.stroke = o.sel === s.id ? 'var(--color-fg)' : 'var(--color-panel)';
       if (o.sel && o.sel !== s.id) p.style.opacity = 0.55;
       p.addEventListener('mousemove', (ev) => showTip(box, tip, ev, o.tip(s.id)));
@@ -1046,12 +1163,495 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
     const last = rows[n80 - 1]; if (last) txt(svg, { x: Math.min(x(last.acc) + 6, w - 2), y: m.t + rh * (n80 - 1) + rh / 2 - 6, 'text-anchor': x(last.acc) + 60 > w ? 'end' : 'start', class: 'fx-strong' }, 'Acumulado ' + f1(last.acc) + '%');
   };
 
+  // =============== ANÁLISIS ===============
+  dash.calc('an_margen', {
+    inputs: ['fin_ind'],
+    title: 'Margen extensivo e intensivo del saldo',
+    description: 'Para cada par de años, tamaño y departamento (sector Todos): cambio del saldo = (E1 − E0) × P0 + E1 × (P1 − P0), con E empresas con financiamiento y P saldo promedio (S/ millones).',
+    fn: (fin_ind) => {
+      const m = new Map(); fin_ind.forEach((r) => { if (r.sec === 'Todos' && r.anio >= 2021) m.set(r.anio + '|' + r.tam + '|' + r.ccdd, r); });
+      const ys = [...new Set([...m.values()].map((r) => r.anio))].sort((a, b) => a - b);
+      const r1d = (v) => Math.round(v * 10) / 10;
+      const out = [];
+      for (const r1 of m.values()) for (const y0 of ys) {
+        if (y0 >= r1.anio) continue;
+        const r0 = m.get(y0 + '|' + r1.tam + '|' + r1.ccdd); if (!r0 || !r0.emp || !r1.emp) continue;
+        const p0 = r0.saldo_mm / r0.emp, p1 = r1.saldo_mm / r1.emp;
+        out.push({ clave: y0 + '-' + r1.anio + '-' + r1.tam + '-' + r1.ccdd, y0, y1: r1.anio, tam: r1.tam, ccdd: r1.ccdd, ds: r1d(r1.saldo_mm - r0.saldo_mm), ext: r1d((r1.emp - r0.emp) * p0), int: r1d(r1.emp * (p1 - p0)), demp: r1.emp - r0.emp, dprom: r1.prom != null && r0.prom != null ? r1.prom - r0.prom : null });
+      }
+      return out;
+    }
+  });
+  dash.calc('an_shift', {
+    inputs: ['fin'],
+    title: 'Descomposición del cambio de la inclusión',
+    description: 'Con celdas sector × tamaño: cambio de la inclusión = Σ w0·Δr (dentro) + Σ Δw·r0 (composición) + Σ Δw·Δr (interacción), en pp, por par de años, tamaño y departamento.',
+    fn: (fin) => {
+      const SZ = { Todas: ['Micro', 'Pequeña', 'Mediana', 'Gran empresa'], MIPYME: ['Micro', 'Pequeña', 'Mediana'], MYPE: ['Micro', 'Pequeña'], PYME: ['Pequeña', 'Mediana'], Micro: ['Micro'], 'Pequeña': ['Pequeña'], Mediana: ['Mediana'], 'Gran empresa': ['Gran empresa'] };
+      const SC = ['Comercio', 'Servicios', 'Manufactura', 'Agropecuario', 'Construcción', 'Minería', 'Pesca'];
+      const c = new Map(), deps = new Set(['00']), ys = new Set();
+      for (const r of fin) {
+        if (r.anio < 2021) continue; ys.add(r.anio); deps.add(r.ccdd);
+        for (const d of ['00', r.ccdd]) { const k = r.anio + '|' + d + '|' + r.sec + '|' + r.tam; let o = c.get(k); if (!o) { o = { e: 0, p: 0 }; c.set(k, o); } o.e += r.emp; o.p += r.pad; }
+      }
+      const Y = [...ys].sort((a, b) => a - b), out = [];
+      const r2 = (v) => Math.round(v * 100) / 100;
+      for (const d of deps) for (const t in SZ) for (const y0 of Y) for (const y1 of Y) {
+        if (y1 <= y0) continue;
+        const cells = []; let P0 = 0, P1 = 0;
+        for (const s of SC) for (const z of SZ[t]) { const a = c.get(y0 + '|' + d + '|' + s + '|' + z) || { e: 0, p: 0 }, b = c.get(y1 + '|' + d + '|' + s + '|' + z) || { e: 0, p: 0 }; cells.push([a, b]); P0 += a.p; P1 += b.p; }
+        if (!P0 || !P1) continue;
+        let I0 = 0, I1 = 0, wi = 0, co = 0, it = 0;
+        for (const [a, b] of cells) { const w0 = a.p / P0, w1 = b.p / P1, q0 = a.p ? a.e / a.p : 0, q1 = b.p ? b.e / b.p : 0; I0 += w0 * q0; I1 += w1 * q1; wi += w0 * (q1 - q0); co += (w1 - w0) * q0; it += (w1 - w0) * (q1 - q0); }
+        out.push({ clave: y0 + '-' + y1 + '-' + t + '-' + d, y0, y1, tam: t, ccdd: d, incl0: r2(I0 * 100), incl1: r2(I1 * 100), dentro: r2(wi * 100), comp: r2(co * 100), inter: r2(it * 100) });
+      }
+      return out;
+    }
+  });
+  dash.calc('an_brecha', {
+    inputs: ['fin_ind'],
+    title: 'Empresas sin financiamiento',
+    description: 'Total de empresas menos empresas con financiamiento, por año, tamaño y departamento (sector Todos) y por sector a nivel nacional; pct_sin = 100 − inclusión.',
+    fn: (fin_ind) => fin_ind.filter((r) => r.anio >= 2021 && (r.sec === 'Todos' || r.ccdd === '00')).map((r) => ({ clave: r.clave, anio: r.anio, tam: r.tam, sec: r.sec, ccdd: r.ccdd, dep: r.dep, sin: r.pad - r.emp, pct_sin: r.pad ? Math.round((r.pad - r.emp) / r.pad * 1000) / 10 : null }))
+  });
+  dash.calc('an_fxc', {
+    inputs: ['fin_ind', 'fac'],
+    title: 'Factoring respecto del crédito',
+    description: 'Monto y facturas de factoring de los 12 meses que terminan en el último mes disponible del año, frente al saldo de crédito del año, por año, tamaño y departamento (sector Todos).',
+    fn: (fin_ind, fac) => {
+      const mx = new Map(); for (const r of fac) mx.set(r.anio, Math.max(mx.get(r.anio) || 0, r.mes));
+      const gs = (t) => { const s = ['Todas', t]; if (t !== 'Gran empresa') s.push('MIPYME'); if (t === 'Micro' || t === 'Pequeña') s.push('MYPE'); if (t === 'Pequeña' || t === 'Mediana') s.push('PYME'); return s; };
+      const f = new Map();
+      for (const r of fac) for (const Y of [r.anio, r.anio + 1]) {
+        if (!mx.has(Y)) continue; const mm = mx.get(Y);
+        if (!((Y === r.anio && r.mes <= mm) || (Y === r.anio + 1 && mm < 12 && r.mes > mm))) continue;
+        for (const t of gs(r.tam)) for (const d of ['00', r.ccdd]) { const k = Y + '|' + t + '|' + d; let o = f.get(k); if (!o) { o = { m: 0, n: 0 }; f.set(k, o); } o.m += r.monto; o.n += r.fact; }
+      }
+      return fin_ind.filter((r) => r.sec === 'Todos' && r.anio >= 2021).map((r) => {
+        const o = f.get(r.anio + '|' + r.tam + '|' + r.ccdd) || { m: 0, n: 0 };
+        return { clave: r.anio + '-' + r.tam + '-' + r.ccdd, anio: r.anio, tam: r.tam, ccdd: r.ccdd, dep: r.dep, fac_mm: Math.round(o.m / 1e5) / 10, fact: o.n, saldo_mm: r.saldo_mm, ratio: r.saldo_mm ? Math.round(o.m / 1e6 / r.saldo_mm * 1000) / 10 : null, fac_emp: r.pad ? Math.round(o.m / r.pad) : null, fact_mil: r.pad ? Math.round(o.n / r.pad * 10000) / 10 : null, incl: r.tasa, prom: r.prom, pad: r.pad };
+      });
+    }
+  });
+  dash.calc('an_lisa', {
+    inputs: ['fin_ind', 'vecinos'],
+    title: 'LISA de la inclusión financiera',
+    description: 'I de Moran global y local de la inclusión departamental (sector Todos), contigüidad tipo reina estandarizada por filas, 999 permutaciones con semilla fija; clúster si p < 0.05. Fila 00 = I global.',
+    fn: (fin_ind, vecinos) => {
+      const rnd = ((a) => () => { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; })(12345);
+      const R = 999, out = [];
+      const groups = new Map();
+      for (const r of fin_ind) if (r.sec === 'Todos' && r.ccdd !== '00' && r.anio >= 2021 && r.tasa != null) { const k = r.anio + '|' + r.tam; if (!groups.has(k)) groups.set(k, []); groups.get(k).push(r); }
+      for (const rows of groups.values()) {
+        rows.sort((a, b) => a.ccdd.localeCompare(b.ccdd));
+        const n = rows.length, pos = new Map(rows.map((r, i) => [r.ccdd, i])), nb = rows.map(() => new Set());
+        for (const v of vecinos) { const i = pos.get(String(v.ccdd_i).padStart(2, '0')), j = pos.get(String(v.ccdd_j).padStart(2, '0')); if (i != null && j != null && i !== j) { nb[i].add(j); nb[j].add(i); } }
+        const N = nb.map((s) => [...s]);
+        const x = rows.map((r) => r.tasa), mu = x.reduce((a, b) => a + b, 0) / n, z = x.map((v) => v - mu), m2 = z.reduce((a, b) => a + b * b, 0) / n;
+        if (!m2) continue;
+        const lag = (zz) => N.map((ns) => ns.length ? ns.reduce((a, j) => a + zz[j], 0) / ns.length : 0);
+        const gI = (zz) => { const l = lag(zz); let s = 0, q = 0; for (let i = 0; i < n; i++) { s += zz[i] * l[i]; q += zz[i] * zz[i]; } return s / q; };
+        const fold = (sim, obs) => { let g = 0; for (const v of sim) if (v >= obs) g++; if (R - g < g) g = R - g; return (g + 1) / (R + 1); };
+        const wz = lag(z), I = gI(z), sims = [];
+        for (let r = 0; r < R; r++) { const zz = z.slice(); for (let i = n - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [zz[i], zz[j]] = [zz[j], zz[i]]; } sims.push(gI(zz)); }
+        const a0 = rows[0];
+        out.push({ clave: a0.anio + '-' + a0.tam + '-00', anio: a0.anio, tam: a0.tam, ccdd: '00', dep: 'Perú', valor: null, z: null, wz: null, Ii: Math.round(I * 1000) / 1000, p: fold(sims, I), cluster: null });
+        rows.forEach((r, i) => {
+          const k = N[i].length; let p = null, Ii = z[i] * wz[i] / m2;
+          if (k) {
+            const others = []; for (let j = 0; j < n; j++) if (j !== i) others.push(j);
+            const ls = [];
+            for (let q = 0; q < R; q++) { const o = others.slice(); let s = 0; for (let h = 0; h < k; h++) { const j = h + Math.floor(rnd() * (o.length - h)); [o[h], o[j]] = [o[j], o[h]]; s += z[o[h]]; } ls.push(z[i] * (s / k) / m2); }
+            p = fold(ls, Ii);
+          }
+          const cu = z[i] >= 0 ? (wz[i] >= 0 ? 'Alto-Alto' : 'Alto-Bajo') : (wz[i] >= 0 ? 'Bajo-Alto' : 'Bajo-Bajo');
+          out.push({ clave: r.anio + '-' + r.tam + '-' + r.ccdd, anio: r.anio, tam: r.tam, ccdd: r.ccdd, dep: r.dep, valor: r.tasa, z: Math.round(z[i] / Math.sqrt(m2) * 1000) / 1000, wz: Math.round(wz[i] / Math.sqrt(m2) * 1000) / 1000, Ii: Math.round(Ii * 1000) / 1000, p, cluster: p != null && p < 0.05 ? cu : 'No significativo' });
+        });
+      }
+      return out;
+    }
+  });
+  dash.calc('an_conv', {
+    inputs: ['fin_ind'],
+    title: 'Convergencia de la inclusión',
+    description: 'Convergencia β (pendiente del cambio de la inclusión sobre su nivel inicial, entre departamentos) por par de años y tamaño, y convergencia σ (desviación estándar entre departamentos) por año y tamaño.',
+    fn: (fin_ind) => {
+      const g = new Map();
+      for (const r of fin_ind) if (r.sec === 'Todos' && r.ccdd !== '00' && r.anio >= 2021 && r.tasa != null) g.set(r.anio + '|' + r.tam + '|' + r.ccdd, r.tasa);
+      const ys = [...new Set(fin_ind.filter((r) => r.anio >= 2021).map((r) => r.anio))].sort((a, b) => a - b);
+      const tams = [...new Set(fin_ind.map((r) => r.tam))], deps = [...new Set(fin_ind.filter((r) => r.ccdd !== '00').map((r) => r.ccdd))];
+      const out = [];
+      for (const t of tams) {
+        for (const y of ys) { const v = deps.map((d) => g.get(y + '|' + t + '|' + d)).filter((q) => q != null); if (v.length < 3) continue; const mu = v.reduce((a, b) => a + b, 0) / v.length; out.push({ clave: 'sigma-' + y + '-' + t, tipo: 'sigma', tam: t, y0: null, y1: y, sigma: Math.round(Math.sqrt(v.reduce((a, b) => a + (b - mu) ** 2, 0) / (v.length - 1)) * 100) / 100, beta: null, alfa: null, r2: null }); }
+        for (const y0 of ys) for (const y1 of ys) {
+          if (y1 <= y0) continue;
+          const pts = deps.map((d) => [g.get(y0 + '|' + t + '|' + d), g.get(y1 + '|' + t + '|' + d)]).filter(([a, b]) => a != null && b != null).map(([a, b]) => [a, b - a]);
+          if (pts.length < 3) continue;
+          const n = pts.length, mx = pts.reduce((a, p) => a + p[0], 0) / n, my = pts.reduce((a, p) => a + p[1], 0) / n;
+          let sxy = 0, sxx = 0, syy = 0; pts.forEach(([a, b]) => { sxy += (a - mx) * (b - my); sxx += (a - mx) ** 2; syy += (b - my) ** 2; });
+          const beta = sxx ? sxy / sxx : 0;
+          out.push({ clave: 'beta-' + y0 + '-' + y1 + '-' + t, tipo: 'beta', tam: t, y0, y1, sigma: null, beta: Math.round(beta * 1000) / 1000, alfa: Math.round((my - beta * mx) * 1000) / 1000, r2: sxx && syy ? Math.round(sxy * sxy / sxx / syy * 1000) / 1000 : null });
+        }
+      }
+      return out;
+    }
+  });
+  dash.calc('an_indice', {
+    inputs: ['an_fxc'],
+    title: 'Índice de acceso financiero empresarial',
+    description: 'Promedio de cuatro dimensiones normalizadas (x − mín) / (máx − mín) entre departamentos del mismo año y tamaño: inclusión, logaritmo del saldo promedio, factoring de 12 meses por empresa y facturas por mil empresas.',
+    fn: (an_fxc) => {
+      const g = new Map();
+      for (const r of an_fxc) if (r.ccdd !== '00' && r.incl != null && r.prom > 0) { const k = r.anio + '|' + r.tam; if (!g.has(k)) g.set(k, []); g.get(k).push(r); }
+      const out = [];
+      for (const rows of g.values()) {
+        const dims = [(r) => r.incl, (r) => Math.log(r.prom), (r) => r.fac_emp || 0, (r) => r.fact_mil || 0];
+        const nz = dims.map((f) => { const v = rows.map(f), lo = Math.min(...v), hi = Math.max(...v); return (r) => hi > lo ? (f(r) - lo) / (hi - lo) : 0; });
+        const sc = rows.map((r) => { const d = nz.map((f) => f(r)); return { r, d, ix: (d[0] + d[1] + d[2] + d[3]) / 4 }; }).sort((a, b) => b.ix - a.ix);
+        sc.forEach((o, i) => out.push({ clave: o.r.anio + '-' + o.r.tam + '-' + o.r.ccdd, anio: o.r.anio, tam: o.r.tam, ccdd: o.r.ccdd, dep: o.r.dep, n_incl: Math.round(o.d[0] * 1000) / 1000, n_prom: Math.round(o.d[1] * 1000) / 1000, n_fac: Math.round(o.d[2] * 1000) / 1000, n_fact: Math.round(o.d[3] * 1000) / 1000, indice: Math.round(o.ix * 1000) / 1000, rank: i + 1 }));
+      }
+      return out;
+    }
+  });
+  dash.calc('an_hhi', {
+    inputs: ['fin_ind', 'fac_ind'],
+    title: 'Concentración (HHI)',
+    description: 'Índice de Herfindahl-Hirschman = Σ (participación %)² del saldo de crédito y del monto de factoring entre departamentos y entre sectores, por año y tamaño.',
+    fn: (fin_ind, fac_ind) => {
+      const acc = new Map();
+      const add = (a, t, s, v) => { const k = a + '|' + t + '|' + s; if (!acc.has(k)) acc.set(k, []); acc.get(k).push(v); };
+      for (const r of fin_ind) if (r.anio >= 2021) { if (r.sec === 'Todos' && r.ccdd !== '00') add(r.anio, r.tam, 'Crédito por departamento', r.saldo_mm); if (r.ccdd === '00' && r.sec !== 'Todos') add(r.anio, r.tam, 'Crédito por sector', r.saldo_mm); }
+      for (const r of fac_ind) if (r.anio >= 2021) { if (r.sec === 'Todos' && r.ccdd !== '00') add(r.anio, r.tam, 'Factoring por departamento', r.monto_mm); if (r.ccdd === '00' && r.sec !== 'Todos') add(r.anio, r.tam, 'Factoring por sector', r.monto_mm); }
+      const out = [];
+      for (const [k, v] of acc) { const [a, t, s] = k.split('|'); const tot = v.reduce((x, y) => x + y, 0); if (!tot) continue; out.push({ clave: a + '-' + t + '-' + s, anio: +a, tam: t, serie: s, hhi: Math.round(v.reduce((x, y) => x + (y / tot * 100) ** 2, 0)) }); }
+      return out;
+    }
+  });
+  dash.calc('an_estac', {
+    inputs: ['fac_mes_ind'],
+    title: 'Estacionalidad y proyección del factoring',
+    description: 'Índice estacional = monto del mes / promedio mensual del año, promediado en los años completos 2021-2025; proyección del último año = acumulado / fracción promedio que esos meses representaron (rango con la mínima y máxima).',
+    fn: (fac_mes_ind) => {
+      const by = new Map(), mx = new Map();
+      for (const r of fac_mes_ind) { mx.set(r.anio, Math.max(mx.get(r.anio) || 0, r.mes)); if (r.sec !== 'Todos') continue; const k = r.tam + '|' + r.ccdd; if (!by.has(k)) by.set(k, new Map()); by.get(k).set(r.anio * 100 + r.mes, r.monto_mm); }
+      const last = Math.max(...mx.keys()), mm = mx.get(last), full = [...mx.keys()].filter((a) => a >= 2021 && a < last && mx.get(a) === 12);
+      const out = [];
+      for (const [k, s] of by) {
+        const [t, d] = k.split('|'); const v = (a, m) => s.get(a * 100 + m) || 0;
+        const tot = (a, upto = 12) => { let x = 0; for (let m = 1; m <= upto; m++) x += v(a, m); return x; };
+        const fy = full.filter((a) => tot(a) > 0); if (!fy.length) continue;
+        for (let m = 1; m <= 12; m++) out.push({ clave: 'indice-' + t + '-' + d + '-' + m, tipo: 'indice', tam: t, ccdd: d, mes: m, indice: Math.round(fy.reduce((x, a) => x + v(a, m) / (tot(a) / 12), 0) / fy.length * 1000) / 1000, anio: null, ytd_mm: null, proy_mm: null, lo_mm: null, hi_mm: null, prev_mm: null });
+        if (mm < 12) {
+          const sh = fy.map((a) => tot(a, mm) / tot(a)), ytd = tot(last, mm), avg = sh.reduce((x, y) => x + y, 0) / sh.length;
+          out.push({ clave: 'proy-' + t + '-' + d, tipo: 'proy', tam: t, ccdd: d, mes: mm, indice: null, anio: last, ytd_mm: Math.round(ytd * 10) / 10, proy_mm: Math.round(ytd / avg * 10) / 10, lo_mm: Math.round(ytd / Math.max(...sh) * 10) / 10, hi_mm: Math.round(ytd / Math.min(...sh) * 10) / 10, prev_mm: Math.round(tot(last - 1) * 10) / 10 });
+        }
+      }
+      return out;
+    }
+  });
+
+  // ---------- controles de análisis ----------
+  seg($('at-seg'), TOPT.map((t) => [t, t === 'Gran empresa' ? 'Grande' : t]), 'at');
+  $('aa-in').addEventListener('input', () => { const a = +$('aa-in').value; dash.setParams({ aa: a, ab: Math.min(st().ab, a - 1) }); });
+  $('ab-sel').addEventListener('change', () => dash.setParams({ ab: +$('ab-sel').value }));
+  $('ad-chip').addEventListener('click', () => dash.setParams({ ad: null }));
+  const pickA = (d) => dash.setParams({ ad: st().ad === d ? null : d });
+  const LC = { 'Alto-Alto': '#d7191c', 'Bajo-Bajo': '#2c7bb6', 'Alto-Bajo': '#fdae61', 'Bajo-Alto': '#abd9e9' };
+  const DIMC = ['#0f766e', '#1d4ed8', '#b45309', '#7c3aed'];
+  const f2 = loc.format(',.2f'), f3 = loc.format('.3f');
+  const sg2 = (v) => (v > 0 ? '+' : v < 0 ? '−' : '') + f2(Math.abs(v));
+  const mill = (v) => (v < 0 ? '−' : '') + 'S/ ' + f0(Math.abs(v)) + ' mill.';
+  const AI = {}; const aidx = (id, kf) => { const d = dash.data(id); if (d.status !== 'ok') return null; if (AI[id] && AI[id].src === d.data) return AI[id].m; const m = new Map(); d.data.forEach((r) => m.set(kf(r), r)); AI[id] = { src: d.data, m }; return m; };
+  const AM = () => aidx('an_margen', (r) => r.y0 + '|' + r.y1 + '|' + r.tam + '|' + r.ccdd);
+  const ASH = () => aidx('an_shift', (r) => r.y0 + '|' + r.y1 + '|' + r.tam + '|' + r.ccdd);
+  const ABR = () => aidx('an_brecha', (r) => r.anio + '|' + r.tam + '|' + r.sec + '|' + r.ccdd);
+  const AFX = () => aidx('an_fxc', (r) => r.anio + '|' + r.tam + '|' + r.ccdd);
+  const ALS = () => aidx('an_lisa', (r) => r.anio + '|' + r.tam + '|' + r.ccdd);
+  const ACV = () => aidx('an_conv', (r) => r.clave);
+  const AIX = () => aidx('an_indice', (r) => r.anio + '|' + r.tam + '|' + r.ccdd);
+  const AHH = () => aidx('an_hhi', (r) => r.anio + '|' + r.tam + '|' + r.serie);
+  const AES = () => aidx('an_estac', (r) => r.clave);
+  const DEPS = Object.keys(NOM).filter((c) => c !== '00');
+  const ttxtA = (t) => t === 'Todas' ? 'todas las empresas' : GRUPO[t] ? t : t === 'Gran empresa' ? 'gran empresa' : t.toLowerCase() + ' empresa';
+
+  // barras horizontales simples
+  const hbars = (box, rows, o) => {
+    box.replaceChildren(); const w = box.clientWidth; if (!w) return;
+    if (!rows.length) { empty(box, 'Sin datos para la selección.'); return; }
+    const rh = o.rh || 18, lw = o.lw || 98, h = rh * rows.length + 22, mr = 56;
+    const mxv = d3.max(rows, (r) => r.v) || 1;
+    const x = d3.scaleLinear([0, mxv], [lw, w - mr]);
+    const svg = svgEl('svg', { width: '100%', viewBox: `0 0 ${w} ${h}`, role: 'img', 'aria-label': o.aria }, box);
+    const tip = tipFor(box);
+    if (o.ref != null) { const l = svgEl('line', { x1: x(o.ref), x2: x(o.ref), y1: 4, y2: h - 14, 'stroke-dasharray': '4 3' }, svg); l.style.stroke = 'var(--cds-chart-reference)'; txt(svg, { x: x(o.ref), y: h - 3, 'text-anchor': 'middle' }, o.refLab); }
+    rows.forEach((r, i) => {
+      const yy = 4 + rh * i;
+      const lt = txt(svg, { x: lw - 6, y: yy + rh / 2 + 4, 'text-anchor': 'end', class: r.sel ? 'fx-strong' : '' }, r.k);
+      const b = svgEl('rect', { x: lw, y: yy + 2, width: Math.max(1, x(r.v) - lw), height: rh - 4, rx: 3, class: o.pick ? 'fx-hit' : '' }, svg);
+      b.style.fill = r.c || o.color; if (o.sel && !r.sel) b.style.opacity = 0.55;
+      txt(svg, { x: x(r.v) + 4, y: yy + rh / 2 + 4 }, o.fmt(r.v));
+      if (o.tip) { b.addEventListener('mousemove', (ev) => showTip(box, tip, ev, o.tip(r))); b.addEventListener('mouseleave', () => hideTip(tip)); }
+      if (o.pick && r.id) { b.addEventListener('click', () => o.pick(r.id)); lt.classList.add('fx-hit'); lt.addEventListener('click', () => o.pick(r.id)); }
+    });
+  };
+
+  const drawAn = (p) => {
+    const a = p.aa, b = p.ab < a ? p.ab : a - 1, t = p.at, d = p.ad || '00';
+    $('aa-in').value = a; $('aa-out').textContent = String(a) + (a === 2026 ? ' (a julio)' : '');
+    const sel = $('ab-sel'); sel.replaceChildren(...[2021, 2022, 2023, 2024, 2025].filter((y) => y < a).map((y) => new Option(String(y), String(y)))); sel.value = String(b);
+    segShow($('at-seg'), t); $('ad-chip').hidden = !p.ad; $('ad-chip').textContent = p.ad ? NOM[p.ad] + ' ×' : '';
+    const lugar = d === '00' ? 'Perú' : NOM[d];
+    const M = AM(), S = ASH(), B = ABR(), X = AFX(), L = ALS(), C = ACV(), IX = AIX(), H = AHH(), E = AES();
+    // ----- indicadores -----
+    const mg = M && M.get(b + '|' + a + '|' + t + '|' + d);
+    $('an-l1').textContent = 'Cambio del saldo, ' + b + '-' + a;
+    $('an-t1').dataset.where = W({ y0: b, y1: a, tam: t, ccdd: d });
+    $('an-t1').textContent = mg ? (mg.ds < 0 ? '−' : '+') + 'S/ ' + f0(Math.abs(mg.ds)) : '—';
+    $('an-d1').textContent = mg ? 'Por número de empresas ' + (mg.ext < 0 ? '−' : '+') + f0(Math.abs(mg.ext)) + '; por saldo por empresa ' + (mg.int < 0 ? '−' : '+') + f0(Math.abs(mg.int)) + ' (S/ millones)' : '—';
+    const br = B && B.get(a + '|' + t + '|Todos|' + d);
+    ['an-t2', 'an-d2'].forEach((id) => { $(id).dataset.where = W({ anio: a, tam: t, sec: 'Todos', ccdd: d }); });
+    $('an-t2').textContent = br ? f0(br.sin) : '—'; $('an-d2').textContent = br ? pct(br.pct_sin) + ' del total de empresas · ' + lugar : '—';
+    const fx = X && X.get(a + '|' + t + '|' + d);
+    $('an-t3').dataset.where = W({ anio: a, tam: t, ccdd: d }); $('an-t3').textContent = fx && fx.ratio != null ? pct(fx.ratio) : '—';
+    const gl = L && L.get(a + '|' + t + '|00');
+    ['an-t4', 'an-d4'].forEach((id) => { $(id).dataset.where = W({ anio: a, tam: t, ccdd: '00' }); });
+    $('an-t4').textContent = gl ? 'I = ' + f3(gl.Ii) : '—';
+    $('an-d4').textContent = gl ? 'I de Moran, p = ' + f3(gl.p) + (gl.p < 0.05 ? ': agrupamiento significativo' : ': sin agrupamiento significativo') : '—';
+    const hh = H && H.get(a + '|' + t + '|Crédito por departamento');
+    $('an-t5').dataset.where = W({ anio: a, tam: t, serie: 'Crédito por departamento' }); $('an-t5').textContent = hh ? f0(hh.hhi) : '—';
+    $('an-d5').textContent = hh ? 'HHI · ' + (hh.hhi > 2500 ? 'concentración alta' : hh.hhi > 1500 ? 'concentración moderada' : 'concentración baja') : 'Índice de Herfindahl-Hirschman';
+    // ----- 1. márgenes -----
+    { const box = $('an-mg'); box.replaceChildren(); $('an-mg-t').textContent = '1. ¿Crece el crédito por más empresas o por más saldo por empresa? · ' + lugar;
+      if (!M) fail(box, dash.data('an_margen').status); else { const w = box.clientWidth; if (w) {
+        const rows = [2022, 2023, 2024, 2025, 2026].map((y) => M.get((y - 1) + '|' + y + '|' + t + '|' + d)).filter(Boolean);
+        if (!rows.length) empty(box, 'Sin datos para la selección.'); else {
+          const h = Math.max(260, Math.min(340, w * 0.62)), m = { l: 60, r: 10, t: 14, b: 28 };
+          const x = d3.scaleBand(rows.map((r) => r.y1), [m.l, w - m.r]).paddingInner(0.35);
+          const lo = d3.min(rows, (r) => Math.min(0, r.ext) + Math.min(0, r.int, r.ds)), hi = d3.max(rows, (r) => Math.max(0, r.ext) + Math.max(0, r.int, r.ds));
+          const y = d3.scaleLinear([Math.min(lo, 0) * 1.1, Math.max(hi, 0) * 1.1], [h - m.b, m.t]).nice();
+          const svg = svgEl('svg', { width: '100%', viewBox: `0 0 ${w} ${h}`, role: 'img', 'aria-label': 'Márgenes del saldo' }, box);
+          y.ticks(5).forEach((v) => { const l = svgEl('line', { x1: m.l, x2: w - m.r, y1: y(v), y2: y(v) }, svg); l.style.stroke = v === 0 ? 'var(--cds-chart-axis)' : 'var(--cds-chart-grid)'; txt(svg, { x: m.l - 6, y: y(v) + 4, 'text-anchor': 'end' }, loc.format(',~s')(v).replace('k', ' mil')); });
+          const tip = tipFor(box);
+          rows.forEach((r) => {
+            let up = 0, dn = 0;
+            [['ext', DIMC[1]], ['int', DIMC[2]]].forEach(([k, c]) => { const v = r[k]; const y0 = v >= 0 ? up : dn, y1 = y0 + v; if (v >= 0) up = y1; else dn = y1; const rc = svgEl('rect', { x: x(r.y1), y: y(Math.max(y0, y1)), width: x.bandwidth(), height: Math.abs(y(y0) - y(y1)), rx: 2, class: 'fx-hit' }, svg); rc.style.fill = c; if (r.y1 > a) rc.style.opacity = 0.4;
+              rc.addEventListener('mousemove', (ev) => showTip(box, tip, ev, [(r.y1 - 1) + '-' + r.y1 + ' · ' + lugar, { k: 'Cambio total', v: mill(r.ds) }, { k: 'Por número de empresas', v: mill(r.ext) }, { k: 'Por saldo por empresa', v: mill(r.int) }, { k: 'Empresas', v: (r.demp >= 0 ? '+' : '−') + f0(Math.abs(r.demp)) }, { k: 'Saldo promedio', v: r.dprom == null ? '—' : (r.dprom >= 0 ? '+' : '−') + 'S/ ' + f0(Math.abs(r.dprom)) }])); rc.addEventListener('mouseleave', () => hideTip(tip)); });
+            const c = svgEl('circle', { cx: x(r.y1) + x.bandwidth() / 2, cy: y(r.ds), r: 4.5, 'stroke-width': 2 }, svg); c.style.fill = 'var(--color-fg)'; c.style.stroke = 'var(--color-panel)';
+            txt(svg, { x: x(r.y1) + x.bandwidth() / 2, y: h - 8, 'text-anchor': 'middle', class: r.y1 === a ? 'fx-strong' : '' }, (r.y1 - 1) + '-' + String(r.y1).slice(2));
+          });
+          legend($('an-mg-lg'), [[DIMC[1], 'Número de empresas (margen extensivo)'], [DIMC[2], 'Saldo por empresa (margen intensivo)'], ['var(--color-fg)', 'Cambio total']]);
+        } } } }
+    // ----- 3. descomposición de la inclusión -----
+    { const box = $('an-sh'); box.replaceChildren(); $('an-sh-t').textContent = '3. ¿Por qué cambió la inclusión financiera? · ' + lugar + ', ' + b + '-' + a;
+      const r = S && S.get(b + '|' + a + '|' + t + '|' + d);
+      if (!S) fail(box, dash.data('an_shift').status); else if (!r) empty(box, 'Sin datos para la selección.'); else { const w = box.clientWidth; if (w) {
+        const steps = [['Inclusión ' + b, r.incl0, 'tot'], ['Dentro de los grupos', r.dentro, 'd'], ['Composición', r.comp, 'd'], ['Interacción', r.inter, 'd'], ['Inclusión ' + a, r.incl1, 'tot']];
+        let run = 0; const bars = steps.map(([k, v, ty]) => { if (ty === 'tot') { run = v; return { k, v, y0: 0, y1: v, ty }; } const o = { k, v, y0: run, y1: run + v, ty }; run += v; return o; });
+        const vals = bars.flatMap((q) => [q.y0, q.y1]).filter((v, i) => bars[Math.floor(i / 2)].ty === 'd');
+        const lo = Math.min(...vals, r.incl0, r.incl1) - 1.2, hi = Math.max(...vals, r.incl0, r.incl1) + 1.2;
+        const h = Math.max(260, Math.min(340, w * 0.62)), m = { l: 44, r: 10, t: 18, b: 34 };
+        const x = d3.scaleBand(bars.map((q) => q.k), [m.l, w - m.r]).paddingInner(0.3);
+        const y = d3.scaleLinear([lo, hi], [h - m.b, m.t]).nice();
+        const svg = svgEl('svg', { width: '100%', viewBox: `0 0 ${w} ${h}`, role: 'img', 'aria-label': 'Descomposición de la inclusión' }, box);
+        y.ticks(5).forEach((v) => { const l = svgEl('line', { x1: m.l, x2: w - m.r, y1: y(v), y2: y(v) }, svg); l.style.stroke = 'var(--cds-chart-grid)'; txt(svg, { x: m.l - 6, y: y(v) + 4, 'text-anchor': 'end' }, f0(v) + '%'); });
+        bars.forEach((q, i) => {
+          const top = q.ty === 'tot' ? y(q.y1) : y(Math.max(q.y0, q.y1)), bot = q.ty === 'tot' ? y(y.domain()[0]) : y(Math.min(q.y0, q.y1));
+          const rc = svgEl('rect', { x: x(q.k), y: top, width: x.bandwidth(), height: Math.max(1.5, bot - top), rx: 3 }, svg);
+          rc.style.fill = q.ty === 'tot' ? RF[4] : q.v >= 0 ? DIV[7] : DIV[1];
+          txt(svg, { x: x(q.k) + x.bandwidth() / 2, y: top - 5, 'text-anchor': 'middle', class: 'fx-strong' }, q.ty === 'tot' ? f2(q.v) + '%' : sg2(q.v) + ' pp');
+          const lab = txt(svg, { x: x(q.k) + x.bandwidth() / 2, y: h - 18, 'text-anchor': 'middle' }, q.k.split(' ')[0]); if (q.k.includes(' ')) txt(svg, { x: x(q.k) + x.bandwidth() / 2, y: h - 5, 'text-anchor': 'middle' }, q.k.split(' ').slice(1).join(' '));
+          if (i < bars.length - 1) { const nx = bars[i + 1]; const ly = y(q.ty === 'tot' ? q.y1 : q.y1); const l = svgEl('line', { x1: x(q.k) + x.bandwidth(), x2: x(nx.k), y1: ly, y2: ly, 'stroke-dasharray': '2 2' }, svg); l.style.stroke = 'var(--cds-chart-reference)'; }
+        });
+      } } }
+    // ----- 2. brecha -----
+    { const box = $('an-br');
+      if (!B) { fail(box, dash.data('an_brecha').status); $('an-br-lg').replaceChildren(); $('an-bs').replaceChildren(); }
+      else {
+        const val = (c) => { const r = B.get(a + '|' + t + '|Todos|' + c); return r ? r.sin : null; };
+        const q = sextiles(DEPS.map(val), ['#fde8d7', '#f9c39e', '#f29a64', '#e0703a', '#bf4b1d', '#8a2f0c']);
+        drawMap(box, { aria: 'Empresas sin financiamiento', sel: p.ad, val, color: q, lab: (v) => f0(v / 1000) + ' mil', pick: pickA,
+          tip: (c) => { const r = B.get(a + '|' + t + '|Todos|' + c); return r ? [NOM[c] + ' · ' + a, { k: 'Sin financiamiento', v: f0(r.sin) }, { k: '% del total de empresas', v: pct(r.pct_sin) }] : [NOM[c]]; } });
+        qLegend($('an-br-lg'), q, (v) => f0(v / 1000) + ' mil');
+        const rows = SECS.map((s) => { const r = B.get(a + '|' + t + '|' + s + '|00'); return r ? { k: s, v: r.sin, r } : null; }).filter(Boolean).sort((u, v) => v.v - u.v);
+        hbars($('an-bs'), rows, { aria: 'Empresas sin financiamiento por sector', color: '#e0703a', fmt: (v) => f0(v / 1000) + ' mil', tip: (r) => [r.k + ' · Perú ' + a, { k: 'Sin financiamiento', v: f0(r.r.sin) }, { k: '% del sector', v: pct(r.r.pct_sin) }] });
+        $('an-br-t').textContent = '2. Brecha: empresas sin financiamiento · ' + ttxtA(t) + ', ' + a;
+      } }
+    // ----- 4. factoring / crédito -----
+    { $('an-fx-t').textContent = '4. Factoring respecto del crédito · ' + a;
+      if (!X) { fail($('an-fx'), dash.data('an_fxc').status); $('an-fs').replaceChildren(); }
+      else {
+        const nat = X.get(a + '|' + t + '|00');
+        const sz = TAMS.map((z, i) => { const r = X.get(a + '|' + z + '|' + d); return r && r.ratio != null ? { k: z === 'Gran empresa' ? 'Grande' : z, v: r.ratio, c: dash.colors[i], r } : null; }).filter(Boolean);
+        hbars($('an-fs'), sz, { aria: 'Factoring respecto del crédito por tamaño', fmt: (v) => f1(v) + '%', lw: 70, rh: 20, tip: (r) => [r.k + ' · ' + lugar, { k: 'Factoring 12 meses', v: 'S/ ' + f0(r.r.fac_mm) + ' mill.' }, { k: 'Saldo de crédito', v: 'S/ ' + f0(r.r.saldo_mm) + ' mill.' }, { k: 'Factoring / crédito', v: pct(r.r.ratio) }] });
+        const rows = DEPS.map((c) => { const r = X.get(a + '|' + t + '|' + c); return r && r.ratio != null ? { k: NOM[c], id: c, v: r.ratio, sel: p.ad === c, r } : null; }).filter(Boolean).sort((u, v) => v.v - u.v);
+        hbars($('an-fx'), rows, { aria: 'Factoring respecto del crédito por departamento', color: RG[4], sel: p.ad, pick: pickA, fmt: (v) => f1(v) + '%', ref: nat ? nat.ratio : null, refLab: nat ? 'Perú ' + f1(nat.ratio) + '%' : '', tip: (r) => [r.k + ' · ' + ttxtA(t), { k: 'Factoring 12 meses', v: 'S/ ' + f1(r.r.fac_mm) + ' mill.' }, { k: 'Saldo de crédito', v: 'S/ ' + f0(r.r.saldo_mm) + ' mill.' }, { k: 'Factoring / crédito', v: pct(r.r.ratio) }] });
+      } }
+    // ----- 5. LISA -----
+    { const box = $('an-ls');
+      if (!L) { fail(box, dash.data('an_lisa').status); $('an-ls-lg').replaceChildren(); }
+      else {
+        const g0 = L.get(a + '|' + t + '|00');
+        $('an-ls-n').textContent = 'I de Moran local (LISA) de la inclusión financiera, ' + ttxtA(t) + ' ' + a + '. I global = ' + (g0 ? f3(g0.Ii) + ' (p = ' + f3(g0.p) + ')' : '—') + '. Contigüidad tipo reina y 999 permutaciones; se colorean los departamentos con p < 0.05.';
+        const val = (c) => { const r = L.get(a + '|' + t + '|' + c); return r ? r.valor : null; };
+        drawMap(box, { aria: 'Clústeres LISA', sel: p.ad, val, color: (v) => '#ccc', fill: (c) => { const r = L.get(a + '|' + t + '|' + c); return r && LC[r.cluster] ? LC[r.cluster] : 'var(--color-bg)'; }, lab: f1, pick: pickA, tip: (c) => { const r = L.get(a + '|' + t + '|' + c); return r ? [NOM[c] + ' · ' + a, { k: 'Inclusión', v: pct(r.valor) }, { k: 'Clúster', v: r.cluster }, { k: 'I local', v: f3(r.Ii) }, { k: 'p-valor', v: r.p == null ? '—' : f3(r.p) }] : [NOM[c]]; } });
+        const cnt = {}; DEPS.forEach((c) => { const r = L.get(a + '|' + t + '|' + c); if (r) cnt[r.cluster] = (cnt[r.cluster] || 0) + 1; });
+        legend($('an-ls-lg'), [['#d7191c', 'Alto-Alto (' + (cnt['Alto-Alto'] || 0) + ')'], ['#2c7bb6', 'Bajo-Bajo (' + (cnt['Bajo-Bajo'] || 0) + ')'], ['#fdae61', 'Alto-Bajo (' + (cnt['Alto-Bajo'] || 0) + ')'], ['#abd9e9', 'Bajo-Alto (' + (cnt['Bajo-Alto'] || 0) + ')'], ['var(--color-bg)', 'No significativo (' + (cnt['No significativo'] || 0) + ')']]);
+      } }
+    // ----- 6. convergencia -----
+    { const box = $('an-cv'); box.replaceChildren(); const F = FI();
+      const bt = C && C.get('beta-' + b + '-' + a + '-' + t), s0 = C && C.get('sigma-' + b + '-' + t), s1 = C && C.get('sigma-' + a + '-' + t);
+      $('an-cv-t').textContent = '6. Convergencia regional de la inclusión · ' + b + '-' + a;
+      $('an-cv-n').textContent = 'Eje horizontal: inclusión en ' + b + '. Eje vertical: cambio hasta ' + a + ' (pp). ' + (bt ? 'β = ' + f3(bt.beta) + ' (R² = ' + f2(bt.r2) + ')' + (bt.beta < 0 ? ': los departamentos rezagados avanzaron más. ' : ': no hay convergencia β. ') : '') + (s0 && s1 ? 'σ pasó de ' + f2(s0.sigma) + ' a ' + f2(s1.sigma) + ' pp' + (s1.sigma < s0.sigma ? ' (convergencia σ).' : ' (sin convergencia σ).') : '');
+      if (!C || !F) fail(box, (C ? dash.data('fin_ind') : dash.data('an_conv')).status); else { const w = box.clientWidth; if (w) {
+        const pts = DEPS.map((c) => { const r0 = F.get(b + '|' + t + '|Todos|' + c), r1 = F.get(a + '|' + t + '|Todos|' + c); return r0 && r1 && r0.tasa != null && r1.tasa != null ? { c, x: r0.tasa, y: Math.round((r1.tasa - r0.tasa) * 10) / 10 } : null; }).filter(Boolean);
+        if (!pts.length) empty(box, 'Sin datos para la selección.'); else {
+          const h = Math.max(300, Math.min(440, w * 0.78)), m = { l: 48, r: 14, t: 14, b: 36 };
+          const x = d3.scaleLinear(d3.extent(pts, (q) => q.x), [m.l, w - m.r]).nice(), y = d3.scaleLinear(d3.extent([...pts.map((q) => q.y), 0]), [h - m.b, m.t]).nice();
+          const svg = svgEl('svg', { width: '100%', viewBox: `0 0 ${w} ${h}`, role: 'img', 'aria-label': 'Convergencia' }, box);
+          x.ticks(6).forEach((v) => { const l = svgEl('line', { x1: x(v), x2: x(v), y1: m.t, y2: h - m.b }, svg); l.style.stroke = 'var(--cds-chart-grid)'; txt(svg, { x: x(v), y: h - m.b + 14, 'text-anchor': 'middle' }, f0(v) + '%'); });
+          y.ticks(6).forEach((v) => { const l = svgEl('line', { x1: m.l, x2: w - m.r, y1: y(v), y2: y(v) }, svg); l.style.stroke = v === 0 ? 'var(--cds-chart-axis)' : 'var(--cds-chart-grid)'; txt(svg, { x: m.l - 6, y: y(v) + 4, 'text-anchor': 'end' }, sg1(v)); });
+          txt(svg, { x: w - m.r, y: h - 4, 'text-anchor': 'end' }, 'Inclusión en ' + b + ' (%)'); txt(svg, { x: m.l, y: m.t - 2 }, 'Cambio ' + b + '-' + a + ' (pp)');
+          if (bt) { const [x0, x1] = x.domain(); const ln = svgEl('line', { x1: x(x0), y1: y(bt.alfa + bt.beta * x0), x2: x(x1), y2: y(bt.alfa + bt.beta * x1), 'stroke-width': 1.8 }, svg); ln.style.stroke = 'var(--color-fg)'; }
+          const tip = tipFor(box), placed = [], gl = svgEl('g', { class: 'fx-labs' }, svg);
+          pts.forEach((q) => { const c = svgEl('circle', { cx: x(q.x), cy: y(q.y), r: p.ad === q.c ? 6 : 4.5, class: 'fx-hit', 'stroke-width': 1.2 }, svg); c.style.fill = q.y >= 0 ? DIV[7] : DIV[1]; c.style.stroke = p.ad === q.c ? 'var(--color-fg)' : 'var(--color-panel)';
+            c.addEventListener('mousemove', (ev) => showTip(box, tip, ev, [NOM[q.c], { k: 'Inclusión ' + b, v: pct(q.x) }, { k: 'Cambio', v: sg1(q.y) + ' pp' }])); c.addEventListener('mouseleave', () => hideTip(tip)); c.addEventListener('click', () => pickA(q.c)); });
+          pts.forEach((q) => { for (const [dx, dy, an] of [[0, -8, 'middle'], [7, 4, 'start'], [-7, 4, 'end'], [0, 15, 'middle']]) { const t2 = txt(gl, { x: x(q.x) + dx, y: y(q.y) + dy, 'text-anchor': an, class: 'fx-lab' }, NOM[q.c]); const bb = t2.getBBox(); if (bb.x < 0 || bb.x + bb.width > w || placed.some((o) => bb.x < o.x + o.width && bb.x + bb.width > o.x && bb.y < o.y + o.height && bb.y + bb.height > o.y)) { t2.remove(); continue; } placed.push(bb); break; } });
+        } } } }
+    // ----- 7. índice -----
+    { const box = $('an-ix'); $('an-ix-t').textContent = '7. Índice de acceso financiero empresarial · ' + ttxtA(t) + ', ' + a;
+      if (!IX) { fail(box, dash.data('an_indice').status); $('an-ix-lg').replaceChildren(); }
+      else { box.replaceChildren(); const w = box.clientWidth; if (w) {
+        const rows = DEPS.map((c) => IX.get(a + '|' + t + '|' + c)).filter(Boolean).sort((u, v) => u.rank - v.rank);
+        const rh = 20, lw = 118, h = rh * rows.length + 24, mr = 40;
+        const x = d3.scaleLinear([0, 1], [lw, w - mr]);
+        const svg = svgEl('svg', { width: '100%', viewBox: `0 0 ${w} ${h}`, role: 'img', 'aria-label': 'Índice compuesto' }, box);
+        [0, 0.25, 0.5, 0.75, 1].forEach((v) => { const l = svgEl('line', { x1: x(v), x2: x(v), y1: 16, y2: h }, svg); l.style.stroke = 'var(--cds-chart-grid)'; txt(svg, { x: x(v), y: 11, 'text-anchor': 'middle' }, f2(v)); });
+        const tip = tipFor(box);
+        rows.forEach((r, i) => { const yy = 18 + rh * i; let acc = 0;
+          const lt = txt(svg, { x: lw - 6, y: yy + rh / 2 + 4, 'text-anchor': 'end', class: 'fx-hit' + (p.ad === r.ccdd ? ' fx-strong' : '') }, r.rank + '. ' + NOM[r.ccdd]); lt.addEventListener('click', () => pickA(r.ccdd));
+          [r.n_incl, r.n_prom, r.n_fac, r.n_fact].forEach((v, j) => { const wv = v / 4; const rc = svgEl('rect', { x: x(acc), y: yy + 2, width: Math.max(0, x(acc + wv) - x(acc)), height: rh - 4, class: 'fx-hit' }, svg); rc.style.fill = DIMC[j]; if (p.ad && p.ad !== r.ccdd) rc.style.opacity = 0.5; acc += wv;
+            rc.addEventListener('mousemove', (ev) => showTip(box, tip, ev, [r.rank + '. ' + NOM[r.ccdd], { k: 'Índice', v: f3(r.indice) }, { k: 'Inclusión (0-1)', v: f2(r.n_incl) }, { k: 'Saldo promedio (0-1)', v: f2(r.n_prom) }, { k: 'Factoring por empresa (0-1)', v: f2(r.n_fac) }, { k: 'Facturas por mil empresas (0-1)', v: f2(r.n_fact) }])); rc.addEventListener('mouseleave', () => hideTip(tip)); rc.addEventListener('click', () => pickA(r.ccdd)); });
+          txt(svg, { x: x(acc) + 4, y: yy + rh / 2 + 4, class: 'fx-strong' }, f2(r.indice)); });
+        legend($('an-ix-lg'), [[DIMC[0], 'Inclusión'], [DIMC[1], 'Saldo promedio'], [DIMC[2], 'Factoring por empresa'], [DIMC[3], 'Facturas por mil empresas']]);
+      } } }
+    // ----- 8. HHI -----
+    { const box = $('an-hh'); box.replaceChildren();
+      if (!H) fail(box, dash.data('an_hhi').status); else { const w = box.clientWidth; if (w) {
+        const SER = ['Crédito por departamento', 'Factoring por departamento', 'Crédito por sector', 'Factoring por sector'], ys = [2021, 2022, 2023, 2024, 2025, 2026];
+        const ser = SER.map((s, i) => ({ s, c: [DIMC[0], RG[4], DIMC[2], '#c2466b'][i], dash: i >= 2, pts: ys.map((y) => { const r = H.get(y + '|' + t + '|' + s); return r ? { y, v: r.hhi } : null; }).filter(Boolean) }));
+        const h = Math.max(260, Math.min(340, w * 0.62)), m = { l: 48, r: 60, t: 12, b: 26 };
+        const x = d3.scaleLinear([2021, 2026], [m.l, w - m.r]), y = d3.scaleLinear([0, 10000], [h - m.b, m.t]);
+        const svg = svgEl('svg', { width: '100%', viewBox: `0 0 ${w} ${h}`, role: 'img', 'aria-label': 'Concentración' }, box);
+        [0, 2500, 5000, 7500, 10000].forEach((v) => { const l = svgEl('line', { x1: m.l, x2: w - m.r, y1: y(v), y2: y(v) }, svg); l.style.stroke = 'var(--cds-chart-grid)'; txt(svg, { x: m.l - 6, y: y(v) + 4, 'text-anchor': 'end' }, f0(v)); });
+        [[2500, 'Alta'], [1500, 'Moderada']].forEach(([v, k]) => { const l = svgEl('line', { x1: m.l, x2: w - m.r, y1: y(v), y2: y(v), 'stroke-dasharray': '4 3' }, svg); l.style.stroke = 'var(--cds-chart-reference)'; txt(svg, { x: w - m.r + 4, y: y(v) + 4 }, k); });
+        ys.forEach((v) => txt(svg, { x: x(v), y: h - 8, 'text-anchor': 'middle', class: v === a ? 'fx-strong' : '' }, String(v)));
+        const tip = tipFor(box);
+        ser.forEach((q) => { if (!q.pts.length) return; const pa = svgEl('path', { d: d3.line().x((z) => x(z.y)).y((z) => y(z.v))(q.pts), fill: 'none', 'stroke-width': 2, 'stroke-dasharray': q.dash ? '5 3' : null }, svg); pa.style.stroke = q.c;
+          q.pts.forEach((z) => { const c = svgEl('circle', { cx: x(z.y), cy: y(z.v), r: z.y === a ? 4.5 : 2.8, class: 'fx-hit' }, svg); c.style.fill = q.c; c.addEventListener('mousemove', (ev) => showTip(box, tip, ev, [q.s + ' · ' + z.y, { k: 'HHI', v: f0(z.v) }])); c.addEventListener('mouseleave', () => hideTip(tip)); }); });
+        legend($('an-hh-lg'), ser.map((q) => [q.c, q.s]));
+      } } }
+    // ----- 9. estacionalidad -----
+    { const box = $('an-es'), bp = $('an-pr'); box.replaceChildren(); bp.replaceChildren();
+      $('an-es-t').textContent = '9. Estacionalidad y proyección del factoring · ' + lugar + ' · ' + ttxtA(t);
+      if (!E) { fail(box, dash.data('an_estac').status); }
+      else { const w = box.clientWidth; if (w) {
+        const rows = MES.map((mn, i) => E.get('indice-' + t + '-' + d + '-' + (i + 1))).filter(Boolean);
+        if (!rows.length) empty(box, 'Sin operaciones para la selección.'); else {
+          const h = Math.max(240, Math.min(300, w * 0.6)), m = { l: 36, r: 8, t: 18, b: 24 };
+          const x = d3.scaleBand(rows.map((r) => r.mes), [m.l, w - m.r]).paddingInner(0.25), y = d3.scaleLinear([0, Math.max(1.6, d3.max(rows, (r) => r.indice) * 1.08)], [h - m.b, m.t]);
+          const svg = svgEl('svg', { width: '100%', viewBox: `0 0 ${w} ${h}`, role: 'img', 'aria-label': 'Índice estacional' }, box);
+          y.ticks(4).forEach((v) => { const l = svgEl('line', { x1: m.l, x2: w - m.r, y1: y(v), y2: y(v) }, svg); l.style.stroke = 'var(--cds-chart-grid)'; txt(svg, { x: m.l - 6, y: y(v) + 4, 'text-anchor': 'end' }, f1(v)); });
+          const one = svgEl('line', { x1: m.l, x2: w - m.r, y1: y(1), y2: y(1), 'stroke-dasharray': '4 3' }, svg); one.style.stroke = 'var(--cds-chart-reference)';
+          txt(svg, { x: m.l, y: 11 }, 'Índice estacional (1.0 = mes promedio)');
+          rows.forEach((r) => { const rc = svgEl('rect', { x: x(r.mes), y: y(Math.max(1, r.indice)), width: x.bandwidth(), height: Math.abs(y(r.indice) - y(1)), rx: 2 }, svg); rc.style.fill = r.indice >= 1 ? DIV[7] : DIV[2];
+            txt(svg, { x: x(r.mes) + x.bandwidth() / 2, y: (r.indice >= 1 ? y(r.indice) - 4 : y(r.indice) + 12), 'text-anchor': 'middle', class: 'fx-strong' }, f2(r.indice));
+            txt(svg, { x: x(r.mes) + x.bandwidth() / 2, y: h - 8, 'text-anchor': 'middle' }, w < 420 ? MES[r.mes - 1][0] : MES[r.mes - 1]); });
+        }
+        const pr = E.get('proy-' + t + '-' + d);
+        const wp = bp.clientWidth;
+        if (pr && wp) {
+          const h = Math.max(240, Math.min(300, wp * 0.6)), m = { l: 60, r: 14, t: 26, b: 28 };
+          const items = [{ k: String(pr.anio - 1), v: pr.prev_mm, c: RG[2] }, { k: 'Ene-' + MES[pr.mes - 1].toLowerCase() + ' ' + pr.anio, v: pr.ytd_mm, c: RG[3] }, { k: 'Proyección ' + pr.anio, v: pr.proy_mm, c: RG[5], lo: pr.lo_mm, hi: pr.hi_mm }];
+          const x = d3.scaleBand(items.map((q) => q.k), [m.l, wp - m.r]).paddingInner(0.35), y = d3.scaleLinear([0, d3.max(items, (q) => q.hi || q.v) * 1.12], [h - m.b, m.t]).nice();
+          const svg = svgEl('svg', { width: '100%', viewBox: `0 0 ${wp} ${h}`, role: 'img', 'aria-label': 'Proyección del año' }, bp);
+          y.ticks(4).forEach((v) => { const l = svgEl('line', { x1: m.l, x2: wp - m.r, y1: y(v), y2: y(v) }, svg); l.style.stroke = 'var(--cds-chart-grid)'; txt(svg, { x: m.l - 6, y: y(v) + 4, 'text-anchor': 'end' }, f0(v)); });
+          txt(svg, { x: m.l, y: 12 }, 'Monto anual (S/ millones)');
+          items.forEach((q) => { const rc = svgEl('rect', { x: x(q.k), y: y(q.v), width: x.bandwidth(), height: y(0) - y(q.v), rx: 3 }, svg); rc.style.fill = q.c;
+            if (q.lo) { const cx = x(q.k) + x.bandwidth() / 2; const l = svgEl('line', { x1: cx, x2: cx, y1: y(q.lo), y2: y(q.hi), 'stroke-width': 2 }, svg); l.style.stroke = 'var(--color-fg)'; [q.lo, q.hi].forEach((v) => { const tl = svgEl('line', { x1: cx - 8, x2: cx + 8, y1: y(v), y2: y(v), 'stroke-width': 2 }, svg); tl.style.stroke = 'var(--color-fg)'; }); }
+            txt(svg, { x: x(q.k) + x.bandwidth() / 2, y: y(q.hi || q.v) - 6, 'text-anchor': 'middle', class: 'fx-strong' }, f0(q.v));
+            txt(svg, { x: x(q.k) + x.bandwidth() / 2, y: h - 8, 'text-anchor': 'middle' }, q.k); });
+          $('an-es-n').textContent = 'Izquierda: índice estacional del monto (1.00 = mes promedio), años completos 2021-2025. Derecha: proyección de ' + pr.anio + ': S/ ' + f0(pr.proy_mm) + ' millones (rango S/ ' + f0(pr.lo_mm) + '-' + f0(pr.hi_mm) + ' millones), ' + (pr.prev_mm ? sg1((pr.proy_mm / pr.prev_mm - 1) * 100) + '% frente a ' + (pr.anio - 1) : '') + '. La proyección divide lo acumulado a ' + MESL[pr.mes - 1] + ' entre la fracción del año que esos meses suelen representar.';
+        } else if (wp) empty(bp, 'Sin proyección para la selección.');
+      } } }
+    // ----- 10. fichas -----
+    drawGrid(p, a, t);
+    drawFicha(p, a, b, t);
+    return { mg, sh: S && S.get(b + '|' + a + '|' + t + '|' + d), b, lugar };
+  };
+
+  const GRID = { '24': [0, 0], '01': [2, 0], '16': [3, 0], '20': [0, 1], '06': [1, 1], '22': [2, 1], '14': [0, 2], '13': [1, 2], '10': [2, 2], '25': [3, 2], '02': [1, 3], '19': [2, 3], '07': [0, 4], '15': [1, 4], '12': [2, 4], '08': [3, 4], '17': [4, 4], '11': [1, 5], '09': [2, 5], '03': [3, 5], '21': [4, 5], '05': [2, 6], '04': [3, 6], '18': [3, 7], '23': [4, 7] };
+  const drawGrid = (p, a, t) => {
+    const box = $('an-gr'); box.replaceChildren(); const F = FI();
+    if (!F) { fail(box, dash.data('fin_ind').status); return; }
+    const w = box.clientWidth; if (!w) return;
+    const cols = 5, rows = 8, gap = 4, cw = (w - gap * (cols - 1)) / cols, ch = Math.min(74, cw * 0.78), h = rows * ch + (rows - 1) * gap;
+    const ys = [2021, 2022, 2023, 2024, 2025, 2026];
+    const vals = DEPS.map((c) => { const r = F.get(a + '|' + t + '|Todos|' + c); return r ? r.tasa : null; });
+    const q = sextiles(vals, RF);
+    const all = []; DEPS.forEach((c) => ys.forEach((y) => { const r = F.get(y + '|' + t + '|Todos|' + c); if (r && r.tasa != null) all.push(r.tasa); }));
+    const ext = d3.extent(all);
+    const svg = svgEl('svg', { width: '100%', viewBox: `0 0 ${w} ${h}`, role: 'img', 'aria-label': 'Mapa de cuadros por departamento' }, box);
+    const tip = tipFor(box);
+    DEPS.forEach((c) => {
+      const [gx, gy] = GRID[c]; const x0 = gx * (cw + gap), y0 = gy * (ch + gap);
+      const r = F.get(a + '|' + t + '|Todos|' + c); const col = r && r.tasa != null ? q(r.tasa) : 'var(--color-bg)';
+      const g = svgEl('g', { class: 'fx-hit', tabindex: 0, role: 'button', 'aria-label': NOM[c] }, svg);
+      const rc = svgEl('rect', { x: x0, y: y0, width: cw, height: ch, rx: 6, 'stroke-width': p.ad === c ? 2.5 : 1 }, g); rc.style.fill = col; rc.style.stroke = p.ad === c ? 'var(--color-fg)' : 'var(--color-panel)';
+      const cls = dark(col) ? 'fx-in' : 'fx-ind';
+      const nm = txt(g, { x: x0 + 6, y: y0 + 14, class: cls }, NOM[c]); nm.style.fontSize = '11px'; while (nm.getComputedTextLength() > cw - 10 && nm.textContent.length > 4) nm.textContent = nm.textContent.slice(0, -2) + '…';
+      if (r) { const vt = txt(g, { x: x0 + 6, y: y0 + 30, class: cls }, pct(r.tasa)); vt.style.fontSize = '13px'; vt.style.fontWeight = 700; }
+      const sp = ys.map((y) => { const rr = F.get(y + '|' + t + '|Todos|' + c); return rr && rr.tasa != null ? [y, rr.tasa] : null; }).filter(Boolean);
+      if (sp.length > 1 && ch > 50) { const sx = d3.scaleLinear([2021, 2026], [x0 + 6, x0 + cw - 6]), sy = d3.scaleLinear(ext, [y0 + ch - 6, y0 + 36]);
+        const pa = svgEl('path', { d: d3.line().x((z) => sx(z[0])).y((z) => sy(z[1]))(sp), fill: 'none', 'stroke-width': 1.6 }, g); pa.style.stroke = dark(col) ? '#ffffff' : '#1b1b1b'; pa.style.opacity = 0.85;
+        const lz = sp[sp.length - 1]; const dt = svgEl('circle', { cx: sx(lz[0]), cy: sy(lz[1]), r: 2.4 }, g); dt.style.fill = dark(col) ? '#ffffff' : '#1b1b1b'; }
+      g.addEventListener('mousemove', (ev) => showTip(box, tip, ev, [NOM[c], ...sp.map(([y, v]) => ({ k: String(y), v: pct(v) }))]));
+      g.addEventListener('mouseleave', () => hideTip(tip));
+      g.addEventListener('click', () => pickA(c));
+      g.addEventListener('keydown', (ev) => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); pickA(c); } });
+    });
+  };
+  const drawFicha = (p, a, b, t) => {
+    const box = $('an-ficha'); box.replaceChildren();
+    const d = p.ad || '00', F = FI(), X = AFX(), IX = AIX(), L = ALS(), B = ABR();
+    const h3 = document.createElement('h3'); h3.className = 'fx-fh'; h3.textContent = (d === '00' ? 'Perú' : NOM[d]) + ' · ' + ttxtA(t) + ', ' + a; box.appendChild(h3);
+    if (d === '00') { const pn = document.createElement('p'); pn.className = 'fx-note'; pn.textContent = 'Seleccione un departamento en el mapa de cuadros, en los mapas o en las barras para ver su ficha. Se muestran los valores nacionales.'; box.appendChild(pn); }
+    if (!F) return;
+    const r = F.get(a + '|' + t + '|Todos|' + d), r0 = F.get(b + '|' + t + '|Todos|' + d);
+    const rk = d !== '00' ? DEPS.map((c) => F.get(a + '|' + t + '|Todos|' + c)).filter((q) => q && q.tasa != null).sort((u, v) => v.tasa - u.tasa).findIndex((q) => q.ccdd === d) + 1 : 0;
+    const fx = X && X.get(a + '|' + t + '|' + d), ix = IX && IX.get(a + '|' + t + '|' + d), ls = L && L.get(a + '|' + t + '|' + d), br = B && B.get(a + '|' + t + '|Todos|' + d);
+    const rows = [
+      ['Porcentaje de empresas con acceso', r ? pct(r.tasa) : '—', 'fin_ind', 'tasa', W({ anio: a, tam: t, sec: 'Todos', ccdd: d }), rk ? '(puesto ' + rk + ' de 25)' : ''],
+      ['Cambio desde ' + b, r && r0 && r.tasa != null && r0.tasa != null ? sg1(Math.round((r.tasa - r0.tasa) * 10) / 10) + ' pp' : '—', null],
+      ['Empresas con financiamiento', r ? f0(r.emp) : '—', 'fin_ind', 'emp', W({ anio: a, tam: t, sec: 'Todos', ccdd: d })],
+      ['Empresas sin financiamiento', br ? f0(br.sin) : '—', 'an_brecha', 'sin', W({ anio: a, tam: t, sec: 'Todos', ccdd: d })],
+      ['Saldo de financiamiento', r ? 'S/ ' + f0(r.saldo_mm) + ' millones' : '—', 'fin_ind', 'saldo_mm', W({ anio: a, tam: t, sec: 'Todos', ccdd: d })],
+      ['Saldo promedio por empresa', r && r.prom != null ? 'S/ ' + f0(r.prom) : '—', 'fin_ind', 'prom', W({ anio: a, tam: t, sec: 'Todos', ccdd: d })],
+      ['Factoring de 12 meses', fx ? 'S/ ' + f1(fx.fac_mm) + ' millones' : '—', 'an_fxc', 'fac_mm', W({ anio: a, tam: t, ccdd: d })],
+      ['Factoring respecto del crédito', fx && fx.ratio != null ? pct(fx.ratio) : '—', 'an_fxc', 'ratio', W({ anio: a, tam: t, ccdd: d })],
+      ['Índice de acceso financiero', ix ? f3(ix.indice) : d === '00' ? 'Solo departamentos' : '—', ix ? 'an_indice' : null, 'indice', W({ anio: a, tam: t, ccdd: d }), ix ? '(puesto ' + ix.rank + ' de 25)' : ''],
+      ['Clúster espacial (LISA)', ls && ls.cluster ? ls.cluster : d === '00' ? 'Solo departamentos' : '—', ls && ls.cluster ? 'an_lisa' : null, 'cluster', W({ anio: a, tam: t, ccdd: d })]
+    ];
+    const dl = document.createElement('dl'); dl.className = 'fx-dl';
+    rows.forEach(([k, v, src, fld, wh, extra]) => { const dt = document.createElement('dt'); dt.textContent = k; const dd = document.createElement('dd'); const sp = document.createElement('span'); sp.textContent = v; if (src) setMark(sp, src, fld, wh); dd.appendChild(sp); if (extra) { const e = document.createElement('small'); e.textContent = ' ' + extra; dd.appendChild(e); } dl.append(dt, dd); });
+    box.appendChild(dl);
+  };
+
   // ---------- redibujo ----------
   let linked = false;
   dash.onData(() => {
     const p = st();
     root.querySelectorAll('.fx-tab').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.tab === p.tab)));
-    $('financiamiento').hidden = p.tab !== 'fin'; $('factoring').hidden = p.tab !== 'fac';
+    $('financiamiento').hidden = p.tab !== 'fin'; $('factoring').hidden = p.tab !== 'fac'; $('analisis').hidden = p.tab !== 'an';
     const take = $('fx-take');
     if (p.tab === 'fin') {
       const r = drawFin(p);
@@ -1063,6 +1663,15 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
         const where = (p.fd ? ' de ' + NOM[p.fd] : '') + (p.fs !== 'Todos' ? ' del sector ' + p.fs.toLowerCase() : '');
         const g = F.get(p.fa + '|Gran empresa|' + p.fs + '|' + (p.fd || '00')), mi = F.get(p.fa + '|Micro|' + p.fs + '|' + (p.fd || '00'));
         take.textContent = 'En ' + p.fa + (p.fa === 2026 ? ' (a julio)' : '') + ', ' + f1(r.tasa) + '% de ' + who + where + ' tenía financiamiento' + (r.var_pp == null ? '' : ' (' + sg1(r.var_pp) + ' pp frente a ' + (p.fa - 1) + ')') + ', con un saldo de S/ ' + f0(r.saldo_mm) + ' millones.' + (g && mi && g.tasa != null && mi.tasa != null ? ' La brecha por tamaño es amplia: la inclusión financiera es ' + f1(g.tasa) + '% en la gran empresa y ' + f1(mi.tasa) + '% en la microempresa.' : '');
+      }
+    } else if (p.tab === 'an') {
+      const o = drawAn(p);
+      if (!o.mg) { take.textContent = dash.data('an_margen').status === 'ok' ? 'Sin datos para la selección.' : '—'; setMark(take, 'an_margen'); }
+      else {
+        setMark(take, 'an_margen', 'ds', W({ y0: o.b, y1: p.aa, tam: p.at, ccdd: p.ad || '00' }));
+        const who = { Todas: 'las empresas', MIPYME: 'las MIPYME', MYPE: 'las MYPE', PYME: 'las PYME', Micro: 'las microempresas', 'Pequeña': 'las pequeñas empresas', Mediana: 'las medianas empresas', 'Gran empresa': 'las grandes empresas' }[p.at];
+        const m = o.mg, sh = o.sh;
+        take.textContent = 'Entre ' + o.b + ' y ' + p.aa + ', el saldo de ' + who + (p.ad ? ' de ' + NOM[p.ad] : '') + ' ' + (m.ds >= 0 ? 'aumentó' : 'disminuyó') + ' S/ ' + f0(Math.abs(m.ds)) + ' millones: ' + (m.ext >= 0 ? '+' : '−') + f0(Math.abs(m.ext)) + ' por el número de empresas con financiamiento y ' + (m.int >= 0 ? '+' : '−') + f0(Math.abs(m.int)) + ' por el saldo por empresa.' + (sh ? ' La inclusión pasó de ' + f1(sh.incl0) + '% a ' + f1(sh.incl1) + '%; el cambio dentro de los grupos aportó ' + sg1(sh.dentro) + ' pp y la composición, ' + sg1(sh.comp) + ' pp.' : '');
       }
     } else {
       const o = drawFac(p);
@@ -1076,7 +1685,7 @@ html,body{margin:0;background:var(--color-bg);color:var(--color-fg);font-family:
         take.textContent = 'En ' + perTxt(p.ga, o.mm) + ' se negociaron ' + f0(r.fact) + ' facturas' + who + where + ' por S/ ' + f1(r.monto_mm) + ' millones' + (r.var == null ? '.' : ', ' + (r.var >= 0 ? f1(r.var) + '% más' : f1(-r.var) + '% menos') + ' que en ' + perTxt(p.ga - 1, o.mm < 12 ? o.mm : 12) + '.') + (o.rAll && o.rAll.part_mipyme != null && p.gt === 'Todas' ? ' La MIPYME explica ' + f1(o.rAll.part_mipyme) + '% del monto; el monto promedio por factura es S/ ' + f0(r.ticket) + '.' : '');
       }
     }
-    if (!linked) { linked = true; const h = location.hash.slice(1); if (h === 'factoring' && p.tab !== 'fac') dash.setParams({ tab: 'fac' }); else if (h === 'financiamiento' && p.tab !== 'fin') dash.setParams({ tab: 'fin' }); }
+    if (!linked) { linked = true; const h = location.hash.slice(1); if (h === 'factoring' && p.tab !== 'fac') dash.setParams({ tab: 'fac' }); else if (h === 'analisis' && p.tab !== 'an') dash.setParams({ tab: 'an' }); else if (h === 'financiamiento' && p.tab !== 'fin') dash.setParams({ tab: 'fin' }); }
   });
 })();
 </script>

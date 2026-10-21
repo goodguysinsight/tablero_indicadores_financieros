@@ -1,6 +1,6 @@
 # Financiamiento y factoring empresarial
 
-Tablero interactivo con dos pestañas: indicadores de inclusión financiera empresarial (2021-2026) y operaciones de factoring (enero 2019-agosto 2026), por tamaño empresarial, sector y departamento.
+Tablero interactivo con tres pestañas: indicadores de inclusión financiera empresarial (2021-2026), operaciones de factoring (enero 2019-agosto 2026) y un análisis con diez indicadores complementarios, por tamaño empresarial, sector y departamento.
 
 ## Pestaña 1: Indicadores financieros
 
@@ -27,6 +27,23 @@ Tablero interactivo con dos pestañas: indicadores de inclusión financiera empr
 | Mapa de árbol | Monto por subsector; un color por sector y tonos por subsector; entre paréntesis, participación en el monto |
 | Tabla | Detalle por departamento, ordenable y con búsqueda |
 
+## Pestaña 3: Análisis
+
+Filtros: año de análisis, año base, tamaño y departamento (clic en mapas, barras o cuadros).
+
+| # | Elemento | Indicador |
+|---|---|---|
+| 1 | Margen extensivo e intensivo | ΔSaldo = (E₁ − E₀) × P₀ + E₁ × (P₁ − P₀): efecto del número de empresas y del saldo por empresa |
+| 2 | Brecha | Empresas sin financiamiento = total de empresas − empresas con financiamiento (mapa y sectores) |
+| 3 | Descomposición de la inclusión | ΔI = dentro de sector × tamaño + composición + interacción |
+| 4 | Factoring respecto del crédito | Factoring de 12 meses / saldo de crédito × 100, por tamaño y departamento |
+| 5 | Clústeres espaciales | I de Moran global y LISA de la inclusión (contigüidad reina, 999 permutaciones) |
+| 6 | Convergencia | β (pendiente del cambio sobre el nivel inicial) y σ (dispersión entre departamentos) |
+| 7 | Índice de acceso financiero | Promedio de cuatro dimensiones normalizadas 0-1 (método Sarma / IDH) |
+| 8 | Concentración | HHI del crédito y del factoring, por departamento y por sector |
+| 9 | Estacionalidad y proyección | Índice estacional mensual y proyección del año en curso con rango |
+| 10 | Fichas | Mapa de cuadros con la evolución de la inclusión y ficha por departamento |
+
 ## Definiciones
 
 - **Inclusión financiera** = empresas con financiamiento / total de empresas × 100 (el total suma el padrón SUNAT y las empresas con financiamiento no registradas en SUNAT), para el mismo año, tamaño, sector y departamento. Es la definición del tablero de PRODUCE.
@@ -48,6 +65,7 @@ Las cifras coinciden con el [tablero de PRODUCEmpresarial](https://www.producemp
 | `index.html` | Tablero (carga d3 desde CDN y los datos desde `data/datos.js`). |
 | `data/datos.js` | Datos agregados (financiamiento, factoring y límites departamentales). |
 | `data/limites.json` | Contornos simplificados de los 25 departamentos (INEI). |
+| `data/vecinos.csv` | Pares de departamentos contiguos (contigüidad tipo reina) para el análisis espacial. |
 | `scripts/agregar_datos.py` | Agrega los Excel fuente y regenera `data/datos.js`. |
 
 ## Actualizar los datos
